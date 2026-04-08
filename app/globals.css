@@ -11,84 +11,153 @@
 }
 
 @layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-  }
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    /* ─── Core Backgrounds ─────────────────────────────── */
+    --color-void:           #0A0A0F;
+    --color-terminal:       #111118;
+    --color-grid:           #16213E;
+    --color-surface:        #1C1C2E;
+    --color-surface-high:   #252538;
+
+    /* ─── Neon Accents ─────────────────────────────────── */
+    --color-plasma:         #00FFD1;
+    --color-plasma-dim:     #00FFD140; /* 25% opacity */
+    --color-plasma-glow:    #00FFD120; /* 12% opacity */
+    --color-neon-violet:    #B026FF;
+    --color-neon-violet-dim:#B026FF40;
+    --color-ember:          #FF6B35;
+    --color-solar:          #FFD700;
+    --color-bio:            #39FF14;
+
+    /* ─── Text ─────────────────────────────────────────── */
+    --color-text-primary:   #E8E8F0;
+    --color-text-secondary: #9090A8;
+    --color-text-tertiary:  #505068;
+    --color-text-accent:    #00FFD1;
+
+    /* ─── Borders ───────────────────────────────────────── */
+    --color-border:         #252538;
+    --color-border-bright:  #00FFD130;
+    --color-border-dim:     #1E1E30;
+
+    /* ─── Status Colors ─────────────────────────────────── */
+    --color-success:        #00FF88;
+    --color-warning:        #FFB800;
+    --color-error:          #FF4560;
+    --color-info:           #00B4FF;
+
+    /* Base shadcn aliases mapped to our theme */
+    --background: var(--color-void);
+    --foreground: var(--color-text-primary);
+    --card: var(--color-terminal);
+    --card-foreground: var(--color-text-primary);
+    --popover: var(--color-surface);
+    --popover-foreground: var(--color-text-primary);
+    --primary: var(--color-plasma);
+    --primary-foreground: var(--color-void);
+    --secondary: var(--color-surface-high);
+    --secondary-foreground: var(--color-text-primary);
+    --muted: var(--color-surface);
+    --muted-foreground: var(--color-text-secondary);
+    --accent: var(--color-neon-violet);
+    --accent-foreground: var(--color-text-primary);
+    --destructive: var(--color-ember);
+    --destructive-foreground: var(--color-void);
+    --border: var(--color-border);
+    --input: var(--color-surface);
+    --ring: var(--color-plasma);
+    --radius: 0rem;
+    
+    /* Typography type scale variables */
+    --text-display-2xl: clamp(2.5rem, 6vw, 4.5rem);
+    --text-display-xl:  clamp(2rem, 4vw, 3rem);
+    --text-display-lg:  clamp(1.5rem, 3vw, 2.25rem);
+    --text-display-md:  clamp(1.25rem, 2vw, 1.75rem);
+    
+    --text-body-lg: 1.125rem;
+    --text-body-md: 1rem;
+    --text-body-sm: 0.875rem;
+    --text-body-xs: 0.75rem;
+    
+    --text-ui-lg: 1rem;
+    --text-ui-md: 0.875rem;
+    --text-ui-sm: 0.75rem;
+    --text-ui-xs: 0.625rem;
   }
-  .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-  * {
-    @apply border-border outline-ring/50;
-  }
+  
+/* * {
+  @apply border-border ring-plasma/50;
+} */
+  
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+}
+
+/* Texture classes */
+.grid-texture {
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-color: var(--color-void);
+}
+
+/* Animations */
+@keyframes plasma-pulse {
+  0%, 100% { box-shadow: 0 0 8px var(--color-plasma-dim); }
+  50% { box-shadow: 0 0 20px var(--color-plasma), 0 0 40px var(--color-plasma-glow); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  96% { opacity: 1; }
+  97% { opacity: 0.4; }
+  98% { opacity: 1; }
+  99% { opacity: 0.6; }
+}
+
+@keyframes materialize {
+  from {
+    opacity: 0;
+    filter: blur(20px) brightness(3);
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-plasma-glow) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
