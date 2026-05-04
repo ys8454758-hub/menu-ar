@@ -1,15 +1,11 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "buildCommand": "prisma generate && npm run build",
   "installCommand": "npm install",
   "outputDirectory": ".next",
-  "functions": {
-    "app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
+  "crons": {
+    "/api/cron/monthly": {
+      "schedule": "0 0 1 * *"
     }
-  },
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "regions": ["sin1"]
+  }
 }

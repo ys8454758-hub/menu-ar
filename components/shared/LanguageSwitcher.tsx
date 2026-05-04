@@ -1,10 +1,12 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { GlobeIcon } from "lucide-react";
 
 export default function LanguageSwitcher() {
   const [locale, setLocale] = useState(() => {
     // Get locale from localStorage or navigator
-    const savedLocale = localStorage.getItem("menuAR-locale");
+    const savedLocale = localStorage.getItem("livin3d-locale");
     if (savedLocale) return savedLocale;
     
     const browserLocale = navigator.language.split("-")[0];
@@ -21,7 +23,7 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     // Save to localStorage when locale changes
-    localStorage.setItem("menuAR-locale", locale);
+    localStorage.setItem("livin3d-locale", locale);
     // In a real app with next-intl, we'd use their routing
     // For now, we'll rely on browser language detection
   }, [locale]);

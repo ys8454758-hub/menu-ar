@@ -1,33 +1,52 @@
-import prisma from "./prisma";
-
-export async function generateUniqueSlug(name: string): Promise<string> {
-  // Convert to lowercase, replace non-alphanumeric with hyphens
-  const baseSlug = name
+/**
+ * Generates a URL-friendly slug from a string
+ * - Converts to lowercase
+ * - Replaces non-alphanumeric characters with hyphens
+ * - Removes leading/trailing hyphens
+ * - Ensures uniqueness if needed
+ */
+export function generateSlug(name: string, existingSlugs: string[] = []): string {
+  let slug = name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/[\s_-]+/g, '-') // Replace spaces, underscores with hyphens
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
 
-  // Check if slug exists and add number if needed
-  let slug = baseSlug;
-  let counter = 0;
-  
-  while (true) {
-    const existing = await prisma.restaurant.findUnique({
-      where: { slug },
-    });
-    
-    if (!existing) {
-      return slug;
+  // Ensure uniqueness
+  if (existingSlugs.includes(slug)) {
+    let counter = 1;
+    while (existingSlugs.includes(`${slug}-${counter}`)) {
+      counter++;
     }
-    
-    counter++;
-    slug = `${baseSlug}-${counter}`;
+    slug = `${slug}-${counter}`;
   }
+
+  return slug;
 }
 
-export function slugify(text: string): string {
-  return text
+/**
+ * Generates a unique QR code identifier
+ */
+export function generateQRCode(): string {
+  return crypto.randomUUID();
+}
+
+/**
+ * Validates if a slug is valid
+ */
+export function isValidSlug(slug: string): boolean {
+  const slugRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+  return slugRegex.test(slug);
+}
+
+/**
+ * Sanitizes a slug to ensure it's valid
+ */
+export function sanitizeSlug(slug: string): string {
+  return slug
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replace(/[^\w-]/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }

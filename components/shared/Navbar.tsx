@@ -7,8 +7,8 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex-shrink-0">
-              <span className="block text-xl font-display text-plasma tracking-widest">
-                MenuAR
+              <span className="block text-xl font-display text-plasma tracking-widest mt-[20px]">
+                Livin3D
               </span>
             </Link>
           </div>

@@ -1,0 +1,118 @@
+
+> menu-ar@0.1.0 build
+> prisma generate && next build
+
+◇ injected env (17) from .env.local // tip: ⌁ auth for agents [www.vestauth.com]
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma/schema.prisma.
+┌─────────────────────────────────────────────────────────┐
+│  Update available 7.6.0 -> 7.7.0                        │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+
+✔ Generated Prisma Client (v7.6.0) to ./node_modules/@prisma/client in 106ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (215kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/26) ...
+QR download error: B [Error]: Dynamic server usage: Route /api/qr/download couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21778)
+    at Object.get (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:29465)
+    at p (/Users/yash/Documents/MenuAR/menuAR/.next/server/app/api/qr/download/route.js:1:781)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38417
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/qr/download couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+QR generation error: B [Error]: Dynamic server usage: Route /api/qr/generate couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21778)
+    at Object.get (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:29465)
+    at p (/Users/yash/Documents/MenuAR/menuAR/.next/server/app/api/qr/generate/route.js:1:781)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38417
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/qr/generate couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (6/26) 
+   Generating static pages (12/26) 
+Cron error: B [Error]: Dynamic server usage: Route /api/cron couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at V (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:21778)
+    at Object.get (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:29465)
+    at u (/Users/yash/Documents/MenuAR/menuAR/.next/server/app/api/cron/route.js:1:612)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38417
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/yash/Documents/MenuAR/menuAR/node_modules/next/dist/server/lib/trace/tracer.js:122:103 {
+  description: "Route /api/cron couldn't be rendered statically because it used `request.headers`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+   Generating static pages (19/26) 
+ ✓ Generating static pages (26/26)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    52.6 kB         149 kB
+├ ○ /_not-found                          137 B          87.5 kB
+├ ○ /admin                               3.04 kB          99 kB
+├ ƒ /api/analytics/report                0 B                0 B
+├ ƒ /api/analytics/scan                  0 B                0 B
+├ ƒ /api/auth/logout                     0 B                0 B
+├ ƒ /api/billing                         0 B                0 B
+├ ƒ /api/cron                            0 B                0 B
+├ ƒ /api/dishes                          0 B                0 B
+├ ƒ /api/dishes/[id]                     0 B                0 B
+├ ƒ /api/email                           0 B                0 B
+├ ƒ /api/models/upload                   0 B                0 B
+├ ƒ /api/qr/download                     0 B                0 B
+├ ƒ /api/qr/generate                     0 B                0 B
+├ ƒ /api/restaurants                     0 B                0 B
+├ ƒ /ar/[restaurantSlug]/[dishSlug]      1.45 kB        88.8 kB
+├ ƒ /auth/callback                       0 B                0 B
+├ ○ /dashboard                           1.94 kB        97.9 kB
+├ ○ /dashboard/analytics                 1.92 kB        97.9 kB
+├ ○ /dashboard/badges                    1.57 kB        97.6 kB
+├ ○ /dashboard/dishes                    3.24 kB        99.2 kB
+├ ƒ /dashboard/dishes/[id]/edit          2.62 kB        98.6 kB
+├ ○ /dashboard/dishes/new                1.14 kB        97.1 kB
+├ ○ /dashboard/qr-studio                 2.48 kB        98.5 kB
+├ ○ /dashboard/settings                  178 B          96.2 kB
+├ ○ /login                               2.56 kB         161 kB
+└ ○ /register                            2.57 kB         161 kB
++ First Load JS shared by all            87.3 kB
+  ├ chunks/117-9ff39f6f4b5ead36.js       31.7 kB
+  ├ chunks/fd9d1056-b4129a380d1be68f.js  53.7 kB
+  └ other shared chunks (total)          1.94 kB
+
+
+ƒ Middleware                             80 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

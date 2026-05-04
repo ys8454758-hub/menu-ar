@@ -12,14 +12,14 @@ export default async function NewDishPage() {
     });
 
     restaurant = restaurants.length > 0 ? restaurants[0] : null;
-  } catch (error) {
+  } catch {
     // Database not available during build - this is expected
     console.log("Database not available during build, skipping restaurant fetch");
   }
 
   if (!restaurant) {
     return (
-      <div className="min-h-screen bg-void p-6 flex flex-col items-center justify-center">
+      <div className="min-h-screen   p-6 flex flex-col items-center justify-center">
         <p className="text-body-md font-body text-text-tertiary">
           Restaurant not found. Please complete setup.
         </p>
@@ -34,7 +34,7 @@ export default async function NewDishPage() {
   }
 
   return (
-    <div className="min-h-screen bg-void p-6">
+    <div className="min-h-screen   p-6">
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-display-lg font-display text-text-accent tracking-widest">

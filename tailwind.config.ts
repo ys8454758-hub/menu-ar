@@ -68,11 +68,14 @@ const config: Config = {
         warning: "var(--color-warning)",
         error: "var(--color-error)",
         info: "var(--color-info)",
+        ivory: "var(--color-ivory)",
+        "ivory-light": "var(--color-ivory-light)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "monospace"],
         ui: ["var(--font-ui)", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       animation: {
         "plasma-pulse": "plasma-pulse 2s ease-in-out infinite",
@@ -123,6 +126,23 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontSize: {
+        "display-2xl": "var(--text-display-2xl)",
+        "display-xl": "var(--text-display-xl)",
+        "display-lg": "var(--text-display-lg)",
+        "display-md": "var(--text-display-md)",
+        "body-lg": "var(--text-body-lg)",
+        "body-md": "var(--text-body-md)",
+        "body-sm": "var(--text-body-sm)",
+        "body-xs": "var(--text-body-xs)",
+        "ui-lg": "var(--text-ui-lg)",
+        "ui-md": "var(--text-ui-md)",
+        "ui-sm": "var(--text-ui-sm)",
+        "ui-xs": "var(--text-ui-xs)",
+      },
+      transitionDelay: {
+        1000: "1000ms",
       },
       screens: {
         xs: "375px",

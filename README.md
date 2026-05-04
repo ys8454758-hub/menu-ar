@@ -1,4 +1,4 @@
-# MenuAR - Restaurant AR Menu Management
+# Livin3D - Restaurant AR Menu Management
 
 A modern, cyberpunk-themed restaurant menu management system with AR capabilities built with Next.js 14.
 
