@@ -87,3 +87,5 @@ export function LoadingGrid({ count = 4 }: { count?: number }) {
 export function Skeleton({ className, width = "w-full", height = "h-4" }: { className?: string; width?: string; height?: string }) {
   return <div className={`bg-surface/50 rounded-none animate-pulse ${width} ${height} ${className || ""}`}></div>;
 }
+
+export default LoadingScreen;

@@ -6,10 +6,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Menu, X } from "lucide-react";
 
-import Hero from "@/components/marketing/Hero";
-import HowItWorks from "@/components/marketing/HowItWorks";
-import Features from "@/components/marketing/Features";
-import Pricing from "@/components/marketing/Pricing";
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("@/components/marketing/Hero"), { ssr: false });
+const HowItWorks = dynamic(() => import("@/components/marketing/HowItWorks"), { ssr: false });
+const Features = dynamic(() => import("@/components/marketing/Features"), { ssr: false });
+const DemoVideos = dynamic(() => import("@/components/marketing/DemoVideos"), { ssr: false });
 
 /* ─── Animated Counter ─── */
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -140,10 +142,10 @@ function CTA() {
                 transition={{ duration: 0.8 }}
             >
                 <h2 className="text-display-lg font-display text-text-accent tracking-widest uppercase mb-6">Ready to Transform Your Menu?</h2>
-                <p className="text-body-lg font-body text-text-secondary mb-10">Join 150+ Bengaluru restaurants already using Livin3D</p>
+                <p className="text-body-lg font-body text-text-secondary mb-10">Join 150+ restaurant industry leaders already using Livin3D</p>
                 <div className="flex flex-wrap justify-center gap-6">
                     <Link href="/register" className="px-10 py-4 bg-plasma text-void font-ui text-sm tracking-widest uppercase hover:shadow-plasma-glow transition-all duration-300">
-                        Start Free Trial
+                        Request for Demo
                     </Link>
                     <a
                         href="https://wa.me/919876543210"
@@ -188,7 +190,7 @@ function Navbar() {
         <>
             <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? "bg-void/95 backdrop-blur-xl border-b border-border shadow-lg shadow-black/20" : "bg-transparent"}`}>
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <Link href="/" className="text-display-sm font-display text-plasma tracking-widest">
+                    <Link href="/" className="text-display-md font-bold text-plasma tracking-widest">
                         LIVIN<span className="text-text-accent">3D</span>
                     </Link>
 
@@ -204,7 +206,7 @@ function Navbar() {
                     <div className="flex items-center gap-4">
                         <Link href="/login" className="hidden md:block text-body-sm font-ui text-text-tertiary hover:text-plasma transition-colors tracking-wider uppercase">Login</Link>
                         <Link href="/register" className="px-5 py-2 bg-plasma text-void font-ui text-sm tracking-widest uppercase hover:shadow-plasma-glow transition-all duration-300">
-                            Get Started
+                            Request for Demo
                         </Link>
                         {/* Hamburger */}
                         <button
@@ -244,7 +246,7 @@ function Navbar() {
                     </Link>
                     <Link href="/register" onClick={() => setMobileOpen(false)}
                         className="py-3 px-4 text-center bg-plasma text-void font-ui text-sm tracking-widest uppercase hover:shadow-plasma-glow transition-all">
-                        Get Started
+                        Request for Demo
                     </Link>
                 </div>
             </motion.div>
@@ -266,10 +268,10 @@ function Footer() {
         <footer className="border-t border-border py-16 px-6">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
                 <div>
-                    <span className="text-display-sm font-display text-plasma tracking-widest">
+                    <span className="text-display-md font-bold text-plasma tracking-widest">
                         LIVIN<span className="text-text-accent">3D</span>
                     </span>
-                    <p className="text-body-sm font-body text-text-tertiary mt-2">Augmented Reality menus for Bengaluru restaurants</p>
+                    <p className="text-body-sm font-body text-text-tertiary mt-2">Augmented Reality menus for the restaurant industry</p>
                 </div>
                 <div className="flex items-center gap-8">
                     {NAV_LINKS.map((l) => (
@@ -291,7 +293,7 @@ export default function MarketingPage() {
             <Stats />
             <Features />
             <HowItWorks />
-            <Pricing />
+            <DemoVideos />
             <FAQ />
             <CTA />
             <Footer />

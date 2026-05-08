@@ -1,35 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-interface BadgeToggleProps {
-    onToggle: (visible: boolean) => void;
+const STORAGE_KEY = "menuAR_badgeVisible";
+
+export default function BadgeToggle({ className }: { className?: string }) {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    if (stored !== null) {
+      setVisible(stored === "true");
+    }
+  }, []);
+
+  const toggle = () => {
+    const newValue = !visible;
+    setVisible(newValue);
+    sessionStorage.setItem(STORAGE_KEY, String(newValue));
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      className={cn(
+        "flex items-center gap-2 px-3 py-2 border border-border bg-terminal/80 backdrop-blur-sm",
+        "text-text-secondary hover:text-text-primary transition-colors",
+        className
+      )}
+    >
+      {visible ? (
+        <>
+          <EyeOff className="w-4 h-4" />
+          <span className="text-body-xs font-ui tracking-wider">Hide Badges</span>
+        </>
+      ) : (
+        <>
+          <Eye className="w-4 h-4" />
+          <span className="text-body-xs font-ui tracking-wider">Show Badges</span>
+        </>
+      )}
+    </button>
+  );
 }
 
-export default function BadgeToggle({ onToggle }: BadgeToggleProps) {
-    const [active, setActive] = useState(false);
-
-    const handleToggle = () => {
-        const next = !active;
-        setActive(next);
-        onToggle(next);
-    };
-
-    return (
-        <button
-            onClick={handleToggle}
-            className={`absolute bottom-24 left-4 z-20 flex items-center gap-2 px-3 py-2 rounded-none border transition-all duration-300 ${active
-                    ? "bg-plasma/20 border-plasma text-plasma"
-                    : " /80 border-border text-text-tertiary hover:border-plasma/50"
-                }`}
-        >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="4" cy="4" r="1.5" fill="currentColor" />
-                <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="12" cy="4" r="1.5" fill="currentColor" />
-            </svg>
-            <span className="text-body-xs font-mono tracking-widest">BADGES</span>
-        </button>
-    );
+export function getBadgeVisibility(): boolean {
+  if (typeof window === "undefined") return true;
+  const stored = sessionStorage.getItem(STORAGE_KEY);
+  if (stored === null) return true;
+  return stored === "true";
 }

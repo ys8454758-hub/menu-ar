@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import DishViewClient from "@/components/ar/DishViewClient";
+import { Metadata } from "next";
 
 interface ARPageProps {
   params: Promise<{
@@ -8,7 +9,7 @@ interface ARPageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: ARPageProps) {
+export async function generateMetadata({ params }: ARPageProps): Promise<Metadata> {
   const { restaurantSlug, dishSlug } = await params;
 
   try {
@@ -26,6 +27,11 @@ export async function generateMetadata({ params }: ARPageProps) {
     });
 
     if (dish) {
+      const links: { rel: string; href: string; as?: string }[] = [];
+      if (dish.model?.glbUrl) {
+        links.push({ rel: "preload", href: dish.model.glbUrl, as: "fetch" });
+      }
+
       return {
         title: `${dish.name} at ${dish.restaurant.name} | Livin3D`,
         description: dish.description || `View ${dish.name} in Augmented Reality`,
@@ -33,6 +39,9 @@ export async function generateMetadata({ params }: ARPageProps) {
           title: `${dish.name} at ${dish.restaurant.name}`,
           description: dish.description || `View ${dish.name} in Augmented Reality`,
           images: dish.restaurant.logoUrl ? [{ url: dish.restaurant.logoUrl }] : undefined
+        },
+        other: {
+          "model-url": dish.model?.glbUrl || "",
         }
       };
     }
@@ -103,14 +112,19 @@ export default async function ARViewerPage({ params }: ARPageProps) {
 
   if (redirectUrl) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <p className="text-body-md font-body text-text-primary">
-            This dish is no longer available
-          </p>
-          <p className="text-body-sm font-body text-text-secondary">
-            You are being redirected...
-          </p>
+      <div className="min-h-screen bg-void flex items-center justify-center">
+        <div className="text-center space-y-6 px-6">
+          <div className="w-16 h-16 border border-plasma/30 bg-plasma/10 flex items-center justify-center mx-auto">
+            <span className="text-display-md font-display text-plasma">L</span>
+          </div>
+          <div className="space-y-2">
+            <p className="text-body-md font-body text-text-primary">This dish is no longer available</p>
+            <p className="text-body-sm font-body text-text-tertiary">You are being redirected...</p>
+          </div>
+          <div className="w-48 h-px bg-surface mx-auto overflow-hidden">
+            <div className="h-full bg-plasma animate-[loading_2s_linear_infinite]" />
+          </div>
+          <p className="text-[10px] font-mono text-text-tertiary/40 tracking-widest">POWERED BY LIVIN3D</p>
         </div>
       </div>
     );
@@ -118,17 +132,16 @@ export default async function ARViewerPage({ params }: ARPageProps) {
 
   if (!dish) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <div className="w-16 h-16 border-2 border-ember rounded-full flex items-center justify-center mx-auto">
-            <span className="text-ember text-body-lg">⚠️</span>
+      <div className="min-h-screen bg-void flex items-center justify-center">
+        <div className="text-center space-y-6 px-6">
+          <div className="w-16 h-16 border border-ember/30 bg-ember/10 flex items-center justify-center mx-auto">
+            <span className="text-display-md font-display text-ember">!</span>
           </div>
-          <p className="text-body-md font-body text-text-primary">
-            This dish is no longer available
-          </p>
-          <p className="text-body-sm font-body text-text-secondary">
-            Please check with your waiter or scan another QR code
-          </p>
+          <div className="space-y-2">
+            <p className="text-body-md font-body text-text-primary">Dish not found</p>
+            <p className="text-body-sm font-body text-text-tertiary">Please check with your waiter or scan another QR code</p>
+          </div>
+          <p className="text-[10px] font-mono text-text-tertiary/40 tracking-widest">POWERED BY LIVIN3D</p>
         </div>
       </div>
     );

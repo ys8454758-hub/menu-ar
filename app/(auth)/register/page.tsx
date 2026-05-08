@@ -8,15 +8,31 @@ import { Eye, EyeOff, UserPlus, CheckCircle } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
+  const [formData, setFormData] = useState({ 
+    email: "", 
+    password: "", 
+    confirmPassword: "",
+    fullName: "",
+    restaurantName: "",
+    slug: ""
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    let newFormData = { ...formData, [name]: value };
+    
+    // Auto-generate slug from restaurant name
+    if (name === "restaurantName" && !formData.slug) {
+      newFormData.slug = value.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+    }
+    
+    setFormData(newFormData);
+  };
 
   const passwordStrength = (() => {
     const p = formData.password;
@@ -30,27 +46,57 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    if (!formData.email.trim() || !formData.password || !formData.confirmPassword) {
+    
+    const { email, password, confirmPassword, fullName, restaurantName, slug } = formData;
+    
+    if (!email.trim() || !password || !confirmPassword || !fullName.trim() || !restaurantName.trim() || !slug.trim()) {
       setError("Please fill in all fields"); return;
     }
-    if (formData.password !== formData.confirmPassword) {
+    if (password !== confirmPassword) {
       setError("Passwords do not match"); return;
     }
-    if (formData.password.length < 6) {
+    if (password.length < 6) {
       setError("Password must be at least 6 characters"); return;
     }
+
     setLoading(true);
     try {
-      const { data, error: authError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      // 1. Sign up with Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { 
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          data: { full_name: fullName }
+        },
       });
+
       if (authError) { setError(`Registration failed: ${authError.message}`); return; }
-      if (data.user) {
-        setSuccess(true);
-        setTimeout(() => router.push("/login"), 2500);
+      if (!authData.user) { setError("Failed to create auth session"); return; }
+
+      // 2. Create Prisma records (User + Restaurant)
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          name: fullName,
+          restaurantName,
+          slug,
+          userId: authData.user.id
+        })
+      });
+
+      const resData = await res.json();
+      if (!res.ok) {
+        setError(resData.error || "Failed to create restaurant profile");
+        // Optional: Clean up supabase user if prisma fails? 
+        // Better to let them re-try or handle via sync
+        return;
       }
+
+      setSuccess(true);
+      setTimeout(() => router.push("/login"), 2500);
     } catch (err) {
       setError(`Registration failed: ${err instanceof Error ? err.message : String(err)}`);
     } finally {
@@ -73,7 +119,7 @@ export default function RegisterPage() {
             </h1>
           </Link>
           <p className="mt-3 text-body-md font-body text-text-secondary">
-            Create your restaurant account — free for 14 days
+            Create your restaurant account and start building
           </p>
           <div className="mt-2 w-24 h-0.5 bg-gradient-to-r from-transparent via-neon-violet to-transparent mx-auto" />
         </div>
@@ -100,10 +146,24 @@ export default function RegisterPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Full Name */}
+                <div className="space-y-2">
+                  <label htmlFor="reg-name" className="text-body-xs font-ui text-text-secondary tracking-widest uppercase block">
+                    Full Name
+                  </label>
+                  <input
+                    id="reg-name" type="text" name="fullName"
+                    value={formData.fullName} onChange={handleChange}
+                    className="w-full border border-border bg-surface px-4 py-3 text-text-primary placeholder:text-text-tertiary focus:border-neon-violet focus:shadow-[0_0_15px_var(--color-neon-violet-dim)] focus:outline-none transition-all duration-300 font-body"
+                    placeholder="E.g. John Doe"
+                    required
+                  />
+                </div>
+
                 {/* Email */}
                 <div className="space-y-2">
                   <label htmlFor="reg-email" className="text-body-xs font-ui text-text-secondary tracking-widest uppercase block">
-                    Email Address
+                    Work Email
                   </label>
                   <input
                     id="reg-email" type="email" name="email"
@@ -112,6 +172,40 @@ export default function RegisterPage() {
                     placeholder="you@restaurant.com"
                     required autoComplete="email"
                   />
+                </div>
+
+                {/* Restaurant Name */}
+                <div className="space-y-2">
+                  <label htmlFor="reg-rest-name" className="text-body-xs font-ui text-text-secondary tracking-widest uppercase block">
+                    Restaurant Name
+                  </label>
+                  <input
+                    id="reg-rest-name" type="text" name="restaurantName"
+                    value={formData.restaurantName} onChange={handleChange}
+                    className="w-full border border-border bg-surface px-4 py-3 text-text-primary placeholder:text-text-tertiary focus:border-neon-violet focus:shadow-[0_0_15px_var(--color-neon-violet-dim)] focus:outline-none transition-all duration-300 font-body"
+                    placeholder="E.g. The Grand Bistro"
+                    required
+                  />
+                </div>
+
+                {/* URL Slug */}
+                <div className="space-y-2">
+                  <label htmlFor="reg-slug" className="text-body-xs font-ui text-text-secondary tracking-widest uppercase block">
+                    Custom URL Slug
+                  </label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-text-tertiary font-body text-sm select-none">
+                      livin3d.com/ar/
+                    </span>
+                    <input
+                      id="reg-slug" type="text" name="slug"
+                      value={formData.slug} onChange={handleChange}
+                      className="w-full border border-border bg-surface pl-[105px] pr-4 py-3 text-text-primary placeholder:text-text-tertiary focus:border-neon-violet focus:shadow-[0_0_15px_var(--color-neon-violet-dim)] focus:outline-none transition-all duration-300 font-body"
+                      placeholder="your-restaurant"
+                      required
+                    />
+                  </div>
+                  <p className="text-[10px] font-body text-text-tertiary mt-1 italic">This will be your permanent menu link.</p>
                 </div>
 
                 {/* Password */}

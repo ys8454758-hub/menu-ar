@@ -4,7 +4,7 @@ import { Building2, MapPin, Phone, MessageSquare, Save } from "lucide-react";
 
 interface ProfileSettingsProps {
     form: { name: string; address: string; phone: string; whatsapp: string };
-    setForm: (form: any) => void;
+    setForm: (form: { name: string; address: string; phone: string; whatsapp: string }) => void;
     onSave: (e: React.FormEvent) => void;
     saving: boolean;
 }

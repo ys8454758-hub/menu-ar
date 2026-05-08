@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import DishCard from "@/components/dashboard/DishCard";
 import DishGridCard from "@/components/dashboard/DishGridCard";
 import { computeDishHealthScore } from "@/lib/health-score";
-import { LayoutList, LayoutGrid, Plus, Search, UtensilsCrossed } from "lucide-react";
+import { LayoutList, LayoutGrid, Plus, Search, UtensilsCrossed, GripVertical } from "lucide-react";
 
 interface Dish {
   id: string; name: string; description: string; price: number | null;
-  slug: string; isArchived: boolean; updatedAt: string;
+  slug: string; isArchived: boolean; updatedAt: string; displayOrder: number;
   model: { id: string; qualityRating: number | null } | null;
   qrCode: { id: string } | null;
   badges: { type: string }[];
@@ -58,10 +59,32 @@ export default function DishesPage() {
         case "health": return computeDishHealthScore(b) - computeDishHealthScore(a);
         case "scans": return b.scanEvents.length - a.scanEvents.length;
         case "price": return (b.price || 0) - (a.price || 0);
-        default: return a.name.localeCompare(b.name);
+        default: return (a.displayOrder || 0) - (b.displayOrder || 0);
       }
     });
   }, [dishes, filter, search, sort]);
+
+  const handleDragEnd = useCallback(async (result: DropResult) => {
+    if (!result.destination) return;
+    const items = Array.from(filteredDishes);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setDishes(items.map((d, i) => ({ ...d, displayOrder: i })));
+
+    try {
+      await fetch(`/api/dishes/reorder`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          restaurantId: dishes[0]?.restaurantId || "",
+          dishIds: items.map(d => d.id)
+        })
+      });
+    } catch (err) {
+      console.error("Failed to save order:", err);
+    }
+  }, [filteredDishes, dishes]);
 
   const handleArchive = (id: string) => setDishes((prev) => prev.map((d) => d.id === id ? { ...d, isArchived: true } : d));
   const handleRestore = (id: string) => setDishes((prev) => prev.map((d) => d.id === id ? { ...d, isArchived: false } : d));
@@ -171,15 +194,33 @@ export default function DishesPage() {
           )
         ) : filteredDishes.length > 0 ? (
           view === "list" ? (
-            <div className="space-y-3">
-              {filteredDishes.map((dish) => (
-                <DishCard key={dish.id} id={dish.id} name={dish.name} description={dish.description}
-                  price={dish.price} slug={dish.slug} isArchived={dish.isArchived}
-                  hasModel={!!dish.model} hasQR={!!dish.qrCode}
-                  healthScore={computeDishHealthScore(dish)} scanCount={dish.scanEvents.length}
-                  onArchive={handleArchive} onRestore={handleRestore} />
-              ))}
-            </div>
+            <DragDropContext onDragEnd={handleDragEnd}>
+              <Droppable droppableId="dishes-list">
+                {(provided) => (
+                  <div {...provided.droppableProps} ref={provided.innerRef} className="space-y-3">
+                    {filteredDishes.map((dish, index) => (
+                      <Draggable key={dish.id} draggableId={dish.id} index={index}>
+                        {(provided) => (
+                          <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-start gap-2">
+                            <button {...provided.dragHandleProps} className="mt-4 p-1 text-text-tertiary hover:text-plasma cursor-grab">
+                              <GripVertical className="w-4 h-4" />
+                            </button>
+                            <div className="flex-1">
+                              <DishCard id={dish.id} name={dish.name} description={dish.description}
+                                price={dish.price} slug={dish.slug} isArchived={dish.isArchived}
+                                hasModel={!!dish.model} hasQR={!!dish.qrCode}
+                                healthScore={computeDishHealthScore(dish)} scanCount={dish.scanEvents.length}
+                                onArchive={handleArchive} onRestore={handleRestore} />
+                            </div>
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredDishes.map((dish) => (

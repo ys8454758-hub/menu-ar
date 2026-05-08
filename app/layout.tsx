@@ -1,25 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Inter, DM_Sans, Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundaryClient";
 
-const outfit = Outfit({
+const bricolage = Bricolage_Grotesque({
     subsets: ["latin"],
     variable: "--font-display",
 });
 
-const inter = Inter({
+const plusJakartaBody = Plus_Jakarta_Sans({
     subsets: ["latin"],
     variable: "--font-body",
 });
 
-const dmSans = DM_Sans({
+const plusJakartaUI = Plus_Jakarta_Sans({
     subsets: ["latin"],
     variable: "--font-ui",
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
+    weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
     variable: "--font-serif",
     style: ["normal", "italic"],
@@ -50,10 +51,10 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "dark selection:bg-plasma selection:text-void",
-        outfit.variable,
-        inter.variable,
-        dmSans.variable,
-        playfair.variable
+        bricolage.variable,
+        plusJakartaBody.variable,
+        plusJakartaUI.variable,
+        cormorant.variable
       )}
     >
       <body className="antialiased text-text-primary font-body relative min-h-screen bg-void">

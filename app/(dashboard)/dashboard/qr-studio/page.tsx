@@ -6,6 +6,7 @@ import Link from "next/link";
 import QRCodeStyling from "qr-code-styling";
 import { Download, RefreshCw, Zap } from "lucide-react";
 import type { QRDesignConfig } from "@/lib/qr-generator";
+import ImageUploader from "@/components/shared/ImageUploader";
 
 interface DishOption {
     id: string; name: string; slug: string;
@@ -90,11 +91,13 @@ function QRStudioContent() {
 
         qrInstance.current.update({
             data: url,
+            image: config.logoUrl,
             dotsOptions: { type: config.dotStyle, color: config.foregroundColor },
             backgroundOptions: { color: config.backgroundColor },
             cornersSquareOptions: { type: config.cornerSquareStyle },
             cornersDotOptions: { type: config.cornerDotStyle },
             qrOptions: { errorCorrectionLevel: config.errorCorrectionLevel },
+            imageOptions: { imageSize: config.logoSizePercent / 100, margin: 5, crossOrigin: "anonymous" },
         });
     }, [config, selectedDishId, dishes]);
 
@@ -245,6 +248,39 @@ function QRStudioContent() {
                                     </div>
                                 ))}
                             </div>
+                        </SectionCard>
+
+                        {/* Logo Upload & Sizing */}
+                        <SectionCard title="Logo">
+                            <ImageUploader 
+                                label="Center Logo" 
+                                hint="Upload a square PNG/JPG logo" 
+                                type="logo" 
+                                currentUrl={config.logoUrl} 
+                                onUploadSuccess={(url) => {
+                                    updateConfig("logoUrl", url);
+                                    if (config.errorCorrectionLevel !== "H") {
+                                        updateConfig("errorCorrectionLevel", "H");
+                                    }
+                                }} 
+                                aspectClass="aspect-square w-32" 
+                            />
+                            {config.logoUrl && (
+                                <div className="mt-4 pt-4 border-t border-border">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <label className="text-body-xs font-ui text-text-tertiary tracking-widest uppercase">Logo Size</label>
+                                        <span className="text-body-xs font-mono text-plasma">{config.logoSizePercent}%</span>
+                                    </div>
+                                    <input 
+                                        type="range" 
+                                        min="10" max="30" step="1" 
+                                        value={config.logoSizePercent} 
+                                        onChange={(e) => updateConfig("logoSizePercent", parseInt(e.target.value))}
+                                        className="w-full accent-plasma" 
+                                    />
+                                    <p className="text-body-xs font-ui text-text-tertiary mt-2">Sizes above 25% may affect scannability.</p>
+                                </div>
+                            )}
                         </SectionCard>
 
                         {/* Error correction */}

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
     Clock, CheckCircle2, AlertCircle, ShoppingBag, 
-    User, Hash, RefreshCw, ChevronRight, Check, X
+    User, Hash, RefreshCw, Check, X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +35,8 @@ export default function OrdersPage() {
 
     const playNotificationSound = () => {
         try {
-            const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+            const AudioCtxClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+            const ctx = new AudioCtxClass();
             const osc = ctx.createOscillator();
             const gainNode = ctx.createGain();
             
@@ -123,7 +124,7 @@ export default function OrdersPage() {
         }
     };
 
-    const statusConfig: Record<OrderStatus, { label: string; color: string; icon: any }> = {
+    const statusConfig: Record<OrderStatus, { label: string; color: string; icon: React.ComponentType<{ className?: string }> }> = {
         PENDING: { label: "New Order", color: "text-plasma bg-plasma/10 border-plasma/30", icon: Clock },
         CONFIRMED: { label: "Confirmed", color: "text-neon-violet bg-neon-violet/10 border-neon-violet/30", icon: Check },
         PREPARING: { label: "In Kitchen", color: "text-amber-400 bg-amber-400/10 border-amber-400/30", icon: RefreshCw },

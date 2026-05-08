@@ -2,16 +2,39 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LayoutDashboard, Store, Box, CreditCard, Ticket, Search, CheckCircle2, AlertCircle, XCircle } from "lucide-react";
+import { LayoutDashboard, Store, Box, QrCode, Ticket, Search, CheckCircle2, AlertCircle, Settings, Play } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
+import QRCodeTable from "@/components/admin/QRCodeTable";
 
 interface AdminStats {
   restaurantsCount: number;
   dishesCount: number;
   scansCount: number;
-  activeSubs: number;
-  mrr: number;
+}
+
+interface ModelData {
+  id: string;
+  dishName: string;
+  restaurantName: string;
+  sizeBytes: number;
+  qualityRating: number;
+}
+
+interface BillingData {
+  id: string;
+  restaurantName: string;
+  amount: number;
+  status: string;
+  createdAt: string;
+}
+
+interface SupportData {
+  id: string;
+  subject: string;
+  status: string;
+  priority: string;
+  createdAt: string;
 }
 
 interface RestaurantInfo {
@@ -23,12 +46,12 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState("overview");
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [restaurants, setRestaurants] = useState<RestaurantInfo[]>([]);
-  const [modelsData, setModelsData] = useState<any[]>([]);
-  const [billingData, setBillingData] = useState<any[]>([]);
-  const [supportData, setSupportData] = useState<any[]>([]);
+  const [modelsData, setModelsData] = useState<ModelData[]>([]);
+  const [supportData, setSupportData] = useState<SupportData[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAuthorized, setIsAuthorized] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   // Client-side quick auth guard
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -56,9 +79,6 @@ export default function AdminPage() {
       } else if (currentTab === "models") {
         const res = await fetch("/api/admin/models");
         if (res.ok) setModelsData(await res.json());
-      } else if (currentTab === "billing") {
-        const res = await fetch("/api/admin/billing");
-        if (res.ok) setBillingData(await res.json());
       } else if (currentTab === "support") {
         const res = await fetch("/api/admin/support");
         if (res.ok) setSupportData(await res.json());
@@ -81,7 +101,7 @@ export default function AdminPage() {
     { id: "overview", label: "Overview", icon: LayoutDashboard },
     { id: "restaurants", label: "Restaurants", icon: Store },
     { id: "models", label: "3D Models", icon: Box },
-    { id: "billing", label: "Billing", icon: CreditCard },
+    { id: "qrcodes", label: "QR Codes", icon: QrCode },
     { id: "support", label: "Support", icon: Ticket },
   ];
 
@@ -138,13 +158,11 @@ export default function AdminPage() {
 
             {activeTab === "overview" && stats && (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {[
                     { label: "Restaurants", value: stats.restaurantsCount, color: "text-plasma" },
                     { label: "Total Dishes", value: stats.dishesCount, color: "text-neon-violet" },
                     { label: "Total Scans", value: stats.scansCount, color: "text-success" },
-                    { label: "Active Subs", value: stats.activeSubs, color: "text-text-primary" },
-                    { label: "MRR", value: `₹${(stats.mrr / 1000).toFixed(1)}k`, color: "text-plasma" },
                   ].map(stat => (
                     <div key={stat.label} className="border border-border bg-terminal p-5 hover:border-plasma/30 transition-colors">
                       <p className="text-body-xs font-ui text-text-tertiary tracking-widest uppercase">{stat.label}</p>
@@ -203,7 +221,7 @@ export default function AdminPage() {
                 <table className="w-full text-left">
                   <thead className="bg-surface/50">
                     <tr className="border-b border-border text-text-tertiary font-ui text-xs tracking-widest uppercase">
-                      <th className="px-6 py-4">Name</th><th className="px-6 py-4">Email</th><th className="px-6 py-4 text-center">Dishes</th><th className="px-6 py-4">Plan</th><th className="px-6 py-4 text-center">On Map (AR)</th>
+                      <th className="px-6 py-4">Name</th><th className="px-6 py-4">Email</th><th className="px-6 py-4 text-center">Dishes</th><th className="px-6 py-4">Plan</th><th className="px-6 py-4 text-center">On Map (AR)</th><th className="px-6 py-4 text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border/50">
@@ -218,6 +236,10 @@ export default function AdminPage() {
                             {r.isOnMap ? "ON" : "OFF"}
                           </span>
                         </td>
+                        <td className="px-6 py-4 text-right flex justify-end gap-2">
+                          <button className="p-1.5 text-text-tertiary hover:text-plasma border border-transparent hover:border-plasma/30 transition-colors" title="Manage Settings"><Settings className="w-4 h-4" /></button>
+                          <button className="p-1.5 text-text-tertiary hover:text-ember border border-transparent hover:border-ember/30 transition-colors" title="Suspend"><AlertCircle className="w-4 h-4" /></button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -230,11 +252,11 @@ export default function AdminPage() {
                 <table className="w-full text-left">
                   <thead className="bg-surface/50">
                     <tr className="border-b border-border text-text-tertiary font-ui text-xs tracking-widest uppercase">
-                      <th className="px-6 py-4">Restaurant</th><th className="px-6 py-4">Dish Name</th><th className="px-6 py-4">Size</th><th className="px-6 py-4">Status</th><th className="px-6 py-4">Uploaded</th>
+                      <th className="px-6 py-4">Restaurant</th><th className="px-6 py-4">Dish Name</th><th className="px-6 py-4">Size</th><th className="px-6 py-4">Status</th><th className="px-6 py-4">Uploaded</th><th className="px-6 py-4 text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border/50">
-                    {modelsData.length === 0 ? <tr><td colSpan={5} className="px-6 py-8 text-center text-text-tertiary font-body">No models found</td></tr> : null}
+                    {modelsData.length === 0 ? <tr><td colSpan={6} className="px-6 py-8 text-center text-text-tertiary font-body">No models found</td></tr> : null}
                     {modelsData.map(m => (
                       <tr key={m.id} className="hover:bg-surface/30 transition-colors">
                         <td className="px-6 py-4 font-body text-body-sm">{m.restaurantName}</td>
@@ -242,6 +264,10 @@ export default function AdminPage() {
                         <td className="px-6 py-4 font-mono text-body-xs">{m.size}</td>
                         <td className="px-6 py-4"><span className="px-2 py-1 text-xs border border-success/50 text-success font-ui uppercase">{m.status}</span></td>
                         <td className="px-6 py-4 font-mono text-body-xs text-text-tertiary">{new Date(m.uploadedAt).toLocaleDateString()}</td>
+                        <td className="px-6 py-4 text-right flex justify-end gap-2">
+                          <button className="p-1.5 text-text-tertiary hover:text-success border border-transparent hover:border-success/30 transition-colors" title="View 3D"><Play className="w-4 h-4" /></button>
+                          <button className="p-1.5 text-text-tertiary hover:text-plasma border border-transparent hover:border-plasma/30 transition-colors" title="Flag Quality"><AlertCircle className="w-4 h-4" /></button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -249,27 +275,9 @@ export default function AdminPage() {
               </div>
             )}
 
-            {activeTab === "billing" && (
-              <div className="border border-border bg-terminal overflow-x-auto">
-                <table className="w-full text-left">
-                  <thead className="bg-surface/50">
-                    <tr className="border-b border-border text-text-tertiary font-ui text-xs tracking-widest uppercase">
-                      <th className="px-6 py-4">Restaurant</th><th className="px-6 py-4">Plan</th><th className="px-6 py-4">Status</th><th className="px-6 py-4">Period End</th><th className="px-6 py-4">Created</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border/50">
-                    {billingData.length === 0 ? <tr><td colSpan={5} className="px-6 py-8 text-center text-text-tertiary font-body">No subscriptions found</td></tr> : null}
-                    {billingData.map(b => (
-                      <tr key={b.id} className="hover:bg-surface/30 transition-colors">
-                        <td className="px-6 py-4 font-body text-body-sm">{b.restaurantName}</td>
-                        <td className="px-6 py-4"><span className="px-2 py-1 text-xs border border-plasma/50 text-plasma font-ui uppercase">{b.plan}</span></td>
-                        <td className="px-6 py-4"><span className={`px-2 py-1 text-xs border font-ui uppercase ${b.status === "ACTIVE" ? "border-success/50 text-success" : "border-ember/50 text-ember"}`}>{b.status}</span></td>
-                        <td className="px-6 py-4 font-mono text-body-xs">{b.currentPeriodEnd ? new Date(b.currentPeriodEnd).toLocaleDateString() : "N/A"}</td>
-                        <td className="px-6 py-4 font-mono text-body-xs text-text-tertiary">{new Date(b.createdAt).toLocaleDateString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {activeTab === "qrcodes" && (
+              <div className="bg-terminal">
+                <QRCodeTable />
               </div>
             )}
 

@@ -67,39 +67,67 @@ export default function HowItWorks() {
                     <p className="text-body-lg font-body text-text-secondary max-w-2xl mx-auto">Four precision steps to transform your physical space into a digital showroom.</p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 relative">
                     {steps.map((s, i) => (
-                        <motion.div 
-                            key={s.step} 
-                            className="bg-[#1a1714] border border-[#1a1714] p-8 relative group hover:border-plasma/40 shadow-xl hover:shadow-2xl hover:shadow-plasma/20 rounded-2xl transition-all duration-500"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.15 }}
-                        >
-                            <div className="absolute top-0 right-0 p-4 text-display-sm font-display text-plasma/10 tracking-widest italic">{s.step}</div>
-                            
-<div className="h-48 flex items-center justify-center mb-8 /50 border border-[#1a1714]/50 relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-plasma/5 to-transparent" />
-                                
-                                {i === 1 ? (
-                                    <QRCube />
-                                ) : (
-                                    <motion.div 
-                                        className="text-6xl filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"
-                                        animate={{ y: [0, -10, 0] }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
-                                    >
-                                        {s.icon}
-                                    </motion.div>
-                                )}
-                            </div>
+                        <div key={s.step} className="relative">
+                            <motion.div 
+                                className="bg-[#1a1714] border border-[#1a1714] p-8 h-full relative group hover:border-plasma/40 shadow-xl hover:shadow-2xl hover:shadow-plasma/20 rounded-2xl transition-all duration-500 z-10"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: i * 0.15 }}
+                            >
+                                <div className="h-48 flex items-center justify-center mb-8 border border-[#1a1714]/50 relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-plasma/5 to-transparent" />
+                                    
+                                    {i === 1 ? (
+                                        <QRCube />
+                                    ) : (
+                                        <motion.div 
+                                            className="text-6xl filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"
+                                            animate={{ y: [0, -10, 0] }}
+                                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+                                        >
+                                            {s.icon}
+                                        </motion.div>
+                                    )}
+                                </div>
 
-                            <h3 className="text-display-xs font-display text-text-primary tracking-widest uppercase mb-4">{s.title}</h3>
-                            <p className="text-body-sm font-body text-text-secondary leading-relaxed">{s.desc}</p>
-                            
-                            <div className="mt-8 h-1 w-0 bg-plasma group-hover:w-full transition-all duration-700" />
-                        </motion.div>
+                                <h3 className="text-display-xs font-display text-text-primary tracking-widest uppercase mb-4">{s.title}</h3>
+                                <p className="text-body-sm font-body text-text-secondary leading-relaxed">{s.desc}</p>
+                                
+                                <div className="mt-8 h-1 w-0 bg-plasma group-hover:w-full transition-all duration-700" />
+                            </motion.div>
+
+                            {/* Transition Arrow (Desktop) */}
+                            {i < steps.length - 1 && (
+                                <div className="hidden lg:flex absolute top-1/2 -right-8 -translate-y-1/2 z-20 pointer-events-none">
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.5 + i * 0.15 }}
+                                    >
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-plasma w-8 h-8 drop-shadow-plasma-glow">
+                                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </motion.div>
+                                </div>
+                            )}
+
+                            {/* Transition Arrow (Mobile) */}
+                            {i < steps.length - 1 && (
+                                <div className="lg:hidden flex justify-center py-6">
+                                    <motion.div
+                                        animate={{ y: [0, 5, 0] }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                    >
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-plasma w-6 h-6">
+                                            <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </motion.div>
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </div>
             </div>

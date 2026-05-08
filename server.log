@@ -1,0 +1,1424 @@
+
+> livin3d@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1208ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4s (2559 modules)
+ HEAD / 200 in 4235ms
+ ✓ Compiled in 348ms (1256 modules)
+ GET / 200 in 60ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1223ms (2636 modules)
+ ✓ Compiled /register in 322ms (2648 modules)
+ ✓ Compiled /middleware in 215ms (124 modules)
+ ✓ Compiled /dashboard/dishes in 367ms (2821 modules)
+ ✓ Compiled /api/restaurants in 230ms (1522 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (215kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET /api/restaurants 200 in 1931ms
+ GET /api/restaurants 200 in 1932ms
+ GET /api/restaurants 200 in 1935ms
+ GET /api/restaurants 200 in 2517ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1747ms (3843 modules)
+ GET /api/restaurants 200 in 593ms
+ GET /api/restaurants 200 in 1644ms
+ ✓ Compiled /dashboard/qr-studio in 275ms (3859 modules)
+ GET /api/restaurants 200 in 1287ms
+ GET /api/restaurants 200 in 1290ms
+ ✓ Compiled /dashboard/menu-themes in 282ms (3296 modules)
+ ✓ Compiled /api/restaurants/theme in 100ms (1431 modules)
+ GET /api/restaurants/theme 400 in 114ms
+ GET /api/restaurants/theme 400 in 114ms
+ ✓ Compiled /dashboard/badges in 195ms (3310 modules)
+ ✓ Compiled /dashboard/analytics in 301ms (3286 modules)
+ GET /api/restaurants 200 in 587ms
+ GET /api/restaurants 200 in 1277ms
+ ✓ Compiled /dashboard/settings in 281ms (3290 modules)
+ GET /api/restaurants 200 in 589ms
+ GET /api/restaurants 200 in 1392ms
+ GET /api/restaurants 200 in 326ms
+ GET /api/restaurants 200 in 543ms
+ GET /api/restaurants 200 in 578ms
+ GET /api/restaurants 200 in 630ms
+ GET /api/restaurants 200 in 266ms
+ GET /api/restaurants 200 in 285ms
+ ✓ Compiled /dashboard/dishes in 226ms (1429 modules)
+ GET /dashboard/dishes 200 in 314ms
+ ✓ Compiled / in 219ms (2002 modules)
+ GET / 200 in 381ms
+Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.
+ GET /dashboard 200 in 60ms
+ GET /api/restaurants 200 in 555ms
+ GET /api/restaurants 200 in 557ms
+ GET /api/restaurants 200 in 1290ms
+ GET /api/restaurants 200 in 1323ms
+ GET / 200 in 30ms
+Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.
+ GET /dashboard 200 in 16ms
+ GET /api/restaurants 200 in 734ms
+ GET /api/restaurants 200 in 769ms
+ GET /api/restaurants 200 in 1131ms
+ GET /api/restaurants 200 in 1681ms
+Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.
+ GET /dashboard 200 in 23ms
+ GET /api/restaurants 200 in 828ms
+ GET /api/restaurants 200 in 841ms
+ GET /api/restaurants 200 in 916ms
+ GET /api/restaurants 200 in 1072ms
+ GET / 200 in 27ms
+ GET / 200 in 17ms
+Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.
+ GET /dashboard 200 in 15ms
+ GET /api/restaurants 200 in 438ms
+ GET /api/restaurants 200 in 474ms
+ GET /api/restaurants 200 in 486ms
+ GET /api/restaurants 200 in 626ms
+ ✓ Compiled in 1736ms (1941 modules)
+ ✓ Compiled in 152ms (1941 modules)
+ ✓ Compiled in 106ms (1941 modules)
+ ✓ Compiled in 220ms (1941 modules)
+ ✓ Compiled in 116ms (1941 modules)
+ ✓ Compiled in 103ms (1941 modules)
+ ✓ Compiled in 100ms (1941 modules)
+ ✓ Compiled in 98ms (1941 modules)
+ ✓ Compiled in 122ms (1941 modules)
+ ✓ Compiled in 113ms (1941 modules)
+ ✓ Compiled in 801ms (3769 modules)
+ ✓ Compiled in 127ms (1941 modules)
+ ✓ Compiled in 98ms (1941 modules)
+ ✓ Compiled in 97ms (1941 modules)
+ ✓ Compiled in 109ms (1941 modules)
+ ✓ Compiled in 107ms (1941 modules)
+ ✓ Compiled in 95ms (1941 modules)
+ ✓ Compiled in 90ms (1941 modules)
+ ✓ Compiled in 237ms (1941 modules)
+ ✓ Compiled in 100ms (1941 modules)
+ ✓ Compiled in 107ms (1941 modules)
+ ✓ Compiled in 100ms (1941 modules)
+ ✓ Compiled in 117ms (1941 modules)
+ ✓ Compiled in 279ms (1941 modules)
+ ✓ Compiled in 114ms (1941 modules)
+ ✓ Compiled in 138ms (1941 modules)
+ ✓ Compiled in 102ms (1941 modules)
+ ✓ Compiled in 117ms (1941 modules)
+ ✓ Compiled in 118ms (1941 modules)
+ ✓ Compiled in 96ms (1941 modules)
+ ✓ Compiled in 92ms (1941 modules)
+ ✓ Compiled in 93ms (1941 modules)
+ ✓ Compiled in 98ms (1941 modules)
+ ✓ Compiled in 98ms (1941 modules)
+ ✓ Compiled in 108ms (1941 modules)
+ ✓ Compiled in 447ms (3769 modules)
+ ✓ Compiled in 105ms (1941 modules)
+ ✓ Compiled in 104ms (1941 modules)
+ ✓ Compiled in 111ms (1941 modules)
+ ✓ Compiled in 85ms (1941 modules)
+ ✓ Compiled in 97ms (1941 modules)
+ ✓ Compiled in 102ms (1941 modules)
+ ✓ Compiled in 121ms (1941 modules)
+ ✓ Compiled in 103ms (1941 modules)
+ ✓ Compiled in 100ms (1941 modules)
+ ✓ Compiled in 97ms (1941 modules)
+ ✓ Compiled in 102ms (1941 modules)
+ ✓ Compiled in 104ms (1941 modules)
+ ✓ Compiled in 469ms (1941 modules)
+ ✓ Compiled in 115ms (1941 modules)
+ ✓ Compiled in 102ms (1941 modules)
+ ✓ Compiled in 803ms (3769 modules)
+ ✓ Compiled in 99ms (1941 modules)
+ ✓ Compiled in 104ms (1941 modules)
+ ✓ Compiled in 1215ms (3769 modules)
+ ✓ Compiled in 565ms (3769 modules)
+ ✓ Compiled in 338ms (3769 modules)
+ ✓ Compiled in 593ms (3769 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/server-development/0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/1.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/1.pack.gz'
+ ✓ Compiled in 330ms (1941 modules)
+ ✓ Compiled in 623ms (3777 modules)
+ ✓ Compiled in 444ms (3787 modules)
+ ✓ Compiled in 512ms (3787 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 735ms (3787 modules)
+ ✓ Compiled in 631ms (3787 modules)
+ ✓ Compiled in 334ms (3787 modules)
+ ✓ Compiled in 429ms (3787 modules)
+ ✓ Compiled in 568ms (3787 modules)
+ ✓ Compiled in 679ms (1950 modules)
+ ✓ Compiled in 219ms (1950 modules)
+ ✓ Compiled in 1260ms (3897 modules)
+ ✓ Compiled in 421ms (1950 modules)
+ ✓ Compiled in 224ms (1950 modules)
+ ✓ Compiled in 397ms (1950 modules)
+ ✓ Compiled in 290ms (1950 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 712ms (3787 modules)
+ ✓ Compiled in 367ms (3787 modules)
+ ✓ Compiled in 786ms (3791 modules)
+ ⨯ ./app/(dashboard)/dashboard/analytics/page.tsx
+Error: 
+  [31mx[0m the name `CustomTooltip` is defined multiple times
+     ,-[[36;1;4m/Users/yash/Documents/MenuAR/livin3d/app/(dashboard)/dashboard/analytics/page.tsx[0m:20:1]
+ [2m 20[0m |     scanTrend: number;
+ [2m 21[0m | }
+ [2m 22[0m | 
+ [2m 23[0m | const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+     : [31;1m      ^^^^^^|^^^^^^[0m
+     :             [31;1m`-- [31;1mprevious definition of `CustomTooltip` here[0m[0m
+ [2m 24[0m |     if (active && payload && payload.length) {
+ [2m 25[0m |         return (
+ [2m 26[0m |             <div className="bg-terminal/95 backdrop-blur-sm border border-plasma/20 px-4 py-2.5 shadow-lg">
+ [2m 27[0m |                 <p className="text-body-xs font-mono text-text-tertiary mb-1">{label}</p>
+ [2m 28[0m |                 <p className="text-body-sm font-mono text-plasma font-bold">{payload[0].value} scans</p>
+ [2m 29[0m |             </div>
+ [2m 30[0m |         );
+ [2m 31[0m |     }
+ [2m 32[0m |     return null;
+ [2m 33[0m | };
+ [2m 34[0m | 
+ [2m 35[0m | function SkeletonBox({ h = "h-48" }: { h?: string }) {
+ [2m 36[0m |     return <div className={`${h} bg-surface/30 animate-pulse rounded`} />;
+ [2m 37[0m | }
+ [2m 38[0m | 
+ [2m 39[0m | export default function AnalyticsPage() {
+ [2m 40[0m |     const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m 41[0m |     const [loading, setLoading] = useState(true);
+ [2m 42[0m |     const [period, setPeriod] = useState("30d");
+ [2m 43[0m | 
+ [2m 44[0m |     // eslint-disable-next-line react-hooks/exhaustive-deps
+ [2m 45[0m |     useEffect(() => { loadReport(); }, [period]);
+ [2m 46[0m | 
+ [2m 47[0m |     async function loadReport() {
+ [2m 48[0m |         setLoading(true);
+ [2m 49[0m |         try {
+ [2m 50[0m |             const rRes = await fetch("/api/restaurants");
+ [2m 51[0m |             if (rRes.ok) {
+ [2m 52[0m |                 const restaurants = await rRes.json();
+ [2m 53[0m |                 if (restaurants.length > 0) {
+ [2m 54[0m |                     const aRes = await fetch(`/api/analytics/report?restaurantId=${restaurants[0].id}&period=${period}`);
+ [2m 55[0m |                     if (aRes.ok) setReport(await aRes.json());
+ [2m 56[0m |                 }
+ [2m 57[0m |             }
+ [2m 58[0m |         } catch (err) { console.error(err); }
+ [2m 59[0m |         finally { setLoading(false); }
+ [2m 60[0m |     }
+ [2m 61[0m | 
+ [2m 62[0m |     const chartData = report?.dailyScans
+ [2m 63[0m |         ? Object.entries(report.dailyScans).map(([date, count]) => ({ date: date.slice(5), scans: count }))
+ [2m 64[0m |         : [];
+ [2m 65[0m | 
+ [2m 66[0m |     // "Scan Velocity" — bar chart of last 7 days only
+ [2m 67[0m |     const velocityData = chartData.slice(-7);
+ [2m 68[0m | 
+ [2m 69[0m |     const trend = report?.scanTrend ?? 0;
+ [2m 70[0m |     const trendColor = trend >= 0 ? "text-success" : "text-ember";
+ [2m 71[0m | 
+ [2m 72[0m |     const deviceData = [
+ [2m 73[0m |         { name: "Mobile", value: 72, color: "#D4AF37" },
+ [2m 74[0m |         { name: "Desktop", value: 20, color: "#10B981" },
+ [2m 75[0m |         { name: "Tablet", value: 8, color: "#6B7280" },
+ [2m 76[0m |     ];
+ [2m 77[0m | 
+ [2m 78[0m |     const stats = [
+ [2m 79[0m |         { label: "Total Scans", value: report?.totalScans ?? 0, color: "text-plasma", icon: Activity },
+ [2m 80[0m |         { label: "Scan Trend", value: `${trend >= 0 ? "+" : ""}${trend}%`, color: trendColor, icon: trend >= 0 ? TrendingUp : TrendingDown },
+ [2m 81[0m |         { label: "Active QR", value: report?.activeQRCodes ?? 0, color: "text-neon-violet", icon: QrCode },
+ [2m 82[0m |         { label: "3D Coverage", value: `${report?.modelCoverage ?? 0}%`, color: "text-plasma", icon: Box },
+ [2m 83[0m |         { label: "Avg Health", value: report?.avgHealthScore ?? 0, color: (report?.avgHealthScore ?? 0) >= 80 ? "text-success" : (report?.avgHealthScore ?? 0) >= 50 ? "text-amber-400" : "text-ember", icon: Zap },
+ [2m 84[0m |         { label: "Total Dishes", value: report?.totalDishes ?? 0, color: "text-text-primary", icon: Box },
+ [2m 85[0m |     ];
+ [2m 86[0m | 
+ [2m 87[0m |     return (
+ [2m 88[0m |         <div className="min-h-screen p-6">
+ [2m 89[0m |             <div className="max-w-6xl mx-auto space-y-8">
+ [2m 90[0m |                 {/* Header */}
+ [2m 91[0m |                 <div className="flex items-center justify-between flex-wrap gap-4">
+ [2m 92[0m |                     <div>
+ [2m 93[0m |                         <Link href="/dashboard" className="text-xs font-ui text-text-tertiary hover:text-plasma transition-colors tracking-widest uppercase">← Overview</Link>
+ [2m 94[0m |                         <h1 className="text-display-lg font-display text-text-accent tracking-widest mt-2">Analytics</h1>
+ [2m 95[0m |                     </div>
+ [2m 96[0m |                     <div className="flex items-center gap-3">
+ [2m 97[0m |                         <div className="flex gap-2">
+ [2m 98[0m |                             {(["7d", "30d", "90d"] as const).map((p) => (
+ [2m 99[0m |                                 <button key={p} onClick={() => setPeriod(p)}
+ [2m100[0m |                                     className={`px-4 py-2 border font-ui text-xs tracking-widest uppercase transition-all duration-200 ${period === p ? "border-plasma bg-plasma/10 text-plasma shadow-[0_0_12px_rgba(212,175,55,0.1)]" : "border-plasma/20 text-text-tertiary hover:border-plasma/40 hover:text-text-primary"}`}>
+ [2m101[0m |                                     {p}
+ [2m102[0m |                                 </button>
+ [2m103[0m |                             ))}
+ [2m104[0m |                         </div>
+ [2m105[0m |                         <button className="flex items-center gap-2 px-4 py-2 border border-plasma/20 text-text-tertiary font-ui text-xs tracking-widest uppercase hover:border-plasma hover:text-plasma transition-all duration-200">
+ [2m106[0m |                             <Download className="w-3.5 h-3.5" /> Export
+ [2m107[0m |                         </button>
+ [2m108[0m |                     </div>
+ [2m109[0m |                 </div>
+ [2m110[0m | 
+ [2m111[0m |                 {/* Stat cards */}
+ [2m112[0m |                 <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+ [2m113[0m |                     {loading
+ [2m114[0m |                         ? Array.from({ length: 6 }).map((_, i) => (
+ [2m115[0m |                             <div key={i} className="border border-plasma/10 bg-terminal/60 p-4 space-y-2 animate-pulse">
+ [2m116[0m |                                 <div className="h-2.5 w-20 bg-surface/60 rounded" />
+ [2m117[0m |                                 <div className="h-7 w-12 bg-surface/60 rounded" />
+ [2m118[0m |                             </div>
+ [2m119[0m |                         ))
+ [2m120[0m |                         : stats.map(({ label, value, color, icon: Icon }) => (
+ [2m121[0m |                             <div key={label} className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-4 group hover:border-plasma/30 transition-all duration-300 overflow-hidden">
+ [2m122[0m |                                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+ [2m123[0m |                                 <div className="flex items-start justify-between mb-2">
+ [2m124[0m |                                     <p className="text-[10px] font-ui text-text-tertiary tracking-widest uppercase">{label}</p>
+ [2m125[0m |                                     <Icon className="w-3 h-3 text-text-tertiary/30 group-hover:text-plasma/50 transition-colors" />
+ [2m126[0m |                                 </div>
+ [2m127[0m |                                 <p className={`text-display-sm font-display ${color} tracking-wider`}>{value}</p>
+ [2m128[0m |                             </div>
+ [2m129[0m |                         ))
+ [2m130[0m |                     }
+ [2m131[0m |                 </div>
+ [2m132[0m | 
+ [2m133[0m |                 {/* Charts row */}
+ [2m134[0m |                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+ [2m135[0m |                     {/* Area chart — 2/3 width */}
+ [2m136[0m |                     <div className="lg:col-span-2 relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m137[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m138[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Daily Scans — {period}</h2>
+ [2m139[0m |                         {loading ? <SkeletonBox h="h-52" /> : chartData.length > 0 ? (
+ [2m140[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m141[0m |                                 <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -30, bottom: 0 }}>
+ [2m142[0m |                                     <defs>
+ [2m143[0m |                                         <linearGradient id="aGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m144[0m |                                             <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.25} />
+ [2m145[0m |                                             <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+ [2m146[0m |                                         </linearGradient>
+ [2m147[0m |                                     </defs>
+ [2m148[0m |                                     <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.4} vertical={false} />
+ [2m149[0m |                                     <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m150[0m |                                     <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m151[0m |                                     <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#D4AF37", strokeWidth: 1, strokeDasharray: "4 4", strokeOpacity: 0.5 }} />
+ [2m152[0m |                                     <Area type="monotone" dataKey="scans" stroke="#D4AF37" strokeWidth={2} fill="url(#aGradient)" dot={false} activeDot={{ r: 4, fill: "#D4AF37", stroke: "#1a1400", strokeWidth: 2 }} />
+ [2m153[0m |                                 </AreaChart>
+ [2m154[0m |                             </ResponsiveContainer>
+ [2m155[0m |                         ) : (
+ [2m156[0m |                             <div className="h-52 flex flex-col items-center justify-center gap-2">
+ [2m157[0m |                                 <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m158[0m |                                 <p className="text-body-sm text-text-tertiary">No scan data available for this period</p>
+ [2m159[0m |                             </div>
+ [2m160[0m |                         )}
+ [2m161[0m |                     </div>
+ [2m162[0m | 
+ [2m163[0m |                     {/* Device Donut — 1/3 width */}
+ [2m164[0m |                     <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m165[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m166[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Device Split</h2>
+ [2m167[0m |                         {loading ? <SkeletonBox h="h-52" /> : (
+ [2m168[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m169[0m |                                 <PieChart>
+ [2m170[0m |                                     <Pie data={deviceData} cx="50%" cy="45%" innerRadius={48} outerRadius={72} paddingAngle={4} dataKey="value">
+ [2m171[0m |                                         {deviceData.map((entry, index) => (
+ [2m172[0m |                                             <Cell key={`cell-${index}`} fill={entry.color} stroke="transparent" />
+ [2m173[0m |                                         ))}
+ [2m174[0m |                                     </Pie>
+ [2m175[0m |                                     <Legend formatter={(value) => <span style={{ color: "#6B7280", fontSize: "10px", fontFamily: "monospace", letterSpacing: "0.1em", textTransform: "uppercase" }}>{value}</span>} iconSize={6} iconType="circle" />
+ [2m176[0m |                                     <Tooltip
+ [2m177[0m |                                         formatter={(value) => [`${value}%`, ""]}
+ [2m178[0m |                                         contentStyle={{ backgroundColor: "#1a1400", border: "1px solid rgba(212,175,55,0.2)", borderRadius: 0, fontSize: 11, fontFamily: "monospace" }}
+ [2m179[0m |                                         itemStyle={{ color: "#D4AF37" }}
+ [2m180[0m |                                     />
+ [2m181[0m |                                 </PieChart>
+ [2m182[0m |                             </ResponsiveContainer>
+ [2m183[0m |                         )}
+ [2m184[0m |                     </div>
+ [2m185[0m |                 </div>
+ [2m186[0m | 
+ [2m187[0m |                 {/* Scan Velocity (Last 7 days bar chart) */}
+ [2m188[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m189[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-violet/30 to-transparent" />
+ [2m190[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Scan Velocity — Last 7 Days</h2>
+ [2m191[0m |                     {loading ? <SkeletonBox h="h-36" /> : velocityData.length > 0 ? (
+ [2m192[0m |                         <ResponsiveContainer width="100%" height={130}>
+ [2m193[0m |                             <BarChart data={velocityData} margin={{ top: 0, right: 5, left: -30, bottom: 0 }}>
+ [2m194[0m |                                 <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.3} vertical={false} />
+ [2m195[0m |                                 <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m196[0m |                                 <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m197[0m |                                 <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(212,175,55,0.05)" }} />
+ [2m198[0m |                                 <Bar dataKey="scans" fill="#10B981" radius={[2, 2, 0, 0]} />
+ [2m199[0m |                             </BarChart>
+ [2m200[0m |                         </ResponsiveContainer>
+ [2m201[0m |                     ) : (
+ [2m202[0m |                         <div className="h-36 flex items-center justify-center">
+ [2m203[0m |                             <p className="text-body-sm text-text-tertiary">No recent scan data</p>
+ [2m204[0m |                         </div>
+ [2m205[0m |                     )}
+ [2m206[0m |                 </div>
+ [2m207[0m | 
+ [2m208[0m |                 {/* Dish performance table */}
+ [2m209[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m210[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m211[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-5">Dish Performance</h2>
+ [2m212[0m |                     {loading ? (
+ [2m213[0m |                         <div className="space-y-3">
+ [2m214[0m |                             {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-10 bg-surface/30 animate-pulse rounded" />)}
+ [2m215[0m |                         </div>
+ [2m216[0m |                     ) : report?.topDishes && report.topDishes.length > 0 ? (
+ [2m217[0m |                         <div className="overflow-x-auto">
+ [2m218[0m |                             <table className="w-full">
+ [2m219[0m |                                 <thead>
+ [2m220[0m |                                     <tr className="border-b border-plasma/10">
+ [2m221[0m |                                         {["#", "Dish", "Scans", "Health", "3D"].map((h, i) => (
+ [2m222[0m |                                             <th key={h} className={`text-[10px] font-ui text-text-tertiary tracking-widest uppercase pb-3 ${i === 0 ? "text-left pr-4 w-8" : i === 1 ? "text-left pr-4" : "text-right pr-4"}`}>{h}</th>
+ [2m223[0m |                                         ))}
+ [2m224[0m |                                     </tr>
+ [2m225[0m |                                 </thead>
+ [2m226[0m |                                 <tbody>
+ [2m227[0m |                                     {report.topDishes.map((dish, i) => (
+ [2m228[0m |                                         <tr key={dish.id} className="border-b border-plasma/5 hover:bg-plasma/5 transition-colors">
+ [2m229[0m |                                             <td className="py-3 pr-4 text-xs font-mono text-text-tertiary/50">{i + 1}</td>
+ [2m230[0m |                                             <td className="py-3 pr-4 text-body-sm font-body text-text-primary">{dish.name}</td>
+ [2m231[0m |                                             <td className="py-3 pr-4 text-body-sm font-mono text-plasma text-right font-bold">{dish.scanCount}</td>
+ [2m232[0m |                                             <td className="py-3 pr-4 text-right">
+ [2m233[0m |                                                 <span className={`text-body-xs font-mono ${dish.healthScore >= 80 ? "text-success" : dish.healthScore >= 50 ? "text-amber-400" : "text-ember"}`}>{dish.healthScore}</span>
+ [2m234[0m |                                             </td>
+ [2m235[0m |                                             <td className="py-3 text-right">
+ [2m236[0m |                                                 <span className={`px-2 py-0.5 border font-ui text-[10px] tracking-widest ${dish.hasModel ? "border-success/30 text-success bg-success/5" : "border-ember/20 text-ember/60"}`}>
+ [2m237[0m |                                                     {dish.hasModel ? "3D ✓" : "—"}
+ [2m238[0m |                                                 </span>
+ [2m239[0m |                                             </td>
+ [2m240[0m |                                         </tr>
+ [2m241[0m |                                     ))}
+ [2m242[0m |                                 </tbody>
+ [2m243[0m |                             </table>
+ [2m244[0m |                         </div>
+ [2m245[0m |                     ) : (
+ [2m246[0m |                         <div className="py-12 flex flex-col items-center gap-2">
+ [2m247[0m |                             <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m248[0m |                             <p className="text-body-sm text-text-tertiary">No dish data available</p>
+ [2m249[0m |                         </div>
+ [2m250[0m |                     )}
+ [2m251[0m |                 </div>
+ [2m252[0m |             </div>
+ [2m253[0m |         </div>
+ [2m254[0m |     );
+ [2m255[0m | }
+ [2m256[0m | 
+ [2m257[0m | 
+ [2m258[0m | interface AnalyticsReport {
+ [2m259[0m |     totalScans: number;
+ [2m260[0m |     dailyScans: Record<string, number>;
+ [2m261[0m |     topDishes: { id: string; name: string; scanCount: number; healthScore: number; hasModel: boolean }[];
+ [2m262[0m |     activeQRCodes: number;
+ [2m263[0m |     totalDishes: number;
+ [2m264[0m |     dishesWithModels: number;
+ [2m265[0m |     modelCoverage: number;
+ [2m266[0m |     avgHealthScore: number;
+ [2m267[0m |     scanTrend: number;
+ [2m268[0m | }
+ [2m269[0m | 
+ [2m270[0m | const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+     : [33;1m      ^^^^^^|^^^^^^[0m
+     :             [33;1m`-- [33;1m`CustomTooltip` redefined here[0m[0m
+ [2m271[0m |     if (active && payload && payload.length) {
+ [2m272[0m |         return (
+ [2m273[0m |             <div className="bg-surface border border-border px-3 py-2 shadow-lg">
+     `----
+
+  [31mx[0m the name `SkeletonBox` is defined multiple times
+     ,-[[36;1;4m/Users/yash/Documents/MenuAR/livin3d/app/(dashboard)/dashboard/analytics/page.tsx[0m:32:1]
+ [2m 32[0m |     return null;
+ [2m 33[0m | };
+ [2m 34[0m | 
+ [2m 35[0m | function SkeletonBox({ h = "h-48" }: { h?: string }) {
+     : [31;1m         ^^^^^|^^^^^[0m
+     :               [31;1m`-- [31;1mprevious definition of `SkeletonBox` here[0m[0m
+ [2m 36[0m |     return <div className={`${h} bg-surface/30 animate-pulse rounded`} />;
+ [2m 37[0m | }
+ [2m 38[0m | 
+ [2m 39[0m | export default function AnalyticsPage() {
+ [2m 40[0m |     const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m 41[0m |     const [loading, setLoading] = useState(true);
+ [2m 42[0m |     const [period, setPeriod] = useState("30d");
+ [2m 43[0m | 
+ [2m 44[0m |     // eslint-disable-next-line react-hooks/exhaustive-deps
+ [2m 45[0m |     useEffect(() => { loadReport(); }, [period]);
+ [2m 46[0m | 
+ [2m 47[0m |     async function loadReport() {
+ [2m 48[0m |         setLoading(true);
+ [2m 49[0m |         try {
+ [2m 50[0m |             const rRes = await fetch("/api/restaurants");
+ [2m 51[0m |             if (rRes.ok) {
+ [2m 52[0m |                 const restaurants = await rRes.json();
+ [2m 53[0m |                 if (restaurants.length > 0) {
+ [2m 54[0m |                     const aRes = await fetch(`/api/analytics/report?restaurantId=${restaurants[0].id}&period=${period}`);
+ [2m 55[0m |                     if (aRes.ok) setReport(await aRes.json());
+ [2m 56[0m |                 }
+ [2m 57[0m |             }
+ [2m 58[0m |         } catch (err) { console.error(err); }
+ [2m 59[0m |         finally { setLoading(false); }
+ [2m 60[0m |     }
+ [2m 61[0m | 
+ [2m 62[0m |     const chartData = report?.dailyScans
+ [2m 63[0m |         ? Object.entries(report.dailyScans).map(([date, count]) => ({ date: date.slice(5), scans: count }))
+ [2m 64[0m |         : [];
+ [2m 65[0m | 
+ [2m 66[0m |     // "Scan Velocity" — bar chart of last 7 days only
+ [2m 67[0m |     const velocityData = chartData.slice(-7);
+ [2m 68[0m | 
+ [2m 69[0m |     const trend = report?.scanTrend ?? 0;
+ [2m 70[0m |     const trendColor = trend >= 0 ? "text-success" : "text-ember";
+ [2m 71[0m | 
+ [2m 72[0m |     const deviceData = [
+ [2m 73[0m |         { name: "Mobile", value: 72, color: "#D4AF37" },
+ [2m 74[0m |         { name: "Desktop", value: 20, color: "#10B981" },
+ [2m 75[0m |         { name: "Tablet", value: 8, color: "#6B7280" },
+ [2m 76[0m |     ];
+ [2m 77[0m | 
+ [2m 78[0m |     const stats = [
+ [2m 79[0m |         { label: "Total Scans", value: report?.totalScans ?? 0, color: "text-plasma", icon: Activity },
+ [2m 80[0m |         { label: "Scan Trend", value: `${trend >= 0 ? "+" : ""}${trend}%`, color: trendColor, icon: trend >= 0 ? TrendingUp : TrendingDown },
+ [2m 81[0m |         { label: "Active QR", value: report?.activeQRCodes ?? 0, color: "text-neon-violet", icon: QrCode },
+ [2m 82[0m |         { label: "3D Coverage", value: `${report?.modelCoverage ?? 0}%`, color: "text-plasma", icon: Box },
+ [2m 83[0m |         { label: "Avg Health", value: report?.avgHealthScore ?? 0, color: (report?.avgHealthScore ?? 0) >= 80 ? "text-success" : (report?.avgHealthScore ?? 0) >= 50 ? "text-amber-400" : "text-ember", icon: Zap },
+ [2m 84[0m |         { label: "Total Dishes", value: report?.totalDishes ?? 0, color: "text-text-primary", icon: Box },
+ [2m 85[0m |     ];
+ [2m 86[0m | 
+ [2m 87[0m |     return (
+ [2m 88[0m |         <div className="min-h-screen p-6">
+ [2m 89[0m |             <div className="max-w-6xl mx-auto space-y-8">
+ [2m 90[0m |                 {/* Header */}
+ [2m 91[0m |                 <div className="flex items-center justify-between flex-wrap gap-4">
+ [2m 92[0m |                     <div>
+ [2m 93[0m |                         <Link href="/dashboard" className="text-xs font-ui text-text-tertiary hover:text-plasma transition-colors tracking-widest uppercase">← Overview</Link>
+ [2m 94[0m |                         <h1 className="text-display-lg font-display text-text-accent tracking-widest mt-2">Analytics</h1>
+ [2m 95[0m |                     </div>
+ [2m 96[0m |                     <div className="flex items-center gap-3">
+ [2m 97[0m |                         <div className="flex gap-2">
+ [2m 98[0m |                             {(["7d", "30d", "90d"] as const).map((p) => (
+ [2m 99[0m |                                 <button key={p} onClick={() => setPeriod(p)}
+ [2m100[0m |                                     className={`px-4 py-2 border font-ui text-xs tracking-widest uppercase transition-all duration-200 ${period === p ? "border-plasma bg-plasma/10 text-plasma shadow-[0_0_12px_rgba(212,175,55,0.1)]" : "border-plasma/20 text-text-tertiary hover:border-plasma/40 hover:text-text-primary"}`}>
+ [2m101[0m |                                     {p}
+ [2m102[0m |                                 </button>
+ [2m103[0m |                             ))}
+ [2m104[0m |                         </div>
+ [2m105[0m |                         <button className="flex items-center gap-2 px-4 py-2 border border-plasma/20 text-text-tertiary font-ui text-xs tracking-widest uppercase hover:border-plasma hover:text-plasma transition-all duration-200">
+ [2m106[0m |                             <Download className="w-3.5 h-3.5" /> Export
+ [2m107[0m |                         </button>
+ [2m108[0m |                     </div>
+ [2m109[0m |                 </div>
+ [2m110[0m | 
+ [2m111[0m |                 {/* Stat cards */}
+ [2m112[0m |                 <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+ [2m113[0m |                     {loading
+ [2m114[0m |                         ? Array.from({ length: 6 }).map((_, i) => (
+ [2m115[0m |                             <div key={i} className="border border-plasma/10 bg-terminal/60 p-4 space-y-2 animate-pulse">
+ [2m116[0m |                                 <div className="h-2.5 w-20 bg-surface/60 rounded" />
+ [2m117[0m |                                 <div className="h-7 w-12 bg-surface/60 rounded" />
+ [2m118[0m |                             </div>
+ [2m119[0m |                         ))
+ [2m120[0m |                         : stats.map(({ label, value, color, icon: Icon }) => (
+ [2m121[0m |                             <div key={label} className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-4 group hover:border-plasma/30 transition-all duration-300 overflow-hidden">
+ [2m122[0m |                                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+ [2m123[0m |                                 <div className="flex items-start justify-between mb-2">
+ [2m124[0m |                                     <p className="text-[10px] font-ui text-text-tertiary tracking-widest uppercase">{label}</p>
+ [2m125[0m |                                     <Icon className="w-3 h-3 text-text-tertiary/30 group-hover:text-plasma/50 transition-colors" />
+ [2m126[0m |                                 </div>
+ [2m127[0m |                                 <p className={`text-display-sm font-display ${color} tracking-wider`}>{value}</p>
+ [2m128[0m |                             </div>
+ [2m129[0m |                         ))
+ [2m130[0m |                     }
+ [2m131[0m |                 </div>
+ [2m132[0m | 
+ [2m133[0m |                 {/* Charts row */}
+ [2m134[0m |                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+ [2m135[0m |                     {/* Area chart — 2/3 width */}
+ [2m136[0m |                     <div className="lg:col-span-2 relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m137[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m138[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Daily Scans — {period}</h2>
+ [2m139[0m |                         {loading ? <SkeletonBox h="h-52" /> : chartData.length > 0 ? (
+ [2m140[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m141[0m |                                 <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -30, bottom: 0 }}>
+ [2m142[0m |                                     <defs>
+ [2m143[0m |                                         <linearGradient id="aGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m144[0m |                                             <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.25} />
+ [2m145[0m |                                             <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+ [2m146[0m |                                         </linearGradient>
+ [2m147[0m |                                     </defs>
+ [2m148[0m |                                     <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.4} vertical={false} />
+ [2m149[0m |                                     <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m150[0m |                                     <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m151[0m |                                     <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#D4AF37", strokeWidth: 1, strokeDasharray: "4 4", strokeOpacity: 0.5 }} />
+ [2m152[0m |                                     <Area type="monotone" dataKey="scans" stroke="#D4AF37" strokeWidth={2} fill="url(#aGradient)" dot={false} activeDot={{ r: 4, fill: "#D4AF37", stroke: "#1a1400", strokeWidth: 2 }} />
+ [2m153[0m |                                 </AreaChart>
+ [2m154[0m |                             </ResponsiveContainer>
+ [2m155[0m |                         ) : (
+ [2m156[0m |                             <div className="h-52 flex flex-col items-center justify-center gap-2">
+ [2m157[0m |                                 <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m158[0m |                                 <p className="text-body-sm text-text-tertiary">No scan data available for this period</p>
+ [2m159[0m |                             </div>
+ [2m160[0m |                         )}
+ [2m161[0m |                     </div>
+ [2m162[0m | 
+ [2m163[0m |                     {/* Device Donut — 1/3 width */}
+ [2m164[0m |                     <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m165[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m166[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Device Split</h2>
+ [2m167[0m |                         {loading ? <SkeletonBox h="h-52" /> : (
+ [2m168[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m169[0m |                                 <PieChart>
+ [2m170[0m |                                     <Pie data={deviceData} cx="50%" cy="45%" innerRadius={48} outerRadius={72} paddingAngle={4} dataKey="value">
+ [2m171[0m |                                         {deviceData.map((entry, index) => (
+ [2m172[0m |                                             <Cell key={`cell-${index}`} fill={entry.color} stroke="transparent" />
+ [2m173[0m |                                         ))}
+ [2m174[0m |                                     </Pie>
+ [2m175[0m |                                     <Legend formatter={(value) => <span style={{ color: "#6B7280", fontSize: "10px", fontFamily: "monospace", letterSpacing: "0.1em", textTransform: "uppercase" }}>{value}</span>} iconSize={6} iconType="circle" />
+ [2m176[0m |                                     <Tooltip
+ [2m177[0m |                                         formatter={(value) => [`${value}%`, ""]}
+ [2m178[0m |                                         contentStyle={{ backgroundColor: "#1a1400", border: "1px solid rgba(212,175,55,0.2)", borderRadius: 0, fontSize: 11, fontFamily: "monospace" }}
+ [2m179[0m |                                         itemStyle={{ color: "#D4AF37" }}
+ [2m180[0m |                                     />
+ [2m181[0m |                                 </PieChart>
+ [2m182[0m |                             </ResponsiveContainer>
+ [2m183[0m |                         )}
+ [2m184[0m |                     </div>
+ [2m185[0m |                 </div>
+ [2m186[0m | 
+ [2m187[0m |                 {/* Scan Velocity (Last 7 days bar chart) */}
+ [2m188[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m189[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-violet/30 to-transparent" />
+ [2m190[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Scan Velocity — Last 7 Days</h2>
+ [2m191[0m |                     {loading ? <SkeletonBox h="h-36" /> : velocityData.length > 0 ? (
+ [2m192[0m |                         <ResponsiveContainer width="100%" height={130}>
+ [2m193[0m |                             <BarChart data={velocityData} margin={{ top: 0, right: 5, left: -30, bottom: 0 }}>
+ [2m194[0m |                                 <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.3} vertical={false} />
+ [2m195[0m |                                 <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m196[0m |                                 <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m197[0m |                                 <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(212,175,55,0.05)" }} />
+ [2m198[0m |                                 <Bar dataKey="scans" fill="#10B981" radius={[2, 2, 0, 0]} />
+ [2m199[0m |                             </BarChart>
+ [2m200[0m |                         </ResponsiveContainer>
+ [2m201[0m |                     ) : (
+ [2m202[0m |                         <div className="h-36 flex items-center justify-center">
+ [2m203[0m |                             <p className="text-body-sm text-text-tertiary">No recent scan data</p>
+ [2m204[0m |                         </div>
+ [2m205[0m |                     )}
+ [2m206[0m |                 </div>
+ [2m207[0m | 
+ [2m208[0m |                 {/* Dish performance table */}
+ [2m209[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m210[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m211[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-5">Dish Performance</h2>
+ [2m212[0m |                     {loading ? (
+ [2m213[0m |                         <div className="space-y-3">
+ [2m214[0m |                             {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-10 bg-surface/30 animate-pulse rounded" />)}
+ [2m215[0m |                         </div>
+ [2m216[0m |                     ) : report?.topDishes && report.topDishes.length > 0 ? (
+ [2m217[0m |                         <div className="overflow-x-auto">
+ [2m218[0m |                             <table className="w-full">
+ [2m219[0m |                                 <thead>
+ [2m220[0m |                                     <tr className="border-b border-plasma/10">
+ [2m221[0m |                                         {["#", "Dish", "Scans", "Health", "3D"].map((h, i) => (
+ [2m222[0m |                                             <th key={h} className={`text-[10px] font-ui text-text-tertiary tracking-widest uppercase pb-3 ${i === 0 ? "text-left pr-4 w-8" : i === 1 ? "text-left pr-4" : "text-right pr-4"}`}>{h}</th>
+ [2m223[0m |                                         ))}
+ [2m224[0m |                                     </tr>
+ [2m225[0m |                                 </thead>
+ [2m226[0m |                                 <tbody>
+ [2m227[0m |                                     {report.topDishes.map((dish, i) => (
+ [2m228[0m |                                         <tr key={dish.id} className="border-b border-plasma/5 hover:bg-plasma/5 transition-colors">
+ [2m229[0m |                                             <td className="py-3 pr-4 text-xs font-mono text-text-tertiary/50">{i + 1}</td>
+ [2m230[0m |                                             <td className="py-3 pr-4 text-body-sm font-body text-text-primary">{dish.name}</td>
+ [2m231[0m |                                             <td className="py-3 pr-4 text-body-sm font-mono text-plasma text-right font-bold">{dish.scanCount}</td>
+ [2m232[0m |                                             <td className="py-3 pr-4 text-right">
+ [2m233[0m |                                                 <span className={`text-body-xs font-mono ${dish.healthScore >= 80 ? "text-success" : dish.healthScore >= 50 ? "text-amber-400" : "text-ember"}`}>{dish.healthScore}</span>
+ [2m234[0m |                                             </td>
+ [2m235[0m |                                             <td className="py-3 text-right">
+ [2m236[0m |                                                 <span className={`px-2 py-0.5 border font-ui text-[10px] tracking-widest ${dish.hasModel ? "border-success/30 text-success bg-success/5" : "border-ember/20 text-ember/60"}`}>
+ [2m237[0m |                                                     {dish.hasModel ? "3D ✓" : "—"}
+ [2m238[0m |                                                 </span>
+ [2m239[0m |                                             </td>
+ [2m240[0m |                                         </tr>
+ [2m241[0m |                                     ))}
+ [2m242[0m |                                 </tbody>
+ [2m243[0m |                             </table>
+ [2m244[0m |                         </div>
+ [2m245[0m |                     ) : (
+ [2m246[0m |                         <div className="py-12 flex flex-col items-center gap-2">
+ [2m247[0m |                             <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m248[0m |                             <p className="text-body-sm text-text-tertiary">No dish data available</p>
+ [2m249[0m |                         </div>
+ [2m250[0m |                     )}
+ [2m251[0m |                 </div>
+ [2m252[0m |             </div>
+ [2m253[0m |         </div>
+ [2m254[0m |     );
+ [2m255[0m | }
+ [2m256[0m | 
+ [2m257[0m | 
+ [2m258[0m | interface AnalyticsReport {
+ [2m259[0m |     totalScans: number;
+ [2m260[0m |     dailyScans: Record<string, number>;
+ [2m261[0m |     topDishes: { id: string; name: string; scanCount: number; healthScore: number; hasModel: boolean }[];
+ [2m262[0m |     activeQRCodes: number;
+ [2m263[0m |     totalDishes: number;
+ [2m264[0m |     dishesWithModels: number;
+ [2m265[0m |     modelCoverage: number;
+ [2m266[0m |     avgHealthScore: number;
+ [2m267[0m |     scanTrend: number;
+ [2m268[0m | }
+ [2m269[0m | 
+ [2m270[0m | const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+ [2m271[0m |     if (active && payload && payload.length) {
+ [2m272[0m |         return (
+ [2m273[0m |             <div className="bg-surface border border-border px-3 py-2 shadow-lg">
+ [2m274[0m |                 <p className="text-body-xs font-mono text-text-tertiary mb-1">{label}</p>
+ [2m275[0m |                 <p className="text-body-sm font-mono text-plasma">{payload[0].value} scans</p>
+ [2m276[0m |             </div>
+ [2m277[0m |         );
+ [2m278[0m |     }
+ [2m279[0m |     return null;
+ [2m280[0m | };
+ [2m281[0m | 
+ [2m282[0m | function SkeletonBox({ h = "h-48" }: { h?: string }) {
+     : [33;1m         ^^^^^|^^^^^[0m
+     :               [33;1m`-- [33;1m`SkeletonBox` redefined here[0m[0m
+ [2m283[0m |     return <div className={`${h} bg-surface skeleton`} />;
+ [2m284[0m | }
+     `----
+
+  [31mx[0m the name `AnalyticsPage` is defined multiple times
+     ,-[[36;1;4m/Users/yash/Documents/MenuAR/livin3d/app/(dashboard)/dashboard/analytics/page.tsx[0m:36:1]
+ [2m 36[0m |     return <div className={`${h} bg-surface/30 animate-pulse rounded`} />;
+ [2m 37[0m | }
+ [2m 38[0m | 
+ [2m 39[0m | export default function AnalyticsPage() {
+     : [31;1m                        ^^^^^^|^^^^^^[0m
+     :                               [31;1m`-- [31;1mprevious definition of `AnalyticsPage` here[0m[0m
+ [2m 40[0m |     const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m 41[0m |     const [loading, setLoading] = useState(true);
+ [2m 42[0m |     const [period, setPeriod] = useState("30d");
+ [2m 43[0m | 
+ [2m 44[0m |     // eslint-disable-next-line react-hooks/exhaustive-deps
+ [2m 45[0m |     useEffect(() => { loadReport(); }, [period]);
+ [2m 46[0m | 
+ [2m 47[0m |     async function loadReport() {
+ [2m 48[0m |         setLoading(true);
+ [2m 49[0m |         try {
+ [2m 50[0m |             const rRes = await fetch("/api/restaurants");
+ [2m 51[0m |             if (rRes.ok) {
+ [2m 52[0m |                 const restaurants = await rRes.json();
+ [2m 53[0m |                 if (restaurants.length > 0) {
+ [2m 54[0m |                     const aRes = await fetch(`/api/analytics/report?restaurantId=${restaurants[0].id}&period=${period}`);
+ [2m 55[0m |                     if (aRes.ok) setReport(await aRes.json());
+ [2m 56[0m |                 }
+ [2m 57[0m |             }
+ [2m 58[0m |         } catch (err) { console.error(err); }
+ [2m 59[0m |         finally { setLoading(false); }
+ [2m 60[0m |     }
+ [2m 61[0m | 
+ [2m 62[0m |     const chartData = report?.dailyScans
+ [2m 63[0m |         ? Object.entries(report.dailyScans).map(([date, count]) => ({ date: date.slice(5), scans: count }))
+ [2m 64[0m |         : [];
+ [2m 65[0m | 
+ [2m 66[0m |     // "Scan Velocity" — bar chart of last 7 days only
+ [2m 67[0m |     const velocityData = chartData.slice(-7);
+ [2m 68[0m | 
+ [2m 69[0m |     const trend = report?.scanTrend ?? 0;
+ [2m 70[0m |     const trendColor = trend >= 0 ? "text-success" : "text-ember";
+ [2m 71[0m | 
+ [2m 72[0m |     const deviceData = [
+ [2m 73[0m |         { name: "Mobile", value: 72, color: "#D4AF37" },
+ [2m 74[0m |         { name: "Desktop", value: 20, color: "#10B981" },
+ [2m 75[0m |         { name: "Tablet", value: 8, color: "#6B7280" },
+ [2m 76[0m |     ];
+ [2m 77[0m | 
+ [2m 78[0m |     const stats = [
+ [2m 79[0m |         { label: "Total Scans", value: report?.totalScans ?? 0, color: "text-plasma", icon: Activity },
+ [2m 80[0m |         { label: "Scan Trend", value: `${trend >= 0 ? "+" : ""}${trend}%`, color: trendColor, icon: trend >= 0 ? TrendingUp : TrendingDown },
+ [2m 81[0m |         { label: "Active QR", value: report?.activeQRCodes ?? 0, color: "text-neon-violet", icon: QrCode },
+ [2m 82[0m |         { label: "3D Coverage", value: `${report?.modelCoverage ?? 0}%`, color: "text-plasma", icon: Box },
+ [2m 83[0m |         { label: "Avg Health", value: report?.avgHealthScore ?? 0, color: (report?.avgHealthScore ?? 0) >= 80 ? "text-success" : (report?.avgHealthScore ?? 0) >= 50 ? "text-amber-400" : "text-ember", icon: Zap },
+ [2m 84[0m |         { label: "Total Dishes", value: report?.totalDishes ?? 0, color: "text-text-primary", icon: Box },
+ [2m 85[0m |     ];
+ [2m 86[0m | 
+ [2m 87[0m |     return (
+ [2m 88[0m |         <div className="min-h-screen p-6">
+ [2m 89[0m |             <div className="max-w-6xl mx-auto space-y-8">
+ [2m 90[0m |                 {/* Header */}
+ [2m 91[0m |                 <div className="flex items-center justify-between flex-wrap gap-4">
+ [2m 92[0m |                     <div>
+ [2m 93[0m |                         <Link href="/dashboard" className="text-xs font-ui text-text-tertiary hover:text-plasma transition-colors tracking-widest uppercase">← Overview</Link>
+ [2m 94[0m |                         <h1 className="text-display-lg font-display text-text-accent tracking-widest mt-2">Analytics</h1>
+ [2m 95[0m |                     </div>
+ [2m 96[0m |                     <div className="flex items-center gap-3">
+ [2m 97[0m |                         <div className="flex gap-2">
+ [2m 98[0m |                             {(["7d", "30d", "90d"] as const).map((p) => (
+ [2m 99[0m |                                 <button key={p} onClick={() => setPeriod(p)}
+ [2m100[0m |                                     className={`px-4 py-2 border font-ui text-xs tracking-widest uppercase transition-all duration-200 ${period === p ? "border-plasma bg-plasma/10 text-plasma shadow-[0_0_12px_rgba(212,175,55,0.1)]" : "border-plasma/20 text-text-tertiary hover:border-plasma/40 hover:text-text-primary"}`}>
+ [2m101[0m |                                     {p}
+ [2m102[0m |                                 </button>
+ [2m103[0m |                             ))}
+ [2m104[0m |                         </div>
+ [2m105[0m |                         <button className="flex items-center gap-2 px-4 py-2 border border-plasma/20 text-text-tertiary font-ui text-xs tracking-widest uppercase hover:border-plasma hover:text-plasma transition-all duration-200">
+ [2m106[0m |                             <Download className="w-3.5 h-3.5" /> Export
+ [2m107[0m |                         </button>
+ [2m108[0m |                     </div>
+ [2m109[0m |                 </div>
+ [2m110[0m | 
+ [2m111[0m |                 {/* Stat cards */}
+ [2m112[0m |                 <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+ [2m113[0m |                     {loading
+ [2m114[0m |                         ? Array.from({ length: 6 }).map((_, i) => (
+ [2m115[0m |                             <div key={i} className="border border-plasma/10 bg-terminal/60 p-4 space-y-2 animate-pulse">
+ [2m116[0m |                                 <div className="h-2.5 w-20 bg-surface/60 rounded" />
+ [2m117[0m |                                 <div className="h-7 w-12 bg-surface/60 rounded" />
+ [2m118[0m |                             </div>
+ [2m119[0m |                         ))
+ [2m120[0m |                         : stats.map(({ label, value, color, icon: Icon }) => (
+ [2m121[0m |                             <div key={label} className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-4 group hover:border-plasma/30 transition-all duration-300 overflow-hidden">
+ [2m122[0m |                                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+ [2m123[0m |                                 <div className="flex items-start justify-between mb-2">
+ [2m124[0m |                                     <p className="text-[10px] font-ui text-text-tertiary tracking-widest uppercase">{label}</p>
+ [2m125[0m |                                     <Icon className="w-3 h-3 text-text-tertiary/30 group-hover:text-plasma/50 transition-colors" />
+ [2m126[0m |                                 </div>
+ [2m127[0m |                                 <p className={`text-display-sm font-display ${color} tracking-wider`}>{value}</p>
+ [2m128[0m |                             </div>
+ [2m129[0m |                         ))
+ [2m130[0m |                     }
+ [2m131[0m |                 </div>
+ [2m132[0m | 
+ [2m133[0m |                 {/* Charts row */}
+ [2m134[0m |                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+ [2m135[0m |                     {/* Area chart — 2/3 width */}
+ [2m136[0m |                     <div className="lg:col-span-2 relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m137[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m138[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Daily Scans — {period}</h2>
+ [2m139[0m |                         {loading ? <SkeletonBox h="h-52" /> : chartData.length > 0 ? (
+ [2m140[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m141[0m |                                 <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -30, bottom: 0 }}>
+ [2m142[0m |                                     <defs>
+ [2m143[0m |                                         <linearGradient id="aGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m144[0m |                                             <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.25} />
+ [2m145[0m |                                             <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+ [2m146[0m |                                         </linearGradient>
+ [2m147[0m |                                     </defs>
+ [2m148[0m |                                     <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.4} vertical={false} />
+ [2m149[0m |                                     <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m150[0m |                                     <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m151[0m |                                     <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#D4AF37", strokeWidth: 1, strokeDasharray: "4 4", strokeOpacity: 0.5 }} />
+ [2m152[0m |                                     <Area type="monotone" dataKey="scans" stroke="#D4AF37" strokeWidth={2} fill="url(#aGradient)" dot={false} activeDot={{ r: 4, fill: "#D4AF37", stroke: "#1a1400", strokeWidth: 2 }} />
+ [2m153[0m |                                 </AreaChart>
+ [2m154[0m |                             </ResponsiveContainer>
+ [2m155[0m |                         ) : (
+ [2m156[0m |                             <div className="h-52 flex flex-col items-center justify-center gap-2">
+ [2m157[0m |                                 <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m158[0m |                                 <p className="text-body-sm text-text-tertiary">No scan data available for this period</p>
+ [2m159[0m |                             </div>
+ [2m160[0m |                         )}
+ [2m161[0m |                     </div>
+ [2m162[0m | 
+ [2m163[0m |                     {/* Device Donut — 1/3 width */}
+ [2m164[0m |                     <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m165[0m |                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m166[0m |                         <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Device Split</h2>
+ [2m167[0m |                         {loading ? <SkeletonBox h="h-52" /> : (
+ [2m168[0m |                             <ResponsiveContainer width="100%" height={200}>
+ [2m169[0m |                                 <PieChart>
+ [2m170[0m |                                     <Pie data={deviceData} cx="50%" cy="45%" innerRadius={48} outerRadius={72} paddingAngle={4} dataKey="value">
+ [2m171[0m |                                         {deviceData.map((entry, index) => (
+ [2m172[0m |                                             <Cell key={`cell-${index}`} fill={entry.color} stroke="transparent" />
+ [2m173[0m |                                         ))}
+ [2m174[0m |                                     </Pie>
+ [2m175[0m |                                     <Legend formatter={(value) => <span style={{ color: "#6B7280", fontSize: "10px", fontFamily: "monospace", letterSpacing: "0.1em", textTransform: "uppercase" }}>{value}</span>} iconSize={6} iconType="circle" />
+ [2m176[0m |                                     <Tooltip
+ [2m177[0m |                                         formatter={(value) => [`${value}%`, ""]}
+ [2m178[0m |                                         contentStyle={{ backgroundColor: "#1a1400", border: "1px solid rgba(212,175,55,0.2)", borderRadius: 0, fontSize: 11, fontFamily: "monospace" }}
+ [2m179[0m |                                         itemStyle={{ color: "#D4AF37" }}
+ [2m180[0m |                                     />
+ [2m181[0m |                                 </PieChart>
+ [2m182[0m |                             </ResponsiveContainer>
+ [2m183[0m |                         )}
+ [2m184[0m |                     </div>
+ [2m185[0m |                 </div>
+ [2m186[0m | 
+ [2m187[0m |                 {/* Scan Velocity (Last 7 days bar chart) */}
+ [2m188[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m189[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-violet/30 to-transparent" />
+ [2m190[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Scan Velocity — Last 7 Days</h2>
+ [2m191[0m |                     {loading ? <SkeletonBox h="h-36" /> : velocityData.length > 0 ? (
+ [2m192[0m |                         <ResponsiveContainer width="100%" height={130}>
+ [2m193[0m |                             <BarChart data={velocityData} margin={{ top: 0, right: 5, left: -30, bottom: 0 }}>
+ [2m194[0m |                                 <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.3} vertical={false} />
+ [2m195[0m |                                 <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m196[0m |                                 <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m197[0m |                                 <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(212,175,55,0.05)" }} />
+ [2m198[0m |                                 <Bar dataKey="scans" fill="#10B981" radius={[2, 2, 0, 0]} />
+ [2m199[0m |                             </BarChart>
+ [2m200[0m |                         </ResponsiveContainer>
+ [2m201[0m |                     ) : (
+ [2m202[0m |                         <div className="h-36 flex items-center justify-center">
+ [2m203[0m |                             <p className="text-body-sm text-text-tertiary">No recent scan data</p>
+ [2m204[0m |                         </div>
+ [2m205[0m |                     )}
+ [2m206[0m |                 </div>
+ [2m207[0m | 
+ [2m208[0m |                 {/* Dish performance table */}
+ [2m209[0m |                 <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m210[0m |                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m211[0m |                     <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-5">Dish Performance</h2>
+ [2m212[0m |                     {loading ? (
+ [2m213[0m |                         <div className="space-y-3">
+ [2m214[0m |                             {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-10 bg-surface/30 animate-pulse rounded" />)}
+ [2m215[0m |                         </div>
+ [2m216[0m |                     ) : report?.topDishes && report.topDishes.length > 0 ? (
+ [2m217[0m |                         <div className="overflow-x-auto">
+ [2m218[0m |                             <table className="w-full">
+ [2m219[0m |                                 <thead>
+ [2m220[0m |                                     <tr className="border-b border-plasma/10">
+ [2m221[0m |                                         {["#", "Dish", "Scans", "Health", "3D"].map((h, i) => (
+ [2m222[0m |                                             <th key={h} className={`text-[10px] font-ui text-text-tertiary tracking-widest uppercase pb-3 ${i === 0 ? "text-left pr-4 w-8" : i === 1 ? "text-left pr-4" : "text-right pr-4"}`}>{h}</th>
+ [2m223[0m |                                         ))}
+ [2m224[0m |                                     </tr>
+ [2m225[0m |                                 </thead>
+ [2m226[0m |                                 <tbody>
+ [2m227[0m |                                     {report.topDishes.map((dish, i) => (
+ [2m228[0m |                                         <tr key={dish.id} className="border-b border-plasma/5 hover:bg-plasma/5 transition-colors">
+ [2m229[0m |                                             <td className="py-3 pr-4 text-xs font-mono text-text-tertiary/50">{i + 1}</td>
+ [2m230[0m |                                             <td className="py-3 pr-4 text-body-sm font-body text-text-primary">{dish.name}</td>
+ [2m231[0m |                                             <td className="py-3 pr-4 text-body-sm font-mono text-plasma text-right font-bold">{dish.scanCount}</td>
+ [2m232[0m |                                             <td className="py-3 pr-4 text-right">
+ [2m233[0m |                                                 <span className={`text-body-xs font-mono ${dish.healthScore >= 80 ? "text-success" : dish.healthScore >= 50 ? "text-amber-400" : "text-ember"}`}>{dish.healthScore}</span>
+ [2m234[0m |                                             </td>
+ [2m235[0m |                                             <td className="py-3 text-right">
+ [2m236[0m |                                                 <span className={`px-2 py-0.5 border font-ui text-[10px] tracking-widest ${dish.hasModel ? "border-success/30 text-success bg-success/5" : "border-ember/20 text-ember/60"}`}>
+ [2m237[0m |                                                     {dish.hasModel ? "3D ✓" : "—"}
+ [2m238[0m |                                                 </span>
+ [2m239[0m |                                             </td>
+ [2m240[0m |                                         </tr>
+ [2m241[0m |                                     ))}
+ [2m242[0m |                                 </tbody>
+ [2m243[0m |                             </table>
+ [2m244[0m |                         </div>
+ [2m245[0m |                     ) : (
+ [2m246[0m |                         <div className="py-12 flex flex-col items-center gap-2">
+ [2m247[0m |                             <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m248[0m |                             <p className="text-body-sm text-text-tertiary">No dish data available</p>
+ [2m249[0m |                         </div>
+ [2m250[0m |                     )}
+ [2m251[0m |                 </div>
+ [2m252[0m |             </div>
+ [2m253[0m |         </div>
+ [2m254[0m |     );
+ [2m255[0m | }
+ [2m256[0m | 
+ [2m257[0m | 
+ [2m258[0m | interface AnalyticsReport {
+ [2m259[0m |     totalScans: number;
+ [2m260[0m |     dailyScans: Record<string, number>;
+ [2m261[0m |     topDishes: { id: string; name: string; scanCount: number; healthScore: number; hasModel: boolean }[];
+ [2m262[0m |     activeQRCodes: number;
+ [2m263[0m |     totalDishes: number;
+ [2m264[0m |     dishesWithModels: number;
+ [2m265[0m |     modelCoverage: number;
+ [2m266[0m |     avgHealthScore: number;
+ [2m267[0m |     scanTrend: number;
+ [2m268[0m | }
+ [2m269[0m | 
+ [2m270[0m | const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+ [2m271[0m |     if (active && payload && payload.length) {
+ [2m272[0m |         return (
+ [2m273[0m |             <div className="bg-surface border border-border px-3 py-2 shadow-lg">
+ [2m274[0m |                 <p className="text-body-xs font-mono text-text-tertiary mb-1">{label}</p>
+ [2m275[0m |                 <p className="text-body-sm font-mono text-plasma">{payload[0].value} scans</p>
+ [2m276[0m |             </div>
+ [2m277[0m |         );
+ [2m278[0m |     }
+ [2m279[0m |     return null;
+ [2m280[0m | };
+ [2m281[0m | 
+ [2m282[0m | function SkeletonBox({ h = "h-48" }: { h?: string }) {
+ [2m283[0m |     return <div className={`${h} bg-surface skeleton`} />;
+ [2m284[0m | }
+ [2m285[0m | 
+ [2m286[0m | export default function AnalyticsPage() {
+     : [33;1m                        ^^^^^^|^^^^^^[0m
+     :                               [33;1m`-- [33;1m`AnalyticsPage` redefined here[0m[0m
+ [2m287[0m |     const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m288[0m |     const [loading, setLoading] = useState(true);
+ [2m289[0m |     const [period, setPeriod] = useState("30d");
+     `----
+
+  [31mx[0m the name `default` is exported multiple times
+     ,-[[36;1;4m/Users/yash/Documents/MenuAR/livin3d/app/(dashboard)/dashboard/analytics/page.tsx[0m:36:1]
+ [2m 36[0m |         return <div className={`${h} bg-surface/30 animate-pulse rounded`} />;
+ [2m 37[0m |     }
+ [2m 38[0m |     
+ [2m 39[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m export default function AnalyticsPage() {
+ [2m 40[0m | [31;1m|[0m       const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m 41[0m | [31;1m|[0m       const [loading, setLoading] = useState(true);
+ [2m 42[0m | [31;1m|[0m       const [period, setPeriod] = useState("30d");
+ [2m 43[0m | [31;1m|[0m   
+ [2m 44[0m | [31;1m|[0m       // eslint-disable-next-line react-hooks/exhaustive-deps
+ [2m 45[0m | [31;1m|[0m       useEffect(() => { loadReport(); }, [period]);
+ [2m 46[0m | [31;1m|[0m   
+ [2m 47[0m | [31;1m|[0m       async function loadReport() {
+ [2m 48[0m | [31;1m|[0m           setLoading(true);
+ [2m 49[0m | [31;1m|[0m           try {
+ [2m 50[0m | [31;1m|[0m               const rRes = await fetch("/api/restaurants");
+ [2m 51[0m | [31;1m|[0m               if (rRes.ok) {
+ [2m 52[0m | [31;1m|[0m                   const restaurants = await rRes.json();
+ [2m 53[0m | [31;1m|[0m                   if (restaurants.length > 0) {
+ [2m 54[0m | [31;1m|[0m                       const aRes = await fetch(`/api/analytics/report?restaurantId=${restaurants[0].id}&period=${period}`);
+ [2m 55[0m | [31;1m|[0m                       if (aRes.ok) setReport(await aRes.json());
+ [2m 56[0m | [31;1m|[0m                   }
+ [2m 57[0m | [31;1m|[0m               }
+ [2m 58[0m | [31;1m|[0m           } catch (err) { console.error(err); }
+ [2m 59[0m | [31;1m|[0m           finally { setLoading(false); }
+ [2m 60[0m | [31;1m|[0m       }
+ [2m 61[0m | [31;1m|[0m   
+ [2m 62[0m | [31;1m|[0m       const chartData = report?.dailyScans
+ [2m 63[0m | [31;1m|[0m           ? Object.entries(report.dailyScans).map(([date, count]) => ({ date: date.slice(5), scans: count }))
+ [2m 64[0m | [31;1m|[0m           : [];
+ [2m 65[0m | [31;1m|[0m   
+ [2m 66[0m | [31;1m|[0m       // "Scan Velocity" — bar chart of last 7 days only
+ [2m 67[0m | [31;1m|[0m       const velocityData = chartData.slice(-7);
+ [2m 68[0m | [31;1m|[0m   
+ [2m 69[0m | [31;1m|[0m       const trend = report?.scanTrend ?? 0;
+ [2m 70[0m | [31;1m|[0m       const trendColor = trend >= 0 ? "text-success" : "text-ember";
+ [2m 71[0m | [31;1m|[0m   
+ [2m 72[0m | [31;1m|[0m       const deviceData = [
+ [2m 73[0m | [31;1m|[0m           { name: "Mobile", value: 72, color: "#D4AF37" },
+ [2m 74[0m | [31;1m|[0m           { name: "Desktop", value: 20, color: "#10B981" },
+ [2m 75[0m | [31;1m|[0m           { name: "Tablet", value: 8, color: "#6B7280" },
+ [2m 76[0m | [31;1m|[0m       ];
+ [2m 77[0m | [31;1m|[0m   
+ [2m 78[0m | [31;1m|[0m       const stats = [
+ [2m 79[0m | [31;1m|[0m           { label: "Total Scans", value: report?.totalScans ?? 0, color: "text-plasma", icon: Activity },
+ [2m 80[0m | [31;1m|[0m           { label: "Scan Trend", value: `${trend >= 0 ? "+" : ""}${trend}%`, color: trendColor, icon: trend >= 0 ? TrendingUp : TrendingDown },
+ [2m 81[0m | [31;1m|[0m           { label: "Active QR", value: report?.activeQRCodes ?? 0, color: "text-neon-violet", icon: QrCode },
+ [2m 82[0m | [31;1m|[0m           { label: "3D Coverage", value: `${report?.modelCoverage ?? 0}%`, color: "text-plasma", icon: Box },
+ [2m 83[0m | [31;1m|[0m           { label: "Avg Health", value: report?.avgHealthScore ?? 0, color: (report?.avgHealthScore ?? 0) >= 80 ? "text-success" : (report?.avgHealthScore ?? 0) >= 50 ? "text-amber-400" : "text-ember", icon: Zap },
+ [2m 84[0m | [31;1m|[0m           { label: "Total Dishes", value: report?.totalDishes ?? 0, color: "text-text-primary", icon: Box },
+ [2m 85[0m | [31;1m|[0m       ];
+ [2m 86[0m | [31;1m|[0m   
+ [2m 87[0m | [31;1m|[0m       return (
+ [2m 88[0m | [31;1m|[0m           <div className="min-h-screen p-6">
+ [2m 89[0m | [31;1m|[0m               <div className="max-w-6xl mx-auto space-y-8">
+ [2m 90[0m | [31;1m|[0m                   {/* Header */}
+ [2m 91[0m | [31;1m|[0m                   <div className="flex items-center justify-between flex-wrap gap-4">
+ [2m 92[0m | [31;1m|[0m                       <div>
+ [2m 93[0m | [31;1m|[0m                           <Link href="/dashboard" className="text-xs font-ui text-text-tertiary hover:text-plasma transition-colors tracking-widest uppercase">← Overview</Link>
+ [2m 94[0m | [31;1m|[0m                           <h1 className="text-display-lg font-display text-text-accent tracking-widest mt-2">Analytics</h1>
+ [2m 95[0m | [31;1m|[0m                       </div>
+ [2m 96[0m | [31;1m|[0m                       <div className="flex items-center gap-3">
+ [2m 97[0m | [31;1m|[0m                           <div className="flex gap-2">
+ [2m 98[0m | [31;1m|[0m                               {(["7d", "30d", "90d"] as const).map((p) => (
+ [2m 99[0m | [31;1m|[0m                                   <button key={p} onClick={() => setPeriod(p)}
+ [2m100[0m | [31;1m|[0m                                       className={`px-4 py-2 border font-ui text-xs tracking-widest uppercase transition-all duration-200 ${period === p ? "border-plasma bg-plasma/10 text-plasma shadow-[0_0_12px_rgba(212,175,55,0.1)]" : "border-plasma/20 text-text-tertiary hover:border-plasma/40 hover:text-text-primary"}`}>
+ [2m101[0m | [31;1m|[0m                                       {p}
+ [2m102[0m | [31;1m|[0m                                   </button>
+ [2m103[0m | [31;1m|[0m                               ))}
+ [2m104[0m | [31;1m|[0m                           </div>
+ [2m105[0m | [31;1m|[0m                           <button className="flex items-center gap-2 px-4 py-2 border border-plasma/20 text-text-tertiary font-ui text-xs tracking-widest uppercase hover:border-plasma hover:text-plasma transition-all duration-200">
+ [2m106[0m | [31;1m|[0m                               <Download className="w-3.5 h-3.5" /> Export
+ [2m107[0m | [31;1m|[0m                           </button>
+ [2m108[0m | [31;1m|[0m                       </div>
+ [2m109[0m | [31;1m|[0m                   </div>
+ [2m110[0m | [31;1m|[0m   
+ [2m111[0m | [31;1m|[0m                   {/* Stat cards */}
+ [2m112[0m | [31;1m|[0m                   <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+ [2m113[0m | [31;1m|[0m                       {loading
+ [2m114[0m | [31;1m|[0m                           ? Array.from({ length: 6 }).map((_, i) => (
+ [2m115[0m | [31;1m|[0m                               <div key={i} className="border border-plasma/10 bg-terminal/60 p-4 space-y-2 animate-pulse">
+ [2m116[0m | [31;1m|[0m                                   <div className="h-2.5 w-20 bg-surface/60 rounded" />
+ [2m117[0m | [31;1m|[0m                                   <div className="h-7 w-12 bg-surface/60 rounded" />
+ [2m118[0m | [31;1m|[0m                               </div>
+ [2m119[0m | [31;1m|[0m                           ))
+ [2m120[0m | [31;1m|[0m                           : stats.map(({ label, value, color, icon: Icon }) => (
+ [2m121[0m | [31;1m|[0m                               <div key={label} className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-4 group hover:border-plasma/30 transition-all duration-300 overflow-hidden">
+ [2m122[0m | [31;1m|[0m                                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+ [2m123[0m | [31;1m|[0m                                   <div className="flex items-start justify-between mb-2">
+ [2m124[0m | [31;1m|[0m                                       <p className="text-[10px] font-ui text-text-tertiary tracking-widest uppercase">{label}</p>
+ [2m125[0m | [31;1m|[0m                                       <Icon className="w-3 h-3 text-text-tertiary/30 group-hover:text-plasma/50 transition-colors" />
+ [2m126[0m | [31;1m|[0m                                   </div>
+ [2m127[0m | [31;1m|[0m                                   <p className={`text-display-sm font-display ${color} tracking-wider`}>{value}</p>
+ [2m128[0m | [31;1m|[0m                               </div>
+ [2m129[0m | [31;1m|[0m                           ))
+ [2m130[0m | [31;1m|[0m                       }
+ [2m131[0m | [31;1m|[0m                   </div>
+ [2m132[0m | [31;1m|[0m   
+ [2m133[0m | [31;1m|[0m                   {/* Charts row */}
+ [2m134[0m | [31;1m|[0m                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+ [2m135[0m | [31;1m|[0m                       {/* Area chart — 2/3 width */}
+ [2m136[0m | [31;1m|[0m                       <div className="lg:col-span-2 relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m137[0m | [31;1m|[0m                           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m138[0m | [31;1m|[0m                           <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Daily Scans — {period}</h2>
+ [2m139[0m | [31;1m|[0m                           {loading ? <SkeletonBox h="h-52" /> : chartData.length > 0 ? (
+ [2m140[0m | [31;1m|[0m                               <ResponsiveContainer width="100%" height={200}>
+ [2m141[0m | [31;1m|[0m                                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -30, bottom: 0 }}>
+ [2m142[0m | [31;1m|[0m                                       <defs>
+ [2m143[0m | [31;1m|[0m                                           <linearGradient id="aGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m144[0m | [31;1m|[0m                                               <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.25} />
+ [2m145[0m | [31;1m|[0m                                               <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+ [2m146[0m | [31;1m|[0m                                           </linearGradient>
+ [2m147[0m | [31;1m|[0m                                       </defs>
+ [2m148[0m | [31;1m|[0m                                       <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.4} vertical={false} />
+ [2m149[0m | [31;1m|[0m                                       <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m150[0m | [31;1m|[0m                                       <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m151[0m | [31;1m|[0m                                       <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#D4AF37", strokeWidth: 1, strokeDasharray: "4 4", strokeOpacity: 0.5 }} />
+ [2m152[0m | [31;1m|[0m                                       <Area type="monotone" dataKey="scans" stroke="#D4AF37" strokeWidth={2} fill="url(#aGradient)" dot={false} activeDot={{ r: 4, fill: "#D4AF37", stroke: "#1a1400", strokeWidth: 2 }} />
+ [2m153[0m | [31;1m|[0m                                   </AreaChart>
+ [2m154[0m | [31;1m|[0m                               </ResponsiveContainer>
+ [2m155[0m | [31;1m|[0m                           ) : (
+ [2m156[0m | [31;1m|[0m                               <div className="h-52 flex flex-col items-center justify-center gap-2">
+ [2m157[0m | [31;1m|[0m                                   <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m158[0m | [31;1m|[0m                                   <p className="text-body-sm text-text-tertiary">No scan data available for this period</p>
+ [2m159[0m | [31;1m|[0m                               </div>
+ [2m160[0m | [31;1m|[0m                           )}
+ [2m161[0m | [31;1m|[0m                       </div>
+ [2m162[0m | [31;1m|[0m   
+ [2m163[0m | [31;1m|[0m                       {/* Device Donut — 1/3 width */}
+ [2m164[0m | [31;1m|[0m                       <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m165[0m | [31;1m|[0m                           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m166[0m | [31;1m|[0m                           <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Device Split</h2>
+ [2m167[0m | [31;1m|[0m                           {loading ? <SkeletonBox h="h-52" /> : (
+ [2m168[0m | [31;1m|[0m                               <ResponsiveContainer width="100%" height={200}>
+ [2m169[0m | [31;1m|[0m                                   <PieChart>
+ [2m170[0m | [31;1m|[0m                                       <Pie data={deviceData} cx="50%" cy="45%" innerRadius={48} outerRadius={72} paddingAngle={4} dataKey="value">
+ [2m171[0m | [31;1m|[0m                                           {deviceData.map((entry, index) => (
+ [2m172[0m | [31;1m|[0m                                               <Cell key={`cell-${index}`} fill={entry.color} stroke="transparent" />
+ [2m173[0m | [31;1m|[0m                                           ))}
+ [2m174[0m | [31;1m|[0m                                       </Pie>
+ [2m175[0m | [31;1m|[0m                                       <Legend formatter={(value) => <span style={{ color: "#6B7280", fontSize: "10px", fontFamily: "monospace", letterSpacing: "0.1em", textTransform: "uppercase" }}>{value}</span>} iconSize={6} iconType="circle" />
+ [2m176[0m | [31;1m|[0m                                       <Tooltip
+ [2m177[0m | [31;1m|[0m                                           formatter={(value) => [`${value}%`, ""]}
+ [2m178[0m | [31;1m|[0m                                           contentStyle={{ backgroundColor: "#1a1400", border: "1px solid rgba(212,175,55,0.2)", borderRadius: 0, fontSize: 11, fontFamily: "monospace" }}
+ [2m179[0m | [31;1m|[0m                                           itemStyle={{ color: "#D4AF37" }}
+ [2m180[0m | [31;1m|[0m                                       />
+ [2m181[0m | [31;1m|[0m                                   </PieChart>
+ [2m182[0m | [31;1m|[0m                               </ResponsiveContainer>
+ [2m183[0m | [31;1m|[0m                           )}
+ [2m184[0m | [31;1m|[0m                       </div>
+ [2m185[0m | [31;1m|[0m                   </div>
+ [2m186[0m | [31;1m|[0m   
+ [2m187[0m | [31;1m|[0m                   {/* Scan Velocity (Last 7 days bar chart) */}
+ [2m188[0m | [31;1m|[0m                   <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m189[0m | [31;1m|[0m                       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-violet/30 to-transparent" />
+ [2m190[0m | [31;1m|[0m                       <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-6">Scan Velocity — Last 7 Days</h2>
+ [2m191[0m | [31;1m|[0m                       {loading ? <SkeletonBox h="h-36" /> : velocityData.length > 0 ? (
+ [2m192[0m | [31;1m|[0m                           <ResponsiveContainer width="100%" height={130}>
+ [2m193[0m | [31;1m|[0m                               <BarChart data={velocityData} margin={{ top: 0, right: 5, left: -30, bottom: 0 }}>
+ [2m194[0m | [31;1m|[0m                                   <CartesianGrid strokeDasharray="2 4" stroke="#374151" strokeOpacity={0.3} vertical={false} />
+ [2m195[0m | [31;1m|[0m                                   <XAxis dataKey="date" tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m196[0m | [31;1m|[0m                                   <YAxis tick={{ fill: "#6B7280", fontSize: 10, fontFamily: "monospace" }} axisLine={false} tickLine={false} />
+ [2m197[0m | [31;1m|[0m                                   <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(212,175,55,0.05)" }} />
+ [2m198[0m | [31;1m|[0m                                   <Bar dataKey="scans" fill="#10B981" radius={[2, 2, 0, 0]} />
+ [2m199[0m | [31;1m|[0m                               </BarChart>
+ [2m200[0m | [31;1m|[0m                           </ResponsiveContainer>
+ [2m201[0m | [31;1m|[0m                       ) : (
+ [2m202[0m | [31;1m|[0m                           <div className="h-36 flex items-center justify-center">
+ [2m203[0m | [31;1m|[0m                               <p className="text-body-sm text-text-tertiary">No recent scan data</p>
+ [2m204[0m | [31;1m|[0m                           </div>
+ [2m205[0m | [31;1m|[0m                       )}
+ [2m206[0m | [31;1m|[0m                   </div>
+ [2m207[0m | [31;1m|[0m   
+ [2m208[0m | [31;1m|[0m                   {/* Dish performance table */}
+ [2m209[0m | [31;1m|[0m                   <div className="relative border border-plasma/10 bg-terminal/60 backdrop-blur-sm p-6 overflow-hidden">
+ [2m210[0m | [31;1m|[0m                       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-plasma/30 to-transparent" />
+ [2m211[0m | [31;1m|[0m                       <h2 className="text-body-xs font-ui text-text-accent tracking-widest uppercase mb-5">Dish Performance</h2>
+ [2m212[0m | [31;1m|[0m                       {loading ? (
+ [2m213[0m | [31;1m|[0m                           <div className="space-y-3">
+ [2m214[0m | [31;1m|[0m                               {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-10 bg-surface/30 animate-pulse rounded" />)}
+ [2m215[0m | [31;1m|[0m                           </div>
+ [2m216[0m | [31;1m|[0m                       ) : report?.topDishes && report.topDishes.length > 0 ? (
+ [2m217[0m | [31;1m|[0m                           <div className="overflow-x-auto">
+ [2m218[0m | [31;1m|[0m                               <table className="w-full">
+ [2m219[0m | [31;1m|[0m                                   <thead>
+ [2m220[0m | [31;1m|[0m                                       <tr className="border-b border-plasma/10">
+ [2m221[0m | [31;1m|[0m                                           {["#", "Dish", "Scans", "Health", "3D"].map((h, i) => (
+ [2m222[0m | [31;1m|[0m                                               <th key={h} className={`text-[10px] font-ui text-text-tertiary tracking-widest uppercase pb-3 ${i === 0 ? "text-left pr-4 w-8" : i === 1 ? "text-left pr-4" : "text-right pr-4"}`}>{h}</th>
+ [2m223[0m | [31;1m|[0m                                           ))}
+ [2m224[0m | [31;1m|[0m                                       </tr>
+ [2m225[0m | [31;1m|[0m                                   </thead>
+ [2m226[0m | [31;1m|[0m                                   <tbody>
+ [2m227[0m | [31;1m|[0m                                       {report.topDishes.map((dish, i) => (
+ [2m228[0m | [31;1m|[0m                                           <tr key={dish.id} className="border-b border-plasma/5 hover:bg-plasma/5 transition-colors">
+ [2m229[0m | [31;1m|[0m                                               <td className="py-3 pr-4 text-xs font-mono text-text-tertiary/50">{i + 1}</td>
+ [2m230[0m | [31;1m|[0m                                               <td className="py-3 pr-4 text-body-sm font-body text-text-primary">{dish.name}</td>
+ [2m231[0m | [31;1m|[0m                                               <td className="py-3 pr-4 text-body-sm font-mono text-plasma text-right font-bold">{dish.scanCount}</td>
+ [2m232[0m | [31;1m|[0m                                               <td className="py-3 pr-4 text-right">
+ [2m233[0m | [31;1m|[0m                                                   <span className={`text-body-xs font-mono ${dish.healthScore >= 80 ? "text-success" : dish.healthScore >= 50 ? "text-amber-400" : "text-ember"}`}>{dish.healthScore}</span>
+ [2m234[0m | [31;1m|[0m                                               </td>
+ [2m235[0m | [31;1m|[0m                                               <td className="py-3 text-right">
+ [2m236[0m | [31;1m|[0m                                                   <span className={`px-2 py-0.5 border font-ui text-[10px] tracking-widest ${dish.hasModel ? "border-success/30 text-success bg-success/5" : "border-ember/20 text-ember/60"}`}>
+ [2m237[0m | [31;1m|[0m                                                       {dish.hasModel ? "3D ✓" : "—"}
+ [2m238[0m | [31;1m|[0m                                                   </span>
+ [2m239[0m | [31;1m|[0m                                               </td>
+ [2m240[0m | [31;1m|[0m                                           </tr>
+ [2m241[0m | [31;1m|[0m                                       ))}
+ [2m242[0m | [31;1m|[0m                                   </tbody>
+ [2m243[0m | [31;1m|[0m                               </table>
+ [2m244[0m | [31;1m|[0m                           </div>
+ [2m245[0m | [31;1m|[0m                       ) : (
+ [2m246[0m | [31;1m|[0m                           <div className="py-12 flex flex-col items-center gap-2">
+ [2m247[0m | [31;1m|[0m                               <Activity className="w-8 h-8 text-text-tertiary/20" />
+ [2m248[0m | [31;1m|[0m                               <p className="text-body-sm text-text-tertiary">No dish data available</p>
+ [2m249[0m | [31;1m|[0m                           </div>
+ [2m250[0m | [31;1m|[0m                       )}
+ [2m251[0m | [31;1m|[0m                   </div>
+ [2m252[0m | [31;1m|[0m               </div>
+ [2m253[0m | [31;1m|[0m           </div>
+ [2m254[0m | [31;1m|[0m       );
+ [2m255[0m | [31;1m|[0m[31;1m-[0m[31;1m>[0m }
+     : [31;1m`[0m[31;1m---[0m[31;1m-[0m [31;1mprevious exported here[0m
+ [2m256[0m |     
+ [2m257[0m |     
+ [2m258[0m |     interface AnalyticsReport {
+ [2m259[0m |         totalScans: number;
+ [2m260[0m |         dailyScans: Record<string, number>;
+ [2m261[0m |         topDishes: { id: string; name: string; scanCount: number; healthScore: number; hasModel: boolean }[];
+ [2m262[0m |         activeQRCodes: number;
+ [2m263[0m |         totalDishes: number;
+ [2m264[0m |         dishesWithModels: number;
+ [2m265[0m |         modelCoverage: number;
+ [2m266[0m |         avgHealthScore: number;
+ [2m267[0m |         scanTrend: number;
+ [2m268[0m |     }
+ [2m269[0m |     
+ [2m270[0m |     const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
+ [2m271[0m |         if (active && payload && payload.length) {
+ [2m272[0m |             return (
+ [2m273[0m |                 <div className="bg-surface border border-border px-3 py-2 shadow-lg">
+ [2m274[0m |                     <p className="text-body-xs font-mono text-text-tertiary mb-1">{label}</p>
+ [2m275[0m |                     <p className="text-body-sm font-mono text-plasma">{payload[0].value} scans</p>
+ [2m276[0m |                 </div>
+ [2m277[0m |             );
+ [2m278[0m |         }
+ [2m279[0m |         return null;
+ [2m280[0m |     };
+ [2m281[0m |     
+ [2m282[0m |     function SkeletonBox({ h = "h-48" }: { h?: string }) {
+ [2m283[0m |         return <div className={`${h} bg-surface skeleton`} />;
+ [2m284[0m |     }
+ [2m285[0m |     
+ [2m286[0m | [33;1m,[0m[33;1m-[0m[33;1m>[0m export default function AnalyticsPage() {
+ [2m287[0m | [33;1m|[0m       const [report, setReport] = useState<AnalyticsReport | null>(null);
+ [2m288[0m | [33;1m|[0m       const [loading, setLoading] = useState(true);
+ [2m289[0m | [33;1m|[0m       const [period, setPeriod] = useState("30d");
+ [2m290[0m | [33;1m|[0m   
+ [2m291[0m | [33;1m|[0m       // eslint-disable-next-line react-hooks/exhaustive-deps
+ [2m292[0m | [33;1m|[0m       useEffect(() => { loadReport(); }, [period]);
+ [2m293[0m | [33;1m|[0m   
+ [2m294[0m | [33;1m|[0m       async function loadReport() {
+ [2m295[0m | [33;1m|[0m           setLoading(true);
+ [2m296[0m | [33;1m|[0m           try {
+ [2m297[0m | [33;1m|[0m               const rRes = await fetch("/api/restaurants");
+ [2m298[0m | [33;1m|[0m               if (rRes.ok) {
+ [2m299[0m | [33;1m|[0m                   const restaurants = await rRes.json();
+ [2m300[0m | [33;1m|[0m                   if (restaurants.length > 0) {
+ [2m301[0m | [33;1m|[0m                       const aRes = await fetch(`/api/analytics/report?restaurantId=${restaurants[0].id}&period=${period}`);
+ [2m302[0m | [33;1m|[0m                       if (aRes.ok) setReport(await aRes.json());
+ [2m303[0m | [33;1m|[0m                   }
+ [2m304[0m | [33;1m|[0m               }
+ [2m305[0m | [33;1m|[0m           } catch (err) { console.error(err); }
+ [2m306[0m | [33;1m|[0m           finally { setLoading(false); }
+ [2m307[0m | [33;1m|[0m       }
+ [2m308[0m | [33;1m|[0m   
+ [2m309[0m | [33;1m|[0m       const chartData = report?.dailyScans
+ [2m310[0m | [33;1m|[0m           ? Object.entries(report.dailyScans).map(([date, count]) => ({ date: date.slice(5), scans: count }))
+ [2m311[0m | [33;1m|[0m           : [];
+ [2m312[0m | [33;1m|[0m   
+ [2m313[0m | [33;1m|[0m       const trend = report?.scanTrend ?? 0;
+ [2m314[0m | [33;1m|[0m       const trendColor = trend >= 0 ? "text-success" : "text-ember";
+ [2m315[0m | [33;1m|[0m   
+ [2m316[0m | [33;1m|[0m       // Donut chart data for device breakdown (placeholder until API supports it)
+ [2m317[0m | [33;1m|[0m       const deviceData = [
+ [2m318[0m | [33;1m|[0m           { name: "Mobile", value: 72, color: "#D4AF37" },
+ [2m319[0m | [33;1m|[0m           { name: "Desktop", value: 20, color: "#10B981" },
+ [2m320[0m | [33;1m|[0m           { name: "Tablet", value: 8, color: "#9CA3AF" },
+ [2m321[0m | [33;1m|[0m       ];
+ [2m322[0m | [33;1m|[0m   
+ [2m323[0m | [33;1m|[0m       const stats = [
+ [2m324[0m | [33;1m|[0m           { label: "Total Scans", value: report?.totalScans ?? 0, color: "text-plasma", icon: Activity },
+ [2m325[0m | [33;1m|[0m           { label: "Scan Trend", value: `${trend >= 0 ? "+" : ""}${trend}%`, color: trendColor, icon: trend >= 0 ? TrendingUp : TrendingDown },
+ [2m326[0m | [33;1m|[0m           { label: "Active QR", value: report?.activeQRCodes ?? 0, color: "text-neon-violet", icon: QrCode },
+ [2m327[0m | [33;1m|[0m           { label: "3D Coverage", value: `${report?.modelCoverage ?? 0}%`, color: "text-plasma", icon: Box },
+ [2m328[0m | [33;1m|[0m           { label: "Avg Health", value: report?.avgHealthScore ?? 0, color: (report?.avgHealthScore ?? 0) >= 80 ? "text-success" : (report?.avgHealthScore ?? 0) >= 50 ? "text-amber-400" : "text-ember", icon: Activity },
+ [2m329[0m | [33;1m|[0m           { label: "Total Dishes", value: report?.totalDishes ?? 0, color: "text-text-primary", icon: Box },
+ [2m330[0m | [33;1m|[0m       ];
+ [2m331[0m | [33;1m|[0m   
+ [2m332[0m | [33;1m|[0m       return (
+ [2m333[0m | [33;1m|[0m           <div className="min-h-screen p-6">
+ [2m334[0m | [33;1m|[0m               <div className="max-w-6xl mx-auto space-y-8">
+ [2m335[0m | [33;1m|[0m                   {/* Header */}
+ [2m336[0m | [33;1m|[0m                   <div className="flex items-center justify-between">
+ [2m337[0m | [33;1m|[0m                       <div>
+ [2m338[0m | [33;1m|[0m                           <Link href="/dashboard" className="text-body-sm font-ui text-text-tertiary hover:text-plasma transition-colors">← Overview</Link>
+ [2m339[0m | [33;1m|[0m                           <h1 className="text-display-lg font-display text-text-accent tracking-widest mt-2">Analytics</h1>
+ [2m340[0m | [33;1m|[0m                       </div>
+ [2m341[0m | [33;1m|[0m                       <div className="flex items-center gap-3">
+ [2m342[0m | [33;1m|[0m                           <div className="flex gap-2">
+ [2m343[0m | [33;1m|[0m                               {(["7d", "30d", "90d"] as const).map((p) => (
+ [2m344[0m | [33;1m|[0m                                   <button key={p} onClick={() => setPeriod(p)}
+ [2m345[0m | [33;1m|[0m                                       className={`px-4 py-2 border font-ui text-sm tracking-widest uppercase transition-all duration-200 ${period === p ? "border-plasma bg-plasma/10 text-plasma" : "border-border text-text-tertiary hover:border-plasma/50"}`}>
+ [2m346[0m | [33;1m|[0m                                       {p}
+ [2m347[0m | [33;1m|[0m                                   </button>
+ [2m348[0m | [33;1m|[0m                               ))}
+ [2m349[0m | [33;1m|[0m                           </div>
+ [2m350[0m | [33;1m|[0m                           <button className="flex items-center gap-2 px-4 py-2 border border-border text-text-tertiary font-ui text-sm tracking-widest uppercase hover:border-plasma hover:text-plasma transition-all duration-200">
+ [2m351[0m | [33;1m|[0m                               <Download className="w-4 h-4" />
+ [2m352[0m | [33;1m|[0m                               Export
+ [2m353[0m | [33;1m|[0m                           </button>
+ [2m354[0m | [33;1m|[0m                       </div>
+ [2m355[0m | [33;1m|[0m                   </div>
+ [2m356[0m | [33;1m|[0m   
+ [2m357[0m | [33;1m|[0m                   {/* Stat cards */}
+ [2m358[0m | [33;1m|[0m                   <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+ [2m359[0m | [33;1m|[0m                       {loading
+ [2m360[0m | [33;1m|[0m                           ? Array.from({ length: 6 }).map((_, i) => (
+ [2m361[0m | [33;1m|[0m                               <div key={i} className="border border-border bg-terminal p-4 space-y-2">
+ [2m362[0m | [33;1m|[0m                                   <div className="h-3 w-20 bg-surface skeleton" />
+ [2m363[0m | [33;1m|[0m                                   <div className="h-7 w-12 bg-surface skeleton" />
+ [2m364[0m | [33;1m|[0m                               </div>
+ [2m365[0m | [33;1m|[0m                           ))
+ [2m366[0m | [33;1m|[0m                           : stats.map(({ label, value, color, icon: Icon }) => (
+ [2m367[0m | [33;1m|[0m                               <div key={label} className="border border-border bg-terminal p-4 group hover:border-plasma/30 transition-colors">
+ [2m368[0m | [33;1m|[0m                                   <div className="flex items-start justify-between">
+ [2m369[0m | [33;1m|[0m                                       <p className="text-body-xs font-ui text-text-tertiary tracking-widest uppercase">{label}</p>
+ [2m370[0m | [33;1m|[0m                                       <Icon className="w-3 h-3 text-text-tertiary/40 group-hover:text-plasma/40 transition-colors" />
+ [2m371[0m | [33;1m|[0m                                   </div>
+ [2m372[0m | [33;1m|[0m                                   <p className={`text-display-sm font-display ${color} mt-1`}>{value}</p>
+ [2m373[0m | [33;1m|[0m                               </div>
+ [2m374[0m | [33;1m|[0m                           ))
+ [2m375[0m | [33;1m|[0m                       }
+ [2m376[0m | [33;1m|[0m                   </div>
+ [2m377[0m | [33;1m|[0m   
+ [2m378[0m | [33;1m|[0m                   {/* Charts row */}
+ [2m379[0m | [33;1m|[0m                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+ [2m380[0m | [33;1m|[0m                       {/* Area chart — takes 2/3 width */}
+ [2m381[0m | [33;1m|[0m                       <div className="lg:col-span-2 border border-border bg-terminal p-6">
+ [2m382[0m | [33;1m|[0m                           <h2 className="text-body-lg font-ui text-text-accent tracking-widest uppercase mb-6">Daily Scans</h2>
+ [2m383[0m | [33;1m|[0m                           {loading ? <SkeletonBox h="h-52" /> : chartData.length > 0 ? (
+ [2m384[0m | [33;1m|[0m                               <ResponsiveContainer width="100%" height={200}>
+ [2m385[0m | [33;1m|[0m                                   <AreaChart data={chartData} margin={{ top: 5, right: 5, left: -30, bottom: 0 }}>
+ [2m386[0m | [33;1m|[0m                                       <defs>
+ [2m387[0m | [33;1m|[0m                                           <linearGradient id="aGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m388[0m | [33;1m|[0m                                               <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.3} />
+ [2m389[0m | [33;1m|[0m                                               <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+ [2m390[0m | [33;1m|[0m                                           </linearGradient>
+ [2m391[0m | [33;1m|[0m                                       </defs>
+ [2m392[0m | [33;1m|[0m                                       <CartesianGrid strokeDasharray="3 3" stroke="#374151" vertical={false} />
+ [2m393[0m | [33;1m|[0m                                       <XAxis dataKey="date" tick={{ fill: "#9CA3AF", fontSize: 10 }} axisLine={false} tickLine={false} />
+ [2m394[0m | [33;1m|[0m                                       <YAxis tick={{ fill: "#9CA3AF", fontSize: 10 }} axisLine={false} tickLine={false} />
+ [2m395[0m | [33;1m|[0m                                       <Tooltip content={<CustomTooltip />} cursor={{ stroke: "#D4AF37", strokeWidth: 1, strokeDasharray: "4 4" }} />
+ [2m396[0m | [33;1m|[0m                                       <Area type="monotone" dataKey="scans" stroke="#D4AF37" strokeWidth={2} fill="url(#aGradient)" dot={false} activeDot={{ r: 4, fill: "#D4AF37", stroke: "#1a1400" }} />
+ [2m397[0m | [33;1m|[0m                                   </AreaChart>
+ [2m398[0m | [33;1m|[0m                               </ResponsiveContainer>
+ [2m399[0m | [33;1m|[0m                           ) : (
+ [2m400[0m | [33;1m|[0m                               <div className="h-52 flex flex-col items-center justify-center gap-2">
+ [2m401[0m | [33;1m|[0m                                   <Activity className="w-8 h-8 text-text-tertiary/30" />
+ [2m402[0m | [33;1m|[0m                                   <p className="text-body-sm text-text-tertiary">No scan data available for this period</p>
+ [2m403[0m | [33;1m|[0m                               </div>
+ [2m404[0m | [33;1m|[0m                           )}
+ [2m405[0m | [33;1m|[0m                       </div>
+ [2m406[0m | [33;1m|[0m   
+ [2m407[0m | [33;1m|[0m                       {/* Device Donut — 1/3 width */}
+ [2m408[0m | [33;1m|[0m                       <div className="border border-border bg-terminal p-6">
+ [2m409[0m | [33;1m|[0m                           <h2 className="text-body-lg font-ui text-text-accent tracking-widest uppercase mb-6">Devices</h2>
+ [2m410[0m | [33;1m|[0m                           {loading ? <SkeletonBox h="h-52" /> : (
+ [2m411[0m | [33;1m|[0m                               <ResponsiveContainer width="100%" height={200}>
+ [2m412[0m | [33;1m|[0m                                   <PieChart>
+ [2m413[0m | [33;1m|[0m                                       <Pie data={deviceData} cx="50%" cy="45%" innerRadius={50} outerRadius={75} paddingAngle={3} dataKey="value">
+ [2m414[0m | [33;1m|[0m                                           {deviceData.map((entry, index) => (
+ [2m415[0m | [33;1m|[0m                                               <Cell key={`cell-${index}`} fill={entry.color} stroke="transparent" />
+ [2m416[0m | [33;1m|[0m                                           ))}
+ [2m417[0m | [33;1m|[0m                                       </Pie>
+ [2m418[0m | [33;1m|[0m                                       <Legend
+ [2m419[0m | [33;1m|[0m                                           formatter={(value) => <span style={{ color: "#9CA3AF", fontSize: "11px", fontFamily: "monospace" }}>{value}</span>}
+ [2m420[0m | [33;1m|[0m                                           iconSize={8}
+ [2m421[0m | [33;1m|[0m                                           iconType="circle"
+ [2m422[0m | [33;1m|[0m                                       />
+ [2m423[0m | [33;1m|[0m                                       <Tooltip
+ [2m424[0m | [33;1m|[0m                                           formatter={(value) => [`${value}%`, ""]}
+ [2m425[0m | [33;1m|[0m                                           contentStyle={{ backgroundColor: "#342900", border: "1px solid #374151", borderRadius: 0, fontSize: 12 }}
+ [2m426[0m | [33;1m|[0m                                           itemStyle={{ color: "#D4AF37" }}
+ [2m427[0m | [33;1m|[0m                                       />
+ [2m428[0m | [33;1m|[0m                                   </PieChart>
+ [2m429[0m | [33;1m|[0m                               </ResponsiveContainer>
+ [2m430[0m | [33;1m|[0m                           )}
+ [2m431[0m | [33;1m|[0m                       </div>
+ [2m432[0m | [33;1m|[0m                   </div>
+ [2m433[0m | [33;1m|[0m   
+ [2m434[0m | [33;1m|[0m                   {/* Dish performance table */}
+ [2m435[0m | [33;1m|[0m                   <div className="border border-border bg-terminal p-6">
+ [2m436[0m | [33;1m|[0m                       <h2 className="text-body-lg font-ui text-text-accent tracking-widest uppercase mb-4">Dish Performance</h2>
+ [2m437[0m | [33;1m|[0m                       {loading ? (
+ [2m438[0m | [33;1m|[0m                           <div className="space-y-3">
+ [2m439[0m | [33;1m|[0m                               {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-10 bg-surface skeleton" />)}
+ [2m440[0m | [33;1m|[0m                           </div>
+ [2m441[0m | [33;1m|[0m                       ) : report?.topDishes && report.topDishes.length > 0 ? (
+ [2m442[0m | [33;1m|[0m                           <div className="overflow-x-auto">
+ [2m443[0m | [33;1m|[0m                               <table className="w-full">
+ [2m444[0m | [33;1m|[0m                                   <thead>
+ [2m445[0m | [33;1m|[0m                                       <tr className="border-b border-border">
+ [2m446[0m | [33;1m|[0m                                           {["#", "Dish", "Scans", "Health", "3D"].map((h, i) => (
+ [2m447[0m | [33;1m|[0m                                               <th key={h} className={`text-body-xs font-ui text-text-tertiary tracking-widest uppercase pb-3 ${i === 0 ? "text-left pr-4 w-8" : i === 1 ? "text-left pr-4" : "text-right pr-4"}`}>{h}</th>
+ [2m448[0m | [33;1m|[0m                                           ))}
+ [2m449[0m | [33;1m|[0m                                       </tr>
+ [2m450[0m | [33;1m|[0m                                   </thead>
+ [2m451[0m | [33;1m|[0m                                   <tbody>
+ [2m452[0m | [33;1m|[0m                                       {report.topDishes.map((dish, i) => (
+ [2m453[0m | [33;1m|[0m                                           <tr key={dish.id} className="border-b border-border/30 hover:bg-surface/40 transition-colors">
+ [2m454[0m | [33;1m|[0m                                               <td className="py-3 pr-4 text-body-sm font-mono text-text-tertiary">{i + 1}</td>
+ [2m455[0m | [33;1m|[0m                                               <td className="py-3 pr-4 text-body-sm font-body text-text-primary">{dish.name}</td>
+ [2m456[0m | [33;1m|[0m                                               <td className="py-3 pr-4 text-body-sm font-mono text-plasma text-right">{dish.scanCount}</td>
+ [2m457[0m | [33;1m|[0m                                               <td className="py-3 pr-4 text-right">
+ [2m458[0m | [33;1m|[0m                                                   <span className={`text-body-sm font-mono ${dish.healthScore >= 80 ? "text-success" : dish.healthScore >= 50 ? "text-amber-400" : "text-ember"}`}>{dish.healthScore}</span>
+ [2m459[0m | [33;1m|[0m                                               </td>
+ [2m460[0m | [33;1m|[0m                                               <td className="py-3 text-right">
+ [2m461[0m | [33;1m|[0m                                                   <span className={`px-2 py-0.5 border font-ui text-xs tracking-wider ${dish.hasModel ? "border-success/50 text-success" : "border-ember/50 text-ember"}`}>
+ [2m462[0m | [33;1m|[0m                                                       {dish.hasModel ? "3D" : "—"}
+ [2m463[0m | [33;1m|[0m                                                   </span>
+ [2m464[0m | [33;1m|[0m                                               </td>
+ [2m465[0m | [33;1m|[0m                                           </tr>
+ [2m466[0m | [33;1m|[0m                                       ))}
+ [2m467[0m | [33;1m|[0m                                   </tbody>
+ [2m468[0m | [33;1m|[0m                               </table>
+ [2m469[0m | [33;1m|[0m                           </div>
+ [2m470[0m | [33;1m|[0m                       ) : (
+ [2m471[0m | [33;1m|[0m                           <div className="py-12 flex flex-col items-center gap-2">
+ [2m472[0m | [33;1m|[0m                               <Activity className="w-8 h-8 text-text-tertiary/30" />
+ [2m473[0m | [33;1m|[0m                               <p className="text-body-sm text-text-tertiary">No dish data available</p>
+ [2m474[0m | [33;1m|[0m                           </div>
+ [2m475[0m | [33;1m|[0m                       )}
+ [2m476[0m | [33;1m|[0m                   </div>
+ [2m477[0m | [33;1m|[0m               </div>
+ [2m478[0m | [33;1m|[0m           </div>
+ [2m479[0m | [33;1m|[0m       );
+ [2m480[0m | [33;1m|[0m[33;1m-[0m[33;1m>[0m }
+     : [33;1m`[0m[33;1m---[0m[33;1m-[0m [33;1mexported more than once[0m
+     `----
+
+Error: 
+  [36m>[0m Exported identifiers must be unique
+
+Import trace for requested module:
+./app/(dashboard)/dashboard/analytics/page.tsx
+ ✓ Compiled in 168ms (1931 modules)
+ ✓ Compiled in 958ms (3802 modules)
+ ✓ Compiled in 632ms (3816 modules)
+ ✓ Compiled in 449ms (3816 modules)
+ ✓ Compiled in 1714ms (3852 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/server-development/2.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/server-development/2.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/5.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/5.pack.gz'
+ ✓ Compiled in 1951ms (3816 modules)
+ ✓ Compiled in 123ms (124 modules)
+ ✓ Compiled in 1102ms (3880 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (215kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/edge-server-development/1.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/edge-server-development/1.pack.gz'
+ ✓ Compiled in 230ms (1964 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/7.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/7.pack.gz'
+ ✓ Compiled in 442ms (3880 modules)
+ ✓ Compiled in 324ms (3880 modules)
+ ✓ Compiled in 313ms (3880 modules)
+ ✓ Compiled in 362ms (1964 modules)
+ ✓ Compiled in 137ms (1964 modules)

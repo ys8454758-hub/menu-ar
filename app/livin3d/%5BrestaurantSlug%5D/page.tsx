@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronRight } from "lucide-react";
 
@@ -16,8 +16,12 @@ import LoadingScreen from "@/components/shared/LoadingScreen";
 import { useMenu } from "@/hooks/useMenu";
 import { cn } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default function RestaurantMenuPage() {
     const params = useParams();
+    const restaurantSlug = params?.restaurantSlug as string | undefined;
+    
     const { 
         restaurant, 
         loading, 
@@ -26,21 +30,12 @@ export default function RestaurantMenuPage() {
         removeFromCart, 
         cartCount, 
         cartTotal 
-    } = useMenu(params.restaurantSlug as string);
+    } = useMenu(restaurantSlug || "");
     
     const [searchQuery, setSearchQuery] = useState("");
     const [activeCategory, setActiveCategory] = useState<string>("All");
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isQrOpen, setIsQrOpen] = useState(false);
-
-    const updateQuantity = (dishId: string, delta: number) => {
-        if (delta > 0) {
-            const item = cart.find(i => i.dish.id === dishId);
-            if (item) addToCart(item.dish);
-        } else {
-            removeFromCart(dishId);
-        }
-    };
 
     const categories = useMemo(() => {
         if (!restaurant?.dishes) return ["All"];
@@ -56,6 +51,19 @@ export default function RestaurantMenuPage() {
             return matchesSearch && matchesCategory;
         });
     }, [restaurant, searchQuery, activeCategory]);
+
+    const updateQuantity = (dishId: string, delta: number) => {
+        if (delta > 0) {
+            const item = cart.find(i => i.dish.id === dishId);
+            if (item) addToCart(item.dish);
+        } else {
+            removeFromCart(dishId);
+        }
+    };
+
+    if (!restaurantSlug) {
+        return <LoadingScreen title="Loading" message="Preparing menu..." />;
+    }
 
     if (loading) return <LoadingScreen />;
     if (!restaurant) return <div className="min-h-screen flex items-center justify-center bg-void text-text-secondary">Restaurant not found</div>;

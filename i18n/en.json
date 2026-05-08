@@ -1,95 +1,70 @@
 {
-  "appName": "Livin3D",
-  "tagline": "Experience your food in Augmented Reality before you order",
-  "getStarted": "Get Started",
-  "learnMore": "Learn More",
-  "howItWorks": "How It Works",
-  "scanQR": "Scan QR Code",
-  "viewInAR": "View in AR",
-  "placeOnTable": "Place on Table",
-  "features": {
-    "title": "Features",
-    "arPreview": "AR Preview",
-    "arPreviewDesc": "See dishes in 3D Augmented Reality on your table before ordering",
-    "brandedQRs": "Branded QR Codes",
-    "brandedQRsDesc": "Custom QR codes that match your restaurant's identity",
-    "nutritionInfo": "Nutrition Information",
-    "nutritionInfoDesc": "Detailed nutritional facts and allergen information",
-    "multilingual": "Multilingual Support",
-    "multilingualDesc": "Available in English, Kannada, and Hindi"
+  "common": {
+    "appName": "Livin3D",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found"
   },
-  "pricing": {
-    "title": "Pricing Plans",
-    "starter": "Starter",
-    "growth": "Growth",
-    "pro": "Pro",
-    "starterPrice": "₹999/month",
-    "growthPrice": "₹2,499/month",
-    "proPrice": "₹4,999/month",
-    "starterDesc": "Perfect for small restaurants just starting with AR menus",
-    "growthDesc": "Ideal for growing restaurants with multiple dishes",
-    "proDesc": "Complete solution for established restaurants",
-    "featuresList": [
-      "Dish Management",
-      "QR Code Generation", 
-      "Analytics Dashboard",
-      "Monthly Reports",
-      "Badge Customization",
-      "Nutrition Editor",
-      "Multilingual Support"
-    ]
-  },
-  "navbar": {
+  "nav": {
     "home": "Home",
-    "pricing": "Pricing",
-    "about": "About",
-    "login": "Login",
-    "register": "Register",
     "dashboard": "Dashboard",
-    "admin": "Admin"
-  },
-  "dashboard": {
-    "greeting": "Welcome back, {name}!",
-    "quickStats": "Quick Statistics",
-    "totalDishes": "Total Dishes",
-    "totalScans": "Total Scans",
-    "healthScore": "Health Score",
-    "recentActivity": "Recent Activity",
-    "noActivity": "No recent activity",
-    "menuManagement": "Menu Management",
-    "qrStudio": "QR Design Studio",
+    "dishes": "Dishes",
     "analytics": "Analytics",
-    "badges": "Badge Customization",
-    "settings": "Restaurant Settings"
+    "settings": "Settings",
+    "qrStudio": "QR Studio",
+    "badges": "Badges",
+    "logout": "Log Out"
   },
-  "arViewer": {
-    "viewOnTable": "View on Your Table",
-    "hideInfo": "Hide Info",
-    "showInfo": "Show Info",
-    "share": "Share",
-    "callWaiter": "Call Waiter",
+  "ar": {
+    "viewInAr": "View in AR",
+    "tapToView": "Tap to View in Space",
+    "dietaryPreferences": "Dietary Preferences",
+    "description": "Description",
+    "dietaryInfo": "Dietary Information",
     "ingredients": "Ingredients",
     "nutrition": "Nutrition",
+    "calories": "Calories",
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
     "allergenWarning": "Allergen Warning",
     "mayContain": "May contain",
-    "language": "Language",
-    "english": "English",
-    "kannada": "Kannada",
-    "hindi": "Hindi",
-    "dishNotAvailable": "This dish is no longer available",
-    "redirecting": "You are being redirected..."
+    "share": "Share Dish",
+    "callWaiter": "Call Waiter",
+    "modelNotAvailable": "3D model not available for this dish",
+    "calorieToActivity": "Calorie to Activity Converter",
+    "steps": "Steps",
+    "walkingMinutes": "Walking Minutes",
+    "basedOn": "Based on 70kg adult • Walking at moderate pace"
   },
-  "auth": {
-    "login": "Login",
-    "register": "Register",
-    "email": "Email",
-    "password": "Password",
-    "forgotPassword": "Forgot Password?",
-    "rememberMe": "Remember Me",
-    "googleLogin": "Continue with Google",
-    "noAccount": "Don't have an account?",
-    "haveAccount": "Already have an account?",
-    "signUp": "Sign Up",
-    "signIn": "Sign In"
+  "badges": {
+    "veg": "Veg",
+    "nonVeg": "Non-Veg",
+    "jain": "Jain",
+    "vegan": "Vegan"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "totalDishes": "Total Dishes",
+    "activeQRCodes": "Active QR Codes",
+    "totalScans": "Total Scans",
+    "modelCoverage": "Model Coverage"
+  },
+  "qr": {
+    "designStudio": "QR Design Studio",
+    "preview": "Preview",
+    "download": "Download",
+    "reliabilityScore": "Reliability Score",
+    "excellent": "Excellent",
+    "good": "Good",
+    "fair": "Fair",
+    "poor": "Poor"
   }
 }

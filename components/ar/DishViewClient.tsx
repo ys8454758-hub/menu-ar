@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ARModelViewer from "@/components/ar/ModelViewer";
 import ARActionHub from "@/components/ar/ARActionHub";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
@@ -14,6 +14,7 @@ interface Annotation {
 
 interface DishViewClientProps {
   dish: {
+    id?: string;
     name: string;
     description?: string;
     price?: number;
@@ -61,6 +62,25 @@ export default function DishViewClient({ dish }: DishViewClientProps) {
   const [showDietaryPanel, setShowDietaryPanel] = useState(false);
   const [isGhosted, setIsGhosted] = useState(false);
   const modelRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!dish.id) return;
+    
+    const device = typeof window !== "undefined" 
+      ? /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop"
+      : "desktop";
+
+    fetch("/api/analytics/scan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        dishId: dish.id,
+        device,
+        userAgent: typeof window !== "undefined" ? navigator.userAgent : null,
+      }),
+      keepalive: true,
+    }).catch(console.error);
+  }, [dish.id]);
 
   const scale = dish.model
     ? { x: dish.model.scaleX, y: dish.model.scaleY, z: dish.model.scaleZ }

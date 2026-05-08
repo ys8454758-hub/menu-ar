@@ -24,15 +24,15 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   );
 
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (!session) {
+  if (!user) {
     redirect("/login");
   }
 
   // Check if user is admin
-  const userRole = session.user.user_metadata?.role || "OWNER";
+  const userRole = user.user_metadata?.role || "OWNER";
   if (userRole !== "ADMIN") {
     redirect("/dashboard");
   }

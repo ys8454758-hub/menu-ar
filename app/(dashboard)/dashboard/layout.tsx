@@ -1,19 +1,49 @@
 import Sidebar from "@/components/shared/Sidebar";
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-void">
       <Sidebar />
       <div className="flex-1 flex flex-col pl-[72px]">
-        <nav className="bg-terminal/80 backdrop-blur-sm border-r border-border h-16">
-          <div className="flex h-full w-full items-center px-6">
-            <h1 className="text-display-md font-display text-text-accent tracking-wider">
-              Dashboard
-            </h1>
+        <nav className="sticky top-0 z-30 bg-terminal/70 backdrop-blur-xl border-b border-plasma/10 h-14 flex items-center px-6 gap-4">
+          <div className="flex-1" />
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <span className="text-[10px] font-mono text-success tracking-widest uppercase">Live</span>
           </div>
         </nav>
         <main className="flex-1 p-6 overflow-y-auto">{children}</main>

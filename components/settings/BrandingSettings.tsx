@@ -42,7 +42,7 @@ export default function BrandingSettings({ restaurant, onImageUpload }: Branding
 
                 <div className="border-t border-border/50 pt-8">
                     <h2 className="text-body-md font-ui text-text-primary tracking-widest uppercase mb-1">Background Texture</h2>
-                    <p className="text-body-xs font-mono text-text-tertiary mb-6">Optional texture overlay behind your theme's background gradient. Recommended: subtle pattern.</p>
+                    <p className="text-body-xs font-mono text-text-tertiary mb-6">Optional texture overlay behind your theme&apos;s background gradient. Recommended: subtle pattern.</p>
                     <ImageUploader
                         label="Background Texture"
                         hint="PNG, JPG, WebP · max 5MB · tiling pattern recommended"

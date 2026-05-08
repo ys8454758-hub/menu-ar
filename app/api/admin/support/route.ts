@@ -1,35 +1,31 @@
-import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/auth";
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
+  }
+
+  const supabase = createServerClient(supabaseUrl, supabaseKey, {
+    cookies: { getAll: () => [], setAll: () => {} },
+  });
+
   try {
-    const user = await getCurrentUser();
-    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { data, error } = await supabase
+      .from("support_tickets")
+      .select(`
+        *,
+        restaurant: restaurants(name)
+      `)
+      .order("createdAt", { ascending: false });
 
-    const adminUser = await prisma.user.findUnique({ where: { id: user.id } });
-    if (adminUser?.role !== "ADMIN") return NextResponse.json({ error: "Admin only" }, { status: 403 });
-
-    const tickets = await prisma.supportTicket.findMany({
-      include: {
-        restaurant: true
-      },
-      orderBy: { createdAt: "desc" },
-      take: 50
-    });
-
-    const mappedTickets = tickets.map(t => ({
-      id: t.id,
-      restaurantName: t.restaurant.name,
-      subject: t.subject,
-      category: t.category,
-      status: t.status,
-      priority: t.priority,
-      createdAt: t.createdAt
-    }));
-
-    return NextResponse.json(mappedTickets);
-  } catch (error) {
+    if (error) throw error;
+    return NextResponse.json(data);
+  } catch (err) {
+    console.error("Failed to fetch tickets:", err);
     return NextResponse.json({ error: "Failed to fetch tickets" }, { status: 500 });
   }
 }

@@ -83,6 +83,7 @@ export async function POST(request: NextRequest) {
         update: {
           pngUrl: result.pngUrl,
           svgUrl: result.svgUrl,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           designConfig: config as any,
           scanReliabilityScore: result.reliabilityScore
         },
@@ -91,6 +92,7 @@ export async function POST(request: NextRequest) {
           arUrl: url,
           pngUrl: result.pngUrl,
           svgUrl: result.svgUrl,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           designConfig: config as any,
           scanReliabilityScore: result.reliabilityScore
         }

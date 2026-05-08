@@ -1,45 +1,32 @@
-// GET /api/admin/restaurants - Admin restaurant management
-import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/auth";
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+
+export async function GET() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    return NextResponse.json({ error: "Server misconfigured" }, { status: 500 });
+  }
+
+  const supabase = createServerClient(supabaseUrl, supabaseKey, {
+    cookies: { getAll: () => [], setAll: () => {} },
+  });
+
   try {
-    const user = await getCurrentUser();
-    if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    const { data, error } = await supabase
+      .from("restaurants")
+      .select(`
+        *,
+        _count: dishes(count)
+      `)
+      .order("createdAt", { ascending: false });
 
-    // Check if admin
-    const adminUser = await prisma.user.findUnique({
-      where: { id: user.id },
-      select: { role: true },
-    });
-
-    if (adminUser?.role !== "ADMIN") {
-      return NextResponse.json({ error: "Admin only" }, { status: 403 });
-    }
-
-    const { searchParams } = new URL(request.url);
-    const limit = parseInt(searchParams.get("limit") || "50");
-    const offset = parseInt(searchParams.get("offset") || "0");
-
-    const restaurants = await prisma.restaurant.findMany({
-      include: {
-        owner: true,
-        _count: {
-          select: { dishes: true, scanEvents: true },
-        },
-        subscription: true,
-      },
-      orderBy: { createdAt: "desc" },
-      take: limit,
-      skip: offset,
-    });
-
-    return NextResponse.json(restaurants);
-  } catch (error) {
-    console.error("Admin restaurants fetch error:", error);
+    if (error) throw error;
+    return NextResponse.json(data);
+  } catch (err) {
+    console.error("Failed to fetch restaurants:", err);
     return NextResponse.json({ error: "Failed to fetch restaurants" }, { status: 500 });
   }
 }

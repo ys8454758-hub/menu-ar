@@ -41,20 +41,20 @@ export async function middleware(req: NextRequest) {
     });
 
     const {
-      data: { session },
-    } = await supabase.auth.getSession();
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (req.nextUrl.pathname.startsWith("/dashboard")) {
-      if (!session) {
+      if (!user) {
         return NextResponse.redirect(new URL("/login", req.url));
       }
     }
 
     if (req.nextUrl.pathname.startsWith("/admin")) {
-      if (!session) {
+      if (!user) {
         return NextResponse.redirect(new URL("/login", req.url));
       }
-      const role = session.user.user_metadata?.role;
+      const role = user.user_metadata?.role;
       if (role !== "ADMIN") {
         return NextResponse.redirect(new URL("/dashboard", req.url));
       }
@@ -80,5 +80,11 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/admin/:path*", "/api/cron/:path*"],
+  matcher: [
+    "/dashboard",
+    "/dashboard/:path*",
+    "/admin",
+    "/admin/:path*",
+    "/api/cron/:path*"
+  ],
 };

@@ -1,74 +1,98 @@
 "use client";
-import { useState } from "react";
 
-interface NutritionInfo {
-    calories?: number;
-    protein?: number;
-    carbs?: number;
-    fat?: number;
-    fiber?: number;
-    sugar?: number;
-    sodium?: number;
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Flame, Beef, Wheat, Droplets } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface NutritionData {
+  calories?: number;
+  protein?: number;
+  carbs?: number;
+  fat?: number;
+  fiber?: number;
+  sodium?: number;
+  sugar?: number;
+  servingSize?: string;
 }
 
 interface NutritionDrawerProps {
-    nutrition: NutritionInfo;
-    servingSize?: string;
+  nutrition: NutritionData | null;
+  className?: string;
 }
 
-export default function NutritionDrawer({ nutrition, servingSize }: NutritionDrawerProps) {
-    const [open, setOpen] = useState(false);
-    const items = [
-        { l: "Calories", v: nutrition.calories, u: "kcal", c: "text-ember" },
-        { l: "Protein", v: nutrition.protein, u: "g", c: "text-plasma" },
-        { l: "Carbs", v: nutrition.carbs, u: "g", c: "text-solar" },
-        { l: "Fat", v: nutrition.fat, u: "g", c: "text-ember" },
-        { l: "Fiber", v: nutrition.fiber, u: "g", c: "text-success" },
-        { l: "Sugar", v: nutrition.sugar, u: "g", c: "text-solar" },
-        { l: "Sodium", v: nutrition.sodium, u: "mg", c: "text-text-tertiary" },
-    ];
-    return (
-        <>
-            <button
-                onClick={() => setOpen(true)}
-                className="absolute bottom-24 right-4 z-20 flex items-center gap-2 px-3 py-2 rounded-none border  /80 border-border text-text-tertiary hover:border-plasma/50 transition-all duration-300"
-            >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                    <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M8 1v14M1 8h14" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-                </svg>
-                <span className="text-body-xs font-mono tracking-widest">NUTRITION</span>
-            </button>
-            {open && (
-                <div className="absolute inset-0 z-30 flex items-end justify-center">
-                    <div className="absolute inset-0  /60 backdrop-blur-sm" onClick={() => setOpen(false)} />
-                    <div className="relative w-full max-w-md   border-t border-plasma/30 p-6 animate-materialize">
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-heading-md font-display text-plasma tracking-widest">NUTRITION</h3>
-                            <button onClick={() => setOpen(false)} className="text-text-tertiary hover:text-plasma transition-colors">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                            </button>
-                        </div>
-                        {servingSize && (
-                            <p className="text-body-xs font-mono text-text-tertiary mb-4">
-                                PER {servingSize.toUpperCase()}
-                            </p>
-                        )}
-                        <div className="space-y-3">
-                            {items.map((n) => (
-                                <div key={n.l} className="flex justify-between items-center border-b border-border/50 pb-2">
-                                    <span className="text-body-sm font-mono text-text-secondary">{n.l}</span>
-                                    <span className={"text-body-sm font-mono " + n.c}>
-                                        {n.v ?? "\u2014"} {n.u}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+const NUTRIENT_ICONS: Record<string, React.ReactNode> = {
+  calories: <Flame className="w-4 h-4" />,
+  protein: <Beef className="w-4 h-4" />,
+  carbs: <Wheat className="w-4 h-4" />,
+  fat: <Droplets className="w-4 h-4" />,
+};
+
+export default function NutritionDrawer({ nutrition, className }: NutritionDrawerProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (!nutrition) return null;
+
+  const nutrients = [
+    { key: "calories", label: "Calories", value: nutrition.calories, unit: "" },
+    { key: "protein", label: "Protein", value: nutrition.protein, unit: "g" },
+    { key: "carbs", label: "Carbs", value: nutrition.carbs, unit: "g" },
+    { key: "fat", label: "Fat", value: nutrition.fat, unit: "g" },
+    { key: "fiber", label: "Fiber", value: nutrition.fiber, unit: "g" },
+    { key: "sodium", label: "Sodium", value: nutrition.sodium, unit: "mg" },
+    { key: "sugar", label: "Sugar", value: nutrition.sugar, unit: "g" },
+  ].filter(n => n.value !== undefined && n.value !== null);
+
+  return (
+    <div className={cn("", className)}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-4 border border-border bg-terminal hover:border-plasma/50 transition-colors"
+      >
+        <span className="text-body-md font-ui text-text-accent tracking-wider">Nutrition</span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronDown className="w-5 h-5 text-text-secondary" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 border-x border-b border-border bg-terminal/50 space-y-4">
+              {nutrition.servingSize && (
+                <p className="text-body-sm font-body text-text-secondary">
+                  Serving size: {nutrition.servingSize}
+                </p>
+              )}
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {nutrients.map((nutrient) => (
+                  <div key={nutrient.key} className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-plasma/10 flex items-center justify-center text-plasma">
+                      {NUTRIENT_ICONS[nutrient.key]}
                     </div>
-                </div>
-            )}
-        </>
-    );
+                    <div>
+                      <p className="text-body-xs font-body text-text-secondary">{nutrient.label}</p>
+                      <p className="text-body-md font-mono text-text-accent">
+                        {nutrient.value}{nutrient.unit}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }

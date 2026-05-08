@@ -1,74 +1,102 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-export interface QRScanStats {
-    totalScans: number;
-    uniqueScans: number;
-    scansToday: number;
-    topDevice: string;
-    lastScannedAt: string | null;
-}
+import { useMemo } from "react";
+import { calculateReliabilityScore, getScoreColor, getScoreLabel, QRConfig } from "@/lib/qr-reliability";
+import { cn } from "@/lib/utils";
 
 interface QRAnalyticsCardProps {
-    dishId: string;
-    dishName: string;
+  config: QRConfig;
+  scanCount?: number;
+  lastScanned?: string | null;
+  className?: string;
 }
 
-export default function QRAnalyticsCard({ dishId, dishName }: QRAnalyticsCardProps) {
-    const [stats, setStats] = useState<QRScanStats | null>(null);
-    const [loading, setLoading] = useState(true);
+export default function QRAnalyticsCard({ config, scanCount = 0, lastScanned, className }: QRAnalyticsCardProps) {
+  const { score, breakdown } = useMemo(() => calculateReliabilityScore(config), [config]);
+  const scoreColor = getScoreColor(score);
+  const scoreLabel = getScoreLabel(score);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch(`/api/analytics/scan?dishId=${dishId}`)
-            .then((res) => res.json())
-            .then((data) => setStats(data.stats ?? data))
-            .catch(() => setStats(null))
-            .finally(() => setLoading(false));
-    }, [dishId]);
+  return (
+    <div className={cn("border border-border bg-terminal p-4 space-y-4", className)}>
+      <div className="flex items-center justify-between">
+        <h3 className="text-body-sm font-ui text-text-secondary tracking-wider uppercase">
+          Reliability Score
+        </h3>
+        <span className="text-body-xs font-mono text-text-tertiary">{scanCount} scans</span>
+      </div>
 
-    const statCards = stats
-        ? [
-            { label: "Total Scans", value: stats.totalScans, color: "text-plasma" },
-            { label: "Unique Scans", value: stats.uniqueScans, color: "text-cyan-400" },
-            { label: "Today", value: stats.scansToday, color: "text-amber-400" },
-            { label: "Top Device", value: stats.topDevice || "N/A", color: "text-purple-400" },
-        ]
-        : [];
-
-    return (
-        <div className="rounded-xl border border-neutral-800 bg-neutral-900/50 p-4 space-y-4">
-            <div className="flex items-center justify-between">
-                <h3 className="text-sm font-semibold text-neutral-200">QR Analytics</h3>
-                <span className="text-xs text-neutral-500 truncate max-w-[160px]">{dishName}</span>
-            </div>
-            {loading ? (
-                <div className="grid grid-cols-2 gap-3">
-                    {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-16 rounded-lg bg-neutral-800 animate-pulse" />
-                    ))}
-                </div>
-            ) : stats ? (
-                <div className="grid grid-cols-2 gap-3">
-                    {statCards.map((card) => (
-                        <div key={card.label} className="rounded-lg bg-neutral-800/50 p-3">
-                            <p className="text-xs text-neutral-500 mb-1">{card.label}</p>
-                            <p className={`text-lg font-bold ${card.color}`}>{card.value}</p>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <div className="text-center py-6">
-                    <p className="text-neutral-500 text-sm">No scan data yet</p>
-                    <p className="text-neutral-600 text-xs mt-1">Data will appear after the QR code is scanned</p>
-                </div>
-            )}
-            {stats?.lastScannedAt && (
-                <p className="text-xs text-neutral-600">
-                    Last scanned: {new Date(stats.lastScannedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" })}
-                </p>
-            )}
+      <div className="flex items-center gap-4">
+        <div className="relative w-20 h-20">
+          <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+            <circle
+              cx="50"
+              cy="50"
+              r="42"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="8"
+              className="text-surface"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="42"
+              fill="none"
+              stroke={scoreColor}
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeDasharray={`${score * 2.64} 264`}
+              className="transition-all duration-500"
+            />
+          </svg>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="text-display-sm font-display" style={{ color: scoreColor }}>
+              {score}
+            </span>
+          </div>
         </div>
-    );
+
+        <div className="flex-1 space-y-1">
+          <p className="text-body-sm font-ui" style={{ color: scoreColor }}>
+            {scoreLabel}
+          </p>
+          <p className="text-body-xs font-body text-text-tertiary">
+            {lastScanned
+              ? `Last scan: ${new Date(lastScanned).toLocaleDateString()}`
+              : "No scans yet"}
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <ScoreBar label="Contrast" value={breakdown.contrastScore} color={scoreColor} />
+        <ScoreBar label="Error Correction" value={breakdown.ecLevelScore} color={scoreColor} />
+        <ScoreBar label="Logo Size" value={breakdown.logoScore} color={scoreColor} />
+        <ScoreBar label="Frame" value={breakdown.frameScore} color={scoreColor} />
+      </div>
+
+      {score < 60 && (
+        <div className="p-3 border border-amber-400/30 bg-amber-400/10">
+          <p className="text-body-xs font-body text-amber-400">
+            Score is below recommended. Consider adjusting colors or increasing error correction level.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ScoreBar({ label, value, color }: { label: string; value: number; color: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-body-xs font-body text-text-tertiary w-28">{label}</span>
+      <div className="flex-1 h-2 bg-surface overflow-hidden">
+        <div
+          className="h-full transition-all duration-300"
+          style={{ width: `${value}%`, backgroundColor: color }}
+        />
+      </div>
+      <span className="text-body-xs font-mono text-text-tertiary w-8 text-right">{value}</span>
+    </div>
+  );
 }

@@ -87,7 +87,6 @@ function FeatureCard({ f, i }: { f: typeof features[0]; i: number }) {
                 
                 {/* Decorative 3D elements */}
                 <div className="absolute bottom-4 right-4 text-plasma/10 text-4xl font-display italic select-none">
-                    {i + 1}
                 </div>
             </div>
         </motion.div>
@@ -109,8 +108,8 @@ export default function Features() {
                     viewport={{ once: true }} 
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-display-lg font-display text-text-accent tracking-widest uppercase mb-6">Unrivaled Power</h2>
-                    <p className="text-body-lg font-body text-text-secondary max-w-2xl mx-auto">From precision 3D uploads to neural scan analytics — we&apos;ve built the ultimate platform for the future of Bengaluru&apos;s food scene.</p>
+                    <h2 className="text-display-lg font-display text-text-accent tracking-widest uppercase mb-6">Peerless power</h2>
+                    <p className="text-body-lg font-body text-text-secondary max-w-2xl mx-auto">From precision 3D uploads to neural scan analytics — we&apos;ve built the ultimate platform for the future of the restaurant industry.</p>
                 </motion.div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

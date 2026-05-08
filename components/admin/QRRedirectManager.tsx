@@ -1,57 +1,113 @@
 "use client";
 
 import { useState } from "react";
+import { Save, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface QRRedirectManagerProps {
   qrCodeId: string;
-  currentRedirect: string | null;
-  dishName: string;
-  onSave: (redirectUrl: string) => Promise<void>;
+  currentRedirectUrl: string | null;
+  onSave: (redirectUrl: string | null) => Promise<void>;
+  className?: string;
 }
 
-export default function QRRedirectManager({ currentRedirect, dishName, onSave }: QRRedirectManagerProps) {
-  const [redirectUrl, setRedirectUrl] = useState(currentRedirect || "");
+export default function QRRedirectManager({
+  qrCodeId: _qrCodeId,
+  currentRedirectUrl,
+  onSave,
+  className,
+}: QRRedirectManagerProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  void _qrCodeId; // kept for future use
+  const [redirectUrl, setRedirectUrl] = useState(currentRedirectUrl || "");
   const [saving, setSaving] = useState(false);
+  const [showInput, setShowInput] = useState(false);
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      await onSave(redirectUrl);
+      await onSave(redirectUrl.trim() || null);
+      setShowInput(false);
     } catch (err) {
-      console.error(err);
+      console.error("Failed to save redirect:", err);
     } finally {
       setSaving(false);
     }
   };
 
-  return (
-    <div className="border border-border bg-terminal p-6 rounded-none space-y-4">
-      <h3 className="text-body-lg font-ui text-text-accent tracking-widest uppercase">
-        QR Redirect: {dishName}
-      </h3>
+  const handleClear = async () => {
+    setSaving(true);
+    try {
+      await onSave(null);
+      setRedirectUrl("");
+      setShowInput(false);
+    } catch (err) {
+      console.error("Failed to clear redirect:", err);
+    } finally {
+      setSaving(false);
+    }
+  };
 
-      <div className="space-y-2">
-        <label className="block text-body-xs font-ui text-text-secondary tracking-wider uppercase">
-          Redirect URL (when dish is archived/unavailable)
-        </label>
-        <input
-          type="url"
-          value={redirectUrl}
-          onChange={(e) => setRedirectUrl(e.target.value)}
-          placeholder="/ar/restaurant/other-dish or https://example.com"
-          className="w-full rounded-none border border-border bg-surface px-4 py-2 text-text-primary font-mono text-sm outline-none focus:border-plasma"
-        />
-        <p className="text-body-xs font-body text-text-tertiary">
-          Leave empty to show &quot;dish not found&quot; message. Users scanning the QR will be redirected here.
-        </p>
+  if (!showInput && !currentRedirectUrl) {
+    return (
+      <button
+        onClick={() => setShowInput(true)}
+        className={cn(
+          "text-body-xs font-ui text-text-secondary hover:text-plasma",
+          className
+        )}
+      >
+        + Add Redirect
+      </button>
+    );
+  }
+
+  if (!showInput && currentRedirectUrl) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="text-body-xs text-text-tertiary truncate max-w-[150px]">
+          → {currentRedirectUrl}
+        </span>
+        <button
+          onClick={() => setShowInput(true)}
+          className="text-body-xs text-text-secondary hover:text-plasma"
+        >
+          Edit
+        </button>
+        <button
+          onClick={handleClear}
+          className="text-body-xs text-ember hover:text-ember/80"
+        >
+          Clear
+        </button>
       </div>
+    );
+  }
 
+  return (
+    <div className="flex items-center gap-2">
+      <input
+        type="url"
+        value={redirectUrl}
+        onChange={(e) => setRedirectUrl(e.target.value)}
+        placeholder="https://example.com or /ar/dish"
+        className="flex-1 px-2 py-1 border border-border bg-surface text-text-primary text-body-xs"
+      />
       <button
         onClick={handleSave}
         disabled={saving}
-        className="w-full rounded-none bg-plasma text-void px-6 py-3 font-ui text-sm tracking-widest uppercase hover:bg-plasma/90 transition-colors disabled:opacity-50"
+        className="p-1 text-plasma hover:text-plasma/80"
       >
-        {saving ? "Saving..." : "Save Redirect"}
+        <Save className="w-4 h-4" />
+      </button>
+      <button
+        onClick={() => {
+          setShowInput(false);
+          setRedirectUrl(currentRedirectUrl || "");
+        }}
+        className="p-1 text-text-tertiary hover:text-text-secondary"
+      >
+        <X className="w-4 h-4" />
       </button>
     </div>
   );

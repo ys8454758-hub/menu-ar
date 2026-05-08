@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
     });
 
     return NextResponse.json(orders);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
@@ -122,7 +122,7 @@ export async function PATCH(request: NextRequest) {
       });
   
       return NextResponse.json(updatedOrder);
-    } catch (error) {
+    } catch {
       return NextResponse.json({ error: "Failed to update order" }, { status: 500 });
     }
 }

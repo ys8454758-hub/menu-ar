@@ -8,14 +8,22 @@ import { useMenu } from "@/hooks/useMenu";
 import LoadingScreen from "@/components/shared/LoadingScreen";
 import { cn } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default function CheckoutPage() {
     const params = useParams();
+    const restaurantSlug = params?.restaurantSlug as string | undefined;
     const router = useRouter();
-    const { restaurant, loading, cart, cartTotal, clearCart } = useMenu(params.restaurantSlug as string);
+    
+    const { restaurant, loading, cart, cartTotal, clearCart } = useMenu(restaurantSlug || "");
     
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [formData, setFormData] = useState({ customerName: "", tableNumber: "" });
+
+    if (!restaurantSlug) {
+        return <LoadingScreen title="Loading" message="Preparing checkout..." />;
+    }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();

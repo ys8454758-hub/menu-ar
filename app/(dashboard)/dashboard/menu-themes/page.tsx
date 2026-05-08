@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Paintbrush, Check, RefreshCw, Eye } from "lucide-react";
+import { Check, RefreshCw, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -153,7 +153,6 @@ export default function MenuThemesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {THEMES.map((theme, idx) => {
           const isSaved = savedTheme === theme.id;
-          const isPreviewing = activeTheme === theme.id && activeTheme !== savedTheme;
           return (
             <motion.div
               key={theme.id}

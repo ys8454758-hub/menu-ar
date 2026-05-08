@@ -13,14 +13,17 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
 
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("error")) setError("Authentication failed. Please try again.");
-    supabase.auth.getSession().then(({ data }) => {
-      if (data?.session?.user) router.push("/dashboard/dishes");
-    });
+    
+    // Optional: Auto-redirect if you want, but user asked to "remove this option"
+    // which usually means they want the login form accessible.
   }, [router]);
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -138,8 +141,7 @@ export default function LoginPage() {
                 </span>
               </label>
 
-              {/* Submit */}
-              <button
+               <button
                 type="submit" disabled={loading}
                 className="relative w-full group overflow-hidden bg-plasma text-void px-6 py-4 font-ui text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_24px_var(--color-plasma)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >

@@ -255,4 +255,4 @@ export default function IPhone3D({
   );
 }
 // Preload the model
-useGLTF.preload('/models/iphone_17_pro_max.glb');
+// useGLTF.preload('/models/iphone_17_pro_max.glb');

@@ -1,35 +1,50 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
 interface BadgeOverlayProps {
-    isVeg?: boolean;
-    isNonVeg?: boolean;
-    isJain?: boolean;
-    isVegan?: boolean;
-    visible: boolean;
+  badges: { type: string; label?: string; color?: string }[];
+  visible?: boolean;
+  className?: string;
 }
 
-const badgeConfig = {
-    veg: { label: "VEG", color: "bg-success", border: "border-success" },
-    nonVeg: { label: "NON-VEG", color: "bg-ember", border: "border-ember" },
-    jain: { label: "JAIN", color: "bg-solar", border: "border-solar" },
-    vegan: { label: "VEGAN", color: "bg-plasma", border: "border-plasma" },
+const DEFAULT_BADGE_COLORS: Record<string, string> = {
+  VEG: "#39FF14",
+  NON_VEG: "#FF6B35",
+  JAIN: "#FFD700",
+  VEGAN: "#00FFD1",
 };
 
-export default function BadgeOverlay({ isVeg, isNonVeg, isJain, isVegan, visible }: BadgeOverlayProps) {
-    if (!visible) return null;
-    const badges = [];
-    if (isVeg) badges.push(badgeConfig.veg);
-    if (isNonVeg) badges.push(badgeConfig.nonVeg);
-    if (isJain) badges.push(badgeConfig.jain);
-    if (isVegan) badges.push(badgeConfig.vegan);
-    if (badges.length === 0) return null;
-    return (
-        <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 animate-materialize">
-            {badges.map((badge) => (
-                <div key={badge.label} className={`${badge.color} ${badge.border} border px-3 py-1.5 rounded-none backdrop-blur-sm`}>
-                    <span className="text-body-xs font-mono text-void tracking-widest font-bold">{badge.label}</span>
-                </div>
-            ))}
-        </div>
-    );
+export default function BadgeOverlay({ badges, visible = true, className }: BadgeOverlayProps) {
+  if (!visible) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className={cn("flex flex-wrap gap-2", className)}
+    >
+      {badges.map((badge, index) => {
+        const badgeColor = badge.color || DEFAULT_BADGE_COLORS[badge.type] || "#00FFD1";
+        return (
+          <motion.span
+            key={index}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+            className="px-3 py-1 border font-ui text-xs tracking-widest uppercase"
+            style={{
+              borderColor: `${badgeColor}50`,
+              color: badgeColor,
+              backgroundColor: `${badgeColor}10`,
+            }}
+          >
+            {badge.label || badge.type}
+          </motion.span>
+        );
+      })}
+    </motion.div>
+  );
 }

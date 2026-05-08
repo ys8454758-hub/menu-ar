@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const user = await getCurrentUser();
     if (!user) {
@@ -22,28 +22,10 @@ export async function GET(request: NextRequest) {
     const dishesCount = await prisma.dish.count();
     const scansCount = await prisma.scanEvent.count();
     
-    // Calculate active subscriptions and MRR
-    const activeSubs = await prisma.subscription.count({
-      where: { status: "ACTIVE" }
-    });
-    
-    const subscriptions = await prisma.subscription.findMany({
-      where: { status: "ACTIVE" }
-    });
-    
-    let mrr = 0;
-    for (const sub of subscriptions) {
-      if (sub.plan === "STARTER") mrr += 999;
-      else if (sub.plan === "GROWTH") mrr += 2999;
-      else if (sub.plan === "PRO") mrr += 4999;
-    }
-
     const stats = {
       restaurantsCount,
       dishesCount,
       scansCount,
-      activeSubs,
-      mrr
     };
 
     const restaurants = await prisma.restaurant.findMany({
