@@ -8,6 +8,12 @@ if (databaseUrl && !databaseUrl.includes('connect_timeout')) {
   databaseUrl = `${databaseUrl}${separator}connect_timeout=30`;
 }
 
+// Log connection attempt details (redacted for safety)
+if (process.env.NODE_ENV === "production") {
+  const redactedUrl = databaseUrl?.replace(/:([^@]+)@/, ':****@');
+  console.log(`[Prisma] Connecting with URL: ${redactedUrl}`);
+}
+
 // Use a global variable to preserve the Prisma client across hot reloads in development
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
