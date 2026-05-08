@@ -1,0 +1,18 @@
+Retrieving project…
+Deploying ys8454758-8316s-projects/livin3d
+Uploading [--------------------] (0.0B/13.4KB)
+Uploading [====================] (13.4KB/13.4KB)
+Inspect: https://vercel.com/ys8454758-8316s-projects/livin3d/4yVFZgW4t8utgdcyjvT35MYGPQsG [4s]
+Production: https://livin3d-6toma1prk-ys8454758-8316s-projects.vercel.app [4s]
+https://livin3d-6toma1prk-ys8454758-8316s-projects.vercel.appBuilding...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Downloading 200 deployment files...
+Building: Restored build cache from previous deployment (4uiA6p4b4F1SXyebkVzzsXyoPex9)
+Building: Running "vercel build"
+Building: Vercel CLI 53.2.0
+Building: Error: The `CRON_SECRET` environment variable contains leading or trailing whitespace, which is not allowed in HTTP header values.
+Building: Learn More: https://vercel.link/securing-cron-jobs
+Error: The `CRON_SECRET` environment variable contains leading or trailing whitespace, which is not allowed in HTTP header values.

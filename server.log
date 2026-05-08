@@ -1434,3 +1434,5 @@ Import trace for requested module:
  ✓ Compiled in 802ms (1972 modules)
  ✓ Compiled in 460ms (1972 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz'
+   Reload env: .env.local
+ ✓ Compiled in 1987ms (4012 modules)
