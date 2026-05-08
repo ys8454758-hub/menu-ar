@@ -1,40 +1,25 @@
 import { PrismaClient } from '@prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
+import pg from 'pg'
 
-// Trim and optimize the DATABASE_URL for Supabase Free Tier
-let databaseUrl = process.env.DATABASE_URL?.trim();
+// Trim and optimize the DATABASE_URL
+const databaseUrl = process.env.DATABASE_URL?.trim();
 
-if (databaseUrl) {
-  // If using the pooler port (6543), ensure pgbouncer=true is present
-  if (databaseUrl.includes(':6543') && !databaseUrl.includes('pgbouncer=true')) {
-    const separator = databaseUrl.includes('?') ? '&' : '?';
-    databaseUrl = `${databaseUrl}${separator}pgbouncer=true`;
-  }
-  
-  // Add a reasonable connection timeout
-  if (!databaseUrl.includes('connect_timeout')) {
-    const separator = databaseUrl.includes('?') ? '&' : '?';
-    databaseUrl = `${databaseUrl}${separator}connect_timeout=30`;
-  }
-}
-
-// Log connection attempt details (redacted for safety)
-if (process.env.NODE_ENV === "production") {
-  const redactedUrl = databaseUrl?.replace(/:([^@]+)@/, ':****@');
-  console.log(`[Prisma] Connecting with URL: ${redactedUrl}`);
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is not defined in environment variables");
 }
 
 // Use a global variable to preserve the Prisma client across hot reloads in development
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
+// Initialize the native pg driver
+const pool = new pg.Pool({ connectionString: databaseUrl });
+const adapter = new PrismaPg(pool);
+
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    datasources: {
-      db: {
-        url: databaseUrl,
-      },
-    },
-    // In production, we still want to see connection errors in the logs
+    adapter,
     log: ["error", "warn"],
   });
 
