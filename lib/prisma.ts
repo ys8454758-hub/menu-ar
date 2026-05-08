@@ -2,31 +2,36 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import pg from 'pg'
 
-// Trim and optimize the DATABASE_URL
-const databaseUrl = process.env.DATABASE_URL?.trim();
-
 // Use a global variable to preserve the Prisma client across hot reloads in development
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
-let prismaInstance: PrismaClient;
+function createPrismaClient() {
+  const databaseUrl = process.env.DATABASE_URL?.trim();
 
-if (databaseUrl) {
-  // Initialize the native pg driver
-  const pool = new pg.Pool({ connectionString: databaseUrl });
-  const adapter = new PrismaPg(pool);
-  
-  prismaInstance = new PrismaClient({
-    adapter,
-    log: ["error", "warn"],
-  });
-} else {
-  // Fallback for build time if DATABASE_URL is missing
-  prismaInstance = new PrismaClient({
-    log: ["error", "warn"],
-  });
+  if (!databaseUrl || process.env.NEXT_PHASE === 'phase-production-build') {
+    // Return a dummy client or one that won't try to connect during build
+    return new PrismaClient({
+      log: ["error", "warn"],
+    });
+  }
+
+  try {
+    const pool = new pg.Pool({ connectionString: databaseUrl });
+    const adapter = new PrismaPg(pool);
+    
+    return new PrismaClient({
+      adapter,
+      log: ["error", "warn"],
+    });
+  } catch (error) {
+    console.error("Failed to initialize Prisma with adapter:", error);
+    return new PrismaClient({
+      log: ["error", "warn"],
+    });
+  }
 }
 
-export const prisma = globalForPrisma.prisma || prismaInstance;
+export const prisma = globalForPrisma.prisma || createPrismaClient();
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
