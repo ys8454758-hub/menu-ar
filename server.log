@@ -1422,3 +1422,15 @@ Import trace for requested module:
  ✓ Compiled in 313ms (3880 modules)
  ✓ Compiled in 362ms (1964 modules)
  ✓ Compiled in 137ms (1964 modules)
+ ✓ Compiled in 573ms (1972 modules)
+ ✓ Compiled in 141ms (1972 modules)
+ ✓ Compiled in 156ms (1972 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/1.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/1.pack.gz'
+ ✓ Compiled in 187ms (1972 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 158ms (1958 modules)
+ ✓ Compiled in 173ms (1972 modules)
+ ✓ Compiled in 960ms (1972 modules)
+ ✓ Compiled in 802ms (1972 modules)
+ ✓ Compiled in 460ms (1972 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/yash/Documents/MenuAR/livin3d/.next/cache/webpack/client-development/0.pack.gz'

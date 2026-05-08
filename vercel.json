@@ -3,9 +3,10 @@
   "buildCommand": "prisma generate && npm run build",
   "installCommand": "npm install",
   "outputDirectory": ".next",
-  "crons": {
-    "/api/cron/monthly": {
+  "crons": [
+    {
+      "path": "/api/cron/monthly",
       "schedule": "0 0 1 * *"
     }
-  }
+  ]
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 
 export async function POST(req: Request) {
   try {
@@ -74,9 +74,13 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
-    console.error("Registration error:", error);
+    console.error("Registration error full details:", {
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      error
+    });
     return NextResponse.json(
-      { error: "Failed to create restaurant profile" },
+      { error: `Failed to create restaurant profile: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }

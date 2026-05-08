@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import prisma from "@/lib/prisma";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(req: NextRequest) {
     try {
@@ -10,6 +10,10 @@ export async function POST(req: NextRequest) {
         const { to, subject, html, type, restaurantId } = body;
         if (!to || !subject || !html) {
             return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+        }
+        if (!resend) {
+            console.warn("RESEND_API_KEY not set - skipping email send");
+            return NextResponse.json({ success: true, id: "dev-mode" });
         }
         const { data, error } = await resend.emails.send({
             from: "Livin3D <noreply@livin3d.in>",
@@ -37,6 +41,10 @@ export async function PUT(req: NextRequest) {
         if (!restaurantId) return NextResponse.json({ error: "restaurantId required" }, { status: 400 });
         const restaurant = await prisma.restaurant.findUnique({ where: { id: restaurantId }, include: { owner: true } });
         if (!restaurant) return NextResponse.json({ error: "Restaurant not found" }, { status: 404 });
+        if (!resend) {
+            console.warn("RESEND_API_KEY not set - skipping welcome email");
+            return NextResponse.json({ success: true, id: "dev-mode" });
+        }
         const { data, error } = await resend.emails.send({
             from: "Livin3D <welcome@livin3d.in>",
             to: restaurant.owner.email,

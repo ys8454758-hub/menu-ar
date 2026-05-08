@@ -1,166 +1,129 @@
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-// ══════════════════════════════════════════════════════════
-//  USER & RESTAURANT
-// ══════════════════════════════════════════════════════════
-
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  role      Role     @default(OWNER)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  restaurants Restaurant[]
+  id          String          @id @default(cuid())
+  email       String          @unique
+  name        String?
+  role        Role            @default(OWNER)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
   auditLogs   AdminAuditLog[]
+  restaurants Restaurant[]
 
   @@map("users")
 }
 
-enum Role {
-  ADMIN
-  OWNER
-}
-
 model Restaurant {
-  id            String    @id @default(cuid())
-  name          String
-  slug          String    @unique
-  logoUrl       String?
-  address       String?
-  city          String    @default("Bengaluru")
-  lat           Float?
-  lng           Float?
-  phone         String?
-  whatsapp      String?
-  isActive      Boolean   @default(true)
-  isOnMap       Boolean   @default(false)
-  planId        String?
-  planExpiresAt DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  ownerId String
-  owner   User   @relation(fields: [ownerId], references: [id])
-
-  dishes         Dish[]
+  id             String          @id @default(cuid())
+  name           String
+  slug           String          @unique
+  logoUrl        String?
+  address        String?
+  city           String          @default("Bengaluru")
+  lat            Float?
+  lng            Float?
+  phone          String?
+  whatsapp       String?
+  isActive       Boolean         @default(true)
+  isOnMap        Boolean         @default(false)
+  planId         String?
+  planExpiresAt  DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  ownerId        String
+  bannerUrl      String?
+  coverImageUrl  String?
+  menuQrPdfUrl   String?
+  menuQrUrl      String?
   badgeTheme     BadgeTheme?
-  qrBrandTheme   QRBrandTheme?
+  dishes         Dish[]
   menuTheme      MenuTheme?
-  subscription   Subscription?
-  scanEvents     ScanEvent[]
-  supportTickets SupportTicket[]
   monthlyReports MonthlyReport[]
-  payments       Payment[]
   orders         Order[]
-
-  menuQrUrl     String?
-  menuQrPdfUrl  String?
-  coverImageUrl String?
-  bannerUrl     String?
+  payments       Payment[]
+  qrBrandTheme   QRBrandTheme?
+  owner          User            @relation(fields: [ownerId], references: [id])
+  scanEvents     ScanEvent[]
+  subscription   Subscription?
+  supportTickets SupportTicket[]
 
   @@map("restaurants")
 }
 
-// ══════════════════════════════════════════════════════════
-//  DISH
-// ══════════════════════════════════════════════════════════
-
 model Dish {
-  id           String   @id @default(cuid())
+  id           String         @id @default(cuid())
   name         String
   slug         String
   description  String?
   price        Float?
-  isArchived   Boolean  @default(false)
-  displayOrder Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
+  isArchived   Boolean        @default(false)
+  displayOrder Int            @default(0)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
   restaurantId String
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-
-  model       DishModel?
-  nutrition   DishNutrition?
-  badges      DishBadge[]
-  qrCode      QRCode?
-  scanEvents  ScanEvent[]
-  ingredients Ingredient[]
-  orderItems  OrderItem[]
-
-  category String?
+  category     String?
+  badges       DishBadge[]
+  model        DishModel?
+  nutrition    DishNutrition?
+  restaurant   Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  ingredients  Ingredient[]
+  orderItems   OrderItem[]
+  qrCode       QRCode?
+  scanEvents   ScanEvent[]
 
   @@unique([restaurantId, slug])
   @@map("dishes")
 }
 
-// ══════════════════════════════════════════════════════════
-//  3D MODEL
-// ══════════════════════════════════════════════════════════
-
 model DishModel {
-  id               String      @id @default(cuid())
+  id               String              @id @default(cuid())
   glbUrl           String
   fileSizeBytes    Int?
-  scaleX           Float       @default(1.0)
-  scaleY           Float       @default(1.0)
-  scaleZ           Float       @default(1.0)
+  scaleX           Float               @default(1.0)
+  scaleY           Float               @default(1.0)
+  scaleZ           Float               @default(1.0)
   widthCm          Float?
   heightCm         Float?
   depthCm          Float?
-  arSizeLocked     Boolean     @default(false)
-  qualityRating    Int? // 1-5, set by admin
-  processingStatus ModelStatus @default(READY)
-  annotations     Json? // [{ label: string, position: { x, y, z }, description?: string }]
-  uploadedAt       DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
-
-  dishId String @unique
-  dish   Dish   @relation(fields: [dishId], references: [id], onDelete: Cascade)
-
-  sizeAuditLogs ModelSizeAuditLog[]
+  arSizeLocked     Boolean             @default(false)
+  qualityRating    Int?
+  processingStatus ModelStatus         @default(READY)
+  uploadedAt       DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  dishId           String              @unique
+  annotations      Json?
+  dish             Dish                @relation(fields: [dishId], references: [id], onDelete: Cascade)
+  sizeAuditLogs    ModelSizeAuditLog[]
 
   @@map("dish_models")
-}
-
-enum ModelStatus {
-  PROCESSING
-  READY
-  FAILED
 }
 
 model ModelSizeAuditLog {
   id        String    @id @default(cuid())
   modelId   String
-  model     DishModel @relation(fields: [modelId], references: [id])
-  changedBy String // email of admin who made the change
+  changedBy String
   oldScaleX Float
   oldScaleY Float
   oldScaleZ Float
   newScaleX Float
   newScaleY Float
   newScaleZ Float
-  note      String? // optional admin note
+  note      String?
   changedAt DateTime  @default(now())
+  model     DishModel @relation(fields: [modelId], references: [id])
 
   @@map("model_size_audit_logs")
 }
 
-// ══════════════════════════════════════════════════════════
-//  NUTRITION
-// ══════════════════════════════════════════════════════════
-
 model DishNutrition {
-  id          String     @id @default(cuid())
+  id          String             @id @default(cuid())
   calories    Float?
   protein     Float?
   carbs       Float?
@@ -169,25 +132,17 @@ model DishNutrition {
   sodium      Float?
   sugar       Float?
   servingSize String?
-  servingUnit String? // "g", "ml", "piece"
-  dataSource  DataSource @default(RESTAURANT_PROVIDED)
-  isFlagged   Boolean    @default(false)
+  servingUnit String?
+  dataSource  DataSource         @default(RESTAURANT_PROVIDED)
+  isFlagged   Boolean            @default(false)
   flagNote    String?
-  updatedAt   DateTime   @updatedAt
-
-  dishId String @unique
-  dish   Dish   @relation(fields: [dishId], references: [id], onDelete: Cascade)
-
+  updatedAt   DateTime           @updatedAt
+  dishId      String             @unique
   allergens   Allergen[]
+  dish        Dish               @relation(fields: [dishId], references: [id], onDelete: Cascade)
   editHistory NutritionEditLog[]
 
   @@map("dish_nutrition")
-}
-
-enum DataSource {
-  RESTAURANT_PROVIDED
-  ADMIN_ESTIMATED
-  LAB_TESTED
 }
 
 model Allergen {
@@ -197,18 +152,6 @@ model Allergen {
   nutrition   DishNutrition @relation(fields: [nutritionId], references: [id], onDelete: Cascade)
 
   @@map("allergens")
-}
-
-enum AllergenType {
-  NUTS
-  DAIRY
-  GLUTEN
-  EGG
-  SOY
-  SHELLFISH
-  FISH
-  SESAME
-  MUSTARD
 }
 
 model Ingredient {
@@ -223,17 +166,13 @@ model Ingredient {
 model NutritionEditLog {
   id          String        @id @default(cuid())
   nutritionId String
-  nutrition   DishNutrition @relation(fields: [nutritionId], references: [id])
-  editedBy    String // email
+  editedBy    String
   editedAt    DateTime      @default(now())
-  snapshot    Json // full nutrition object snapshot before edit
+  snapshot    Json
+  nutrition   DishNutrition @relation(fields: [nutritionId], references: [id])
 
   @@map("nutrition_edit_logs")
 }
-
-// ══════════════════════════════════════════════════════════
-//  BADGES
-// ══════════════════════════════════════════════════════════
 
 model DishBadge {
   id     String    @id @default(cuid())
@@ -244,36 +183,293 @@ model DishBadge {
   @@map("dish_badges")
 }
 
-enum BadgeType {
-  VEG
-  NON_VEG
-  JAIN
-  VEGAN
-}
-
 model BadgeTheme {
-  id           String     @id @default(cuid())
-  restaurantId String     @unique
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-
-  vegColor    String @default("#39FF14")
-  nonVegColor String @default("#FF6B35")
-  jainColor   String @default("#FFD700")
-  veganColor  String @default("#00FFD1")
-
-  vegLabel    String @default("Veg")
-  nonVegLabel String @default("Non-Veg")
-  jainLabel   String @default("Jain")
-  veganLabel  String @default("Vegan")
-
+  id            String        @id @default(cuid())
+  restaurantId  String        @unique
+  vegColor      String        @default("#39FF14")
+  nonVegColor   String        @default("#FF6B35")
+  jainColor     String        @default("#FFD700")
+  veganColor    String        @default("#00FFD1")
+  vegLabel      String        @default("Veg")
+  nonVegLabel   String        @default("Non-Veg")
+  jainLabel     String        @default("Jain")
+  veganLabel    String        @default("Vegan")
   fontFamily    String        @default("IBM Plex Mono")
   fontSize      String        @default("medium")
   badgeStyle    BadgeStyle    @default(SQUARE)
   badgePosition BadgePosition @default(TOP_LEFT)
   showIcon      Boolean       @default(true)
   updatedAt     DateTime      @updatedAt
+  restaurant    Restaurant    @relation(fields: [restaurantId], references: [id])
 
   @@map("badge_themes")
+}
+
+model QRCode {
+  id                   String      @id @default(cuid())
+  dishId               String      @unique
+  uniqueCode           String      @unique @default(cuid())
+  arUrl                String
+  isActive             Boolean     @default(true)
+  redirectUrl          String?
+  pngUrl               String?
+  svgUrl               String?
+  pdfUrl               String?
+  designConfig         Json
+  scanReliabilityScore Float?
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+  lastScannedAt        DateTime?
+  dish                 Dish        @relation(fields: [dishId], references: [id], onDelete: Cascade)
+  scanEvents           ScanEvent[]
+
+  @@map("qr_codes")
+}
+
+model QRBrandTheme {
+  id                   String               @id @default(cuid())
+  restaurantId         String               @unique
+  logoUrl              String?
+  logoShape            LogoShape            @default(CIRCLE)
+  logoSizePercent      Int                  @default(20)
+  logoBorderColor      String?
+  logoBorderWidth      Int                  @default(2)
+  dotStyle             DotStyle             @default(ROUNDED)
+  cornerSquareStyle    CornerSquareStyle    @default(EXTRA_ROUNDED)
+  cornerDotStyle       CornerDotStyle       @default(DOT)
+  foregroundColor      String               @default("#00FFD1")
+  backgroundColor      String               @default("#0A0A0F")
+  frameStyle           FrameStyle           @default(NONE)
+  frameText            String?
+  frameTextFont        String               @default("Orbitron")
+  frameTextColor       String               @default("#00FFD1")
+  frameBackgroundColor String               @default("#0A0A0F")
+  errorCorrectionLevel ErrorCorrectionLevel @default(H)
+  themeName            String               @default("Custom")
+  updatedAt            DateTime             @updatedAt
+  restaurant           Restaurant           @relation(fields: [restaurantId], references: [id])
+
+  @@map("qr_brand_themes")
+}
+
+model PlatformQRDefaults {
+  id                     String               @id @default(cuid())
+  defaultDotStyle        DotStyle             @default(ROUNDED)
+  defaultFrameText       String               @default("Scan to see in 3D!")
+  enforceLogoWatermark   Boolean              @default(false)
+  logoSizeMin            Int                  @default(10)
+  logoSizeMax            Int                  @default(25)
+  minContrastRatio       Float                @default(4.5)
+  defaultErrorCorrection ErrorCorrectionLevel @default(H)
+  updatedAt              DateTime             @updatedAt
+
+  @@map("platform_qr_defaults")
+}
+
+model ScanEvent {
+  id           String     @id @default(cuid())
+  qrCodeId     String
+  dishId       String
+  restaurantId String
+  scannedAt    DateTime   @default(now())
+  deviceType   String?
+  os           String?
+  browser      String?
+  lat          Float?
+  lng          Float?
+  city         String?
+  sessionId    String?
+  dish         Dish       @relation(fields: [dishId], references: [id])
+  qrCode       QRCode     @relation(fields: [qrCodeId], references: [id])
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+
+  @@index([restaurantId, scannedAt])
+  @@index([dishId, scannedAt])
+  @@index([qrCodeId, scannedAt])
+  @@map("scan_events")
+}
+
+model Subscription {
+  id                 String     @id @default(cuid())
+  restaurantId       String     @unique
+  plan               PlanTier
+  status             SubStatus  @default(ACTIVE)
+  razorpaySubId      String?
+  razorpayCustomerId String?
+  currentPeriodStart DateTime?
+  currentPeriodEnd   DateTime?
+  cancelAtPeriodEnd  Boolean    @default(false)
+  trialEndsAt        DateTime?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  invoices           Invoice[]
+  restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
+
+  @@map("subscriptions")
+}
+
+model Invoice {
+  id                String        @id @default(cuid())
+  subscriptionId    String
+  razorpayPaymentId String?
+  amount            Float
+  status            InvoiceStatus
+  paidAt            DateTime?
+  createdAt         DateTime      @default(now())
+  subscription      Subscription  @relation(fields: [subscriptionId], references: [id])
+
+  @@map("invoices")
+}
+
+model SupportTicket {
+  id           String          @id @default(cuid())
+  restaurantId String
+  subject      String
+  category     TicketCategory  @default(GENERAL)
+  status       TicketStatus    @default(OPEN)
+  priority     TicketPriority  @default(NORMAL)
+  assignedTo   String?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  restaurant   Restaurant      @relation(fields: [restaurantId], references: [id])
+  messages     TicketMessage[]
+
+  @@map("support_tickets")
+}
+
+model TicketMessage {
+  id         String        @id @default(cuid())
+  ticketId   String
+  sender     String
+  senderRole Role
+  body       String
+  sentAt     DateTime      @default(now())
+  ticket     SupportTicket @relation(fields: [ticketId], references: [id])
+
+  @@map("ticket_messages")
+}
+
+model AdminAuditLog {
+  id          String   @id @default(cuid())
+  adminId     String
+  action      String
+  entityType  String
+  entityId    String
+  metadata    Json?
+  performedAt DateTime @default(now())
+  ipAddress   String?
+  admin       User     @relation(fields: [adminId], references: [id])
+
+  @@map("admin_audit_logs")
+}
+
+model MonthlyReport {
+  id           String     @id @default(cuid())
+  restaurantId String
+  month        Int
+  year         Int
+  totalScans   Int
+  topDishId    String?
+  reportData   Json
+  emailSentAt  DateTime?
+  emailStatus  String?
+  createdAt    DateTime   @default(now())
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+
+  @@unique([restaurantId, month, year])
+  @@map("monthly_reports")
+}
+
+model Payment {
+  id                String     @id @default(cuid())
+  restaurantId      String
+  amount            Float
+  currency          String
+  status            String     @default("PENDING")
+  razorpayPaymentId String?
+  razorpayOrderId   String?
+  razorpaySignature String?
+  createdAt         DateTime   @default(now())
+  restaurant        Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  restaurantId String
+  customerName String
+  tableNumber  String?
+  totalAmount  Float
+  status       OrderStatus @default(PENDING)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  items        OrderItem[]
+  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id       String @id @default(cuid())
+  orderId  String
+  dishId   String
+  quantity Int
+  price    Float
+  dish     Dish   @relation(fields: [dishId], references: [id])
+  order    Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("order_items")
+}
+
+model MenuTheme {
+  id              String     @id @default(cuid())
+  restaurantId    String     @unique
+  themeName       String     @default("terminal")
+  primaryColor    String?
+  backgroundColor String?
+  fontFamily      String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  restaurant      Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("menu_themes")
+}
+
+enum Role {
+  ADMIN
+  OWNER
+}
+
+enum ModelStatus {
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum DataSource {
+  RESTAURANT_PROVIDED
+  ADMIN_ESTIMATED
+  LAB_TESTED
+}
+
+enum AllergenType {
+  NUTS
+  DAIRY
+  GLUTEN
+  EGG
+  SOY
+  SHELLFISH
+  FISH
+  SESAME
+  MUSTARD
+}
+
+enum BadgeType {
+  VEG
+  NON_VEG
+  JAIN
+  VEGAN
 }
 
 enum BadgeStyle {
@@ -289,68 +485,6 @@ enum BadgePosition {
   TOP_RIGHT
   BOTTOM_LEFT
   BOTTOM_RIGHT
-}
-
-// ══════════════════════════════════════════════════════════
-//  QR CODE
-// ══════════════════════════════════════════════════════════
-
-model QRCode {
-  id     String @id @default(cuid())
-  dishId String @unique
-  dish   Dish   @relation(fields: [dishId], references: [id], onDelete: Cascade)
-
-  uniqueCode  String  @unique @default(cuid())
-  arUrl       String // /ar/{restaurantSlug}/{dishSlug}
-  isActive    Boolean @default(true)
-  redirectUrl String? // redirect target for archived/deleted dishes
-
-  pngUrl String?
-  svgUrl String?
-  pdfUrl String?
-
-  designConfig         Json // full QRBrandTheme snapshot at generation time
-  scanReliabilityScore Float?
-
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  lastScannedAt DateTime?
-
-  scanEvents ScanEvent[]
-
-  @@map("qr_codes")
-}
-
-model QRBrandTheme {
-  id           String     @id @default(cuid())
-  restaurantId String     @unique
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-
-  logoUrl         String?
-  logoShape       LogoShape @default(CIRCLE)
-  logoSizePercent Int       @default(20)
-  logoBorderColor String?
-  logoBorderWidth Int       @default(2)
-
-  dotStyle          DotStyle          @default(ROUNDED)
-  cornerSquareStyle CornerSquareStyle @default(EXTRA_ROUNDED)
-  cornerDotStyle    CornerDotStyle    @default(DOT)
-
-  foregroundColor String @default("#00FFD1")
-  backgroundColor String @default("#0A0A0F")
-
-  frameStyle           FrameStyle @default(NONE)
-  frameText            String?
-  frameTextFont        String     @default("Orbitron")
-  frameTextColor       String     @default("#00FFD1")
-  frameBackgroundColor String     @default("#0A0A0F")
-
-  errorCorrectionLevel ErrorCorrectionLevel @default(H)
-  themeName            String               @default("Custom")
-
-  updatedAt DateTime @updatedAt
-
-  @@map("qr_brand_themes")
 }
 
 enum LogoShape {
@@ -395,86 +529,6 @@ enum ErrorCorrectionLevel {
   H
 }
 
-model PlatformQRDefaults {
-  id                     String               @id @default(cuid())
-  defaultDotStyle        DotStyle             @default(ROUNDED)
-  defaultFrameText       String               @default("Scan to see in 3D!")
-  enforceLogoWatermark   Boolean              @default(false)
-  logoSizeMin            Int                  @default(10)
-  logoSizeMax            Int                  @default(25)
-  minContrastRatio       Float                @default(4.5)
-  defaultErrorCorrection ErrorCorrectionLevel @default(H)
-  updatedAt              DateTime             @updatedAt
-
-  @@map("platform_qr_defaults")
-}
-
-// ══════════════════════════════════════════════════════════
-//  SCAN ANALYTICS
-// ══════════════════════════════════════════════════════════
-
-model ScanEvent {
-  id           String     @id @default(cuid())
-  qrCodeId     String
-  qrCode       QRCode     @relation(fields: [qrCodeId], references: [id])
-  dishId       String
-  dish         Dish       @relation(fields: [dishId], references: [id])
-  restaurantId String
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-
-  scannedAt  DateTime @default(now())
-  deviceType String? // "mobile", "tablet", "desktop"
-  os         String? // "iOS", "Android", "Windows", etc.
-  browser    String?
-  lat        Float?
-  lng        Float?
-  city       String?
-  sessionId  String? // anonymous session for dedup
-
-  @@index([restaurantId, scannedAt])
-  @@index([dishId, scannedAt])
-  @@index([qrCodeId, scannedAt])
-  @@map("scan_events")
-}
-
-// ══════════════════════════════════════════════════════════
-//  SUBSCRIPTION & BILLING
-// ══════════════════════════════════════════════════════════
-
-model Subscription {
-  id           String     @id @default(cuid())
-  restaurantId String     @unique
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-
-  plan               PlanTier
-  status             SubStatus @default(ACTIVE)
-  razorpaySubId      String?
-  razorpayCustomerId String?
-  currentPeriodStart DateTime?
-  currentPeriodEnd   DateTime?
-  cancelAtPeriodEnd  Boolean   @default(false)
-  trialEndsAt        DateTime?
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
-
-  invoices Invoice[]
-
-  @@map("subscriptions")
-}
-
-model Invoice {
-  id                String        @id @default(cuid())
-  subscriptionId    String
-  subscription      Subscription  @relation(fields: [subscriptionId], references: [id])
-  razorpayPaymentId String?
-  amount            Float // in INR
-  status            InvoiceStatus
-  paidAt            DateTime?
-  createdAt         DateTime      @default(now())
-
-  @@map("invoices")
-}
-
 enum PlanTier {
   STARTER
   GROWTH
@@ -493,39 +547,6 @@ enum InvoiceStatus {
   PAID
   FAILED
   REFUNDED
-}
-
-// ══════════════════════════════════════════════════════════
-//  SUPPORT
-// ══════════════════════════════════════════════════════════
-
-model SupportTicket {
-  id           String         @id @default(cuid())
-  restaurantId String
-  restaurant   Restaurant     @relation(fields: [restaurantId], references: [id])
-  subject      String
-  category     TicketCategory @default(GENERAL)
-  status       TicketStatus   @default(OPEN)
-  priority     TicketPriority @default(NORMAL)
-  assignedTo   String? // admin email
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
-
-  messages TicketMessage[]
-
-  @@map("support_tickets")
-}
-
-model TicketMessage {
-  id         String        @id @default(cuid())
-  ticketId   String
-  ticket     SupportTicket @relation(fields: [ticketId], references: [id])
-  sender     String // email
-  senderRole Role
-  body       String
-  sentAt     DateTime      @default(now())
-
-  @@map("ticket_messages")
 }
 
 enum TicketStatus {
@@ -550,87 +571,6 @@ enum TicketPriority {
   URGENT
 }
 
-// ══════════════════════════════════════════════════════════
-//  AUDIT & REPORTING
-// ══════════════════════════════════════════════════════════
-
-model AdminAuditLog {
-  id          String   @id @default(cuid())
-  adminId     String
-  admin       User     @relation(fields: [adminId], references: [id])
-  action      String // "IMPERSONATE", "MODEL_SIZE_CHANGE", "QR_OVERRIDE", etc.
-  entityType  String // "Restaurant", "Dish", "QRCode", etc.
-  entityId    String
-  metadata    Json? // before/after snapshot
-  performedAt DateTime @default(now())
-  ipAddress   String?
-
-  @@map("admin_audit_logs")
-}
-
-model MonthlyReport {
-  id           String     @id @default(cuid())
-  restaurantId String
-  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
-  month        Int // 1–12
-  year         Int
-  totalScans   Int
-  topDishId    String?
-  reportData   Json // full report snapshot
-  emailSentAt  DateTime?
-  emailStatus  String? // "delivered", "bounced", "failed"
-  createdAt    DateTime   @default(now())
-
-  @@unique([restaurantId, month, year])
-  @@map("monthly_reports")
-}
-
-model Payment {
-  id                String     @id @default(cuid())
-  restaurantId      String
-  restaurant        Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-  amount            Float
-  currency          String
-  status            String     @default("PENDING")
-  razorpayPaymentId String?
-  razorpayOrderId   String?
-  razorpaySignature String?
-  createdAt         DateTime   @default(now())
-
-  @@map("payments")
-}
-
-// ══════════════════════════════════════════════════════════
-//  ORDERS
-// ══════════════════════════════════════════════════════════
-
-model Order {
-  id           String      @id @default(cuid())
-  restaurantId String
-  restaurant   Restaurant  @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-  customerName String
-  tableNumber  String?
-  totalAmount  Float
-  status       OrderStatus @default(PENDING)
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  items        OrderItem[]
-
-  @@map("orders")
-}
-
-model OrderItem {
-  id       String @id @default(cuid())
-  orderId  String
-  order    Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  dishId   String
-  dish     Dish   @relation(fields: [dishId], references: [id])
-  quantity Int
-  price    Float  // Price at time of order
-
-  @@map("order_items")
-}
-
 enum OrderStatus {
   PENDING
   CONFIRMED
@@ -638,23 +578,4 @@ enum OrderStatus {
   SERVED
   COMPLETED
   CANCELLED
-}
-
-// ══════════════════════════════════════════════════════════
-//  MENU THEMES
-// ══════════════════════════════════════════════════════════
-
-model MenuTheme {
-  id              String   @id @default(cuid())
-  restaurantId    String   @unique
-  themeName       String   @default("terminal") // e.g., terminal, elegant, cyberpunk
-  primaryColor    String?
-  backgroundColor String?
-  fontFamily      String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  restaurant Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-
-  @@map("menu_themes")
 }

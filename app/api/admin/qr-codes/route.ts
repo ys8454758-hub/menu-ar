@@ -20,15 +20,15 @@ export async function GET() {
       .select(`
         *,
         dish: dishes(name, restaurant: restaurants(name, slug)),
-        scanEvents(count)
+        scan_events(count)
       `)
       .order("createdAt", { ascending: false });
 
     if (error) throw error;
 
-    const codesWithCounts = data.map((code) => ({
+    const codesWithCounts = data.map((code: any) => ({
       ...code,
-      scanCount: code.scanEvents?.[0]?.count || 0,
+      scanCount: code.scan_events?.[0]?.count || 0,
     }));
 
     return NextResponse.json(codesWithCounts);
